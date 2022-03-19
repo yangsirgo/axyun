@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>诊断元素</title>
+    <link rel="stylesheet" href="css/ax.dialog.css" />
+</head>
+
+<body>
+    <div class="content">
+        <form id="diagnoseForm">
+            <fieldset>
+                <legend>基本属性</legend>
+                <table>
+                    <tr>
+                        <td>元素编码</td>
+                        <td>
+                            <input type="text" autocomplete="off" name="id" id="id" autocomplete="off" readonly />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>诊断类型</legend>
+                <div>
+                    <select name="diagnoseType" id="diagnoseType" class="diagnoseType" style="width: 200px;">
+                        <option value="" selected>请选择诊断类型</option>
+                    </select>
+                    <input type="hidden" name="diagnoseCode" id="diagnoseCode">
+                    <input type="hidden" name="name" id="name">
+                </div>
+                <input type="hidden" name="borderType" id="underline" value="underline" checked />
+                <div>
+                    <input type="checkbox" name="isDel" id="isDel" />
+                    <label for="isDel">可删除</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="checkDirectCite" id="checkDirectCite" checked />
+                    <label for="checkDirectCite">直接引用</label>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+<script src="../../third-party/jquery-1.10.2.min.js"></script>
+<script src="../internal.js"></script>
+<script src="js/baseElement.js"></script>
+<script>
+    var formName = "diagnoseForm",
+        thePlugins = "diagnose",
+        diagnoseType = "";
+    var apiUrl = editor.options.apiUrl,
+        userInf = editor.options.userInfo;
+    $.ajax({
+        url: apiUrl + "/cnfFieldValue/datas",
+        type: "get",
+        dataType: "json",
+        data: {
+            Authorization: userInf.token,
+            hospitalId: userInf.hosId,
+            organizationId: userInf.dept,
+            _currRole: userInf.role,
+            pageSize: 0,
+            page: 1,
+            id: 35
+        },
+        success: function (data) {
+            if (data.code == 1) {
+                for (var i = 0; i < data.data.length; i++) {
+                    var html = '<option value="'+data.data[i].name+'" code="'+ data.data[i].code +'" '+ (data.data[i].name == diagnoseType?"selected": "") +'>'+data.data[i].name+'</option>'; //'+ (i == 0?"selected":"") +'
+                    $("#diagnoseType").append(html);
+                }
+            } else {
+                alert("诊断类型获取失败，请刷新重试！");
+            }
+        },
+        error: function (error) {
+            alert("诊断类型获取失败，请刷新重试！");
+            console.log(error);
+        }
+    });
+    $("#diagnoseType").change(function (){
+        var options = $("#diagnoseType option");
+        $("#name").val($(this).val());
+        for(var i = 0; i < options.length; i++) {
+            if ($(this).val() == options[i].innerText) {
+                $("#diagnoseCode").val($(options[i]).attr("code"))
+            }
+        }
+        
+    })
+</script>
+
+</html>

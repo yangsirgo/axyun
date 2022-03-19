@@ -1,0 +1,210 @@
+<template>
+  <div class="height100 column">
+    <el-card class="height100">
+      <div class="top">
+        <l-card-title>
+          <span slot="left">病区</span>
+          <el-button slot="right" class="button refresh" @click="refresh">刷新</el-button>
+        </l-card-title>
+        <div v-if="!timer">
+          <el-input
+            placeholder="请输入病区名查询定位"
+            suffix-icon="el-icon-search"
+            v-model="keyWord"
+            v-on:keyup.native.enter="refresh"
+          ></el-input>
+        </div>
+        <div v-else>
+          <el-checkbox
+            class="float-left"
+            style="margin-right: 5px;margin-top: 8px;"
+            v-model="open"
+          >开启定时刷新</el-checkbox>
+          <el-input-number
+            v-model="countdown"
+            class="countdown float-left"
+            controls-position="right"
+            :disabled="!open"
+            @change="handleChange"
+            :min="1"
+          ></el-input-number>
+        </div>
+      </div>
+      <div class="area-list">
+        <div class="title">病区名称</div>
+        <div class="list-container infinite-list-wrapper">
+          <ul
+            class="overflow-scroll-vertical"
+            v-infinite-scroll="load"
+            infinite-scroll-disabled="disabled"
+          >
+            <li
+              :class="curSelectedIndex === i?'list-item active':'list-item'"
+              v-for="(item, i) in wardList"
+              :key="i"
+              @click="handleSelectedItem(i,item)"
+            >
+              <span>{{item.wardName}}</span>
+              <span
+                class="list-tips tips-ji"
+                v-if="typeof item.isUrgent !== 'undefined' && item.isUrgent === '1'"
+                title="紧急"
+              >急</span>
+              <span
+                class="list-tips tips-new"
+                v-if="typeof item.status !== 'undefined' && item.status === '0'"
+                title="有新药品"
+              >新</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </el-card>
+  </div>
+</template>
+
+<script>
+import ipha from "@/api/hmm/ipha";
+import { getPamars } from "@/utils/auth";
+
+export default {
+  name: "leftList",
+  props: {
+    timer: {
+      default: false
+    }
+  },
+  data() {
+    return {
+      loading: false, //左侧申请列表滑动加载状态
+      noMore: false, // 左侧申请列表没有更多数据
+      curSelectedIndex: "", //默认选择项
+      keyWord: "", // 搜索关键字
+      countdown: "", // 计数器
+      open: false, // 是否开启定时器刷新
+      wardList: []
+    };
+  },
+  created() {
+    this.refresh();
+  },
+  methods: {
+    async listForDropDown() {
+      await ipha
+        .getWardList({ hosId: JSON.parse(getPamars()).hosId })
+        .then(res => {
+          let { data } = res;
+          this.wardList = [...data];
+          this.handleSelectedItem(0, this.wardList[0]);
+        });
+    },
+    refresh() {
+      ipha
+        .getWardData({ name: this.keyWord, isShowStatus: "1" })
+        .then(res => {
+          if (res.code === 1) {
+            this.wardList = res.data;
+            this.$emit("send-ward-list", this.wardList);
+          }
+        })
+        .catch();
+    },
+    handleSelectedItem(i, item) {
+      this.curSelectedIndex = i;
+      this.selectId = item.wardCode;
+      this.$emit("selectIdChange", this.selectId);
+    },
+    //加载更多
+    load() {}
+  }
+};
+</script>
+
+<style scoped lang="scss">
+$leftWidth: 287px;
+.column {
+  width: $leftWidth;
+  position: relative;
+}
+.top {
+  padding: 20px;
+  padding-top: 0;
+  .refresh {
+    border-radius: 2px;
+    background-color: $l-color-bgcolor-11;
+    color: $l-color-fontcolor-3;
+    position: relative;
+    right: -10px;
+    width: 76px;
+    height: 28px;
+  }
+  .countdown {
+    width: 132px;
+    height: 36px;
+    border-radius: 2px;
+  }
+  & > div {
+    overflow: hidden;
+  }
+}
+.area-list {
+  text-align: left;
+  .title {
+    background-color: $l-color-bgcolor-18;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+  }
+
+  .list-container {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    .list-item {
+      padding-left: 20px;
+      height: 44px;
+      line-height: 44px;
+      color: $l-color-fontcolor-3;
+      position: relative;
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $l-color-primary;
+        position: absolute;
+        left: 10px;
+        top: calc(50% - 3px);
+      }
+    }
+    .list-item:nth-child(even) {
+      background: $l-color-bgcolor-18;
+    }
+    .active {
+      background-color: $l-color-bgcolor-12 !important;
+    }
+  }
+}
+.list-tips {
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 3px;
+  float: right;
+  border: 1px solid;
+  margin-right: 10px;
+  margin-top: 11px;
+  font-size: 12px;
+  cursor: default;
+}
+.tips-new {
+  color: $l-color-success;
+  border-color: $l-color-success;
+}
+.tips-ji {
+  color: $l-color-error;
+  border-color: $l-color-error;
+}
+</style>

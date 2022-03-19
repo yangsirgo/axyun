@@ -1,0 +1,142 @@
+li {
+    list-style: none;
+}
+
+input {
+    padding-left: 10px;
+    height: 30px;
+    text-align: center;
+}
+
+.content {
+    height: 170px;
+}
+
+.left, .right, .img-left, .img-right {
+    width: calc(50% - 1px);
+    text-align: center;
+    float: left;
+}
+
+.content .right {
+    float: right;
+}
+
+.content li input {
+    width: calc(100% - 20px);
+    margin: 6px;
+
+    height: 26px;
+    line-height: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    text-align: center;
+
+    font: 400 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    font: 400 13.3333px Arial;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 12px;
+}
+.imgBox {
+    width: 50%;
+    overflow: hidden;
+    /* height: 75px;
+    margin: 30px auto; */
+
+}
+
+.img-left, .img-center, .img-right {
+    /* height: 75px; */
+    float: left;
+}
+
+.img-center {
+    width: 1px;
+    height: 90px;
+    background-color: #6e6e6e;
+}
+
+.imgBox li {
+    width: 100%;
+    height: 23px;
+}
+
+.imgBox li span {
+    display: inline-block;
+    /* width: 50%; */
+    height: 23px;
+    margin: 0 auto;
+    line-height: 23px;
+
+    font-size: 16px !important;
+    /*color: #999;*/
+}
+.imgBox li span i{
+    color: #999;
+    font-size: 12px !important;
+}
+.ivalue1 {
+    position: relative;
+}
+
+.imgBox li {
+    position: relative;
+}
+
+.imgBox li .beforeLine {
+    background-color: #6e6e6e;
+    height: 1px;
+    width: 30%;
+    position: absolute;
+    left: -2px;
+    top: 50%;
+}
+
+.imgBox li .afterLine {
+    background-color: #6e6e6e;
+    height: 1px;
+    width: 30%;
+    position: absolute;
+    right: -2px;
+    top: 50%;
+}
+
+.buttons {
+    width: 100%;
+    height: 60px;
+    margin-top: 50px;
+}
+
+.buttons button {
+    float: right;
+    width: 70px;
+    height: 30px;
+    background: rgba(245, 247, 250, 1);
+    border: 1px solid rgba(220, 222, 227, 1);
+    cursor: default;
+}
+.buttons button:hover {
+    background: #fff;
+}
+.buttons .doOk {
+    margin-right: 30px;
+}

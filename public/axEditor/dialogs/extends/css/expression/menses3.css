@@ -1,0 +1,135 @@
+.content {
+  overflow: hidden;
+  width: 336px;
+  margin: 0 auto;
+}
+
+.content > div,
+.imgBox > div {
+  float: left;
+  min-width: 20px;
+  margin: 5px;
+  text-align: center;
+}
+
+/* .left,
+.right {
+    padding-top: 20px;
+} */
+.content > div.left {
+  margin-top: 80px;
+}
+.content > div.period {
+  margin-left: -75px;
+  margin-top: 42px;
+}
+.content > div.cycle {
+  margin-left: -87px;
+  margin-top: 127px;
+}
+.content > div.right {
+  margin-top: 80px;
+  margin-left: -10px;
+}
+.content > div.period input[type="text"],
+.content > div.cycle input[type="text"] {
+  width: 80px;
+}
+.imgBox .left,
+.imgBox .right {
+  padding-top: 13px;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  margin: 10px 0;
+  background: #000;
+}
+
+.imgBox .line {
+  width: 100%;
+  height: 1px;
+  margin: 3px 0;
+  background: #000;
+}
+
+div.left-line,
+div.right-line {
+  width: 1px;
+  min-width: 1px !important;
+  height: 200px;
+  background: #000;
+}
+div.left-line {
+  margin: 0 30px 0 25px !important;
+  transform: rotate(60deg);
+  /* -ms-transform:rotate(90deg); 
+    -moz-transform:rotate(90deg); 
+    -webkit-transform:rotate(90deg); 
+    -o-transform:rotate(90deg);  */
+}
+div.right-line {
+  margin: 0 30px 0 -25px !important;
+  transform: rotate(-60deg);
+  /* -ms-transform:rotate(-45deg); 
+    -moz-transform:rotate(-45deg); 
+    -webkit-transform:rotate(-45deg); 
+    -o-transform:rotate(-45deg);  */
+}
+
+.imgBox div.left-line,
+.imgBox div.right-line {
+  height: 120px;
+}
+.imgBox > div.left,
+.imgBox > div.right {
+  margin-top: 32px;
+}
+.imgBox > div.period {
+  margin-top: 20px;
+  margin-left: -60px;
+}
+.imgBox > div.cycle {
+  margin-left: -65px;
+  margin-top: 76px;
+}
+.imgBox > div.right {
+  margin-left: -5px;
+}
+.imgBox > div.period .val-box,
+.imgBox > div.cycle .val-box {
+  width: 52px;
+}
+#toolbar {
+  width: 100%;
+  height: 60px;
+}
+
+#toolbar button {
+  float: right;
+  width: 70px;
+  height: 30px;
+  background: rgba(245, 247, 250, 1);
+  border: 1px solid rgba(220, 222, 227, 1);
+  cursor: default;
+}
+#toolbar button:hover {
+  background: #fff;
+}
+#toolbar #doOk {
+  margin-right: 30px;
+}
+
+#preview_slot {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+#imgBox {
+  display: inline-block;
+  /* width: auto!important; */
+  min-width: 70px;
+  /* transform: translateX(-50%); */
+  /* margin-left: 50% !important; */
+}

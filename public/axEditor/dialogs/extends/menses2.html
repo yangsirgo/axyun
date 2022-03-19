@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>月经表达式2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="generator" content="" />
+    <link rel="stylesheet" href="./css/ax.dialog.css">
+    <link rel="stylesheet" href="./css/expression/public.css">
+    <link rel="stylesheet" href="./css/expression/expression.css">
+    <link rel="stylesheet" href="./css/expression/menses2.css">
+</head>
+<body>
+    <div class="menus2">
+        <table class="input-expression">
+            <tr>
+                <td class="br-border">
+                    <input type="text" autocomplete="off" class="ifirstMenses" id="ifirstMenses" placeholder="初潮年龄" autocomplete="off">
+                    <input type="text" autocomplete="off" class="ifirstMenses date none" id="ifirstMenses-date" readonly placeholder="初潮年龄" autocomplete="off"><br>
+                    <span class="condition">
+                        <input type="checkbox" id="ifirstMensesDate">
+                        <label for="ifirstMensesDate">是否使用日期</label>
+                    </span>
+                </td>
+                <td class="b-border">
+                    <input type="text" autocomplete="off" id="iperiod" placeholder="经期（天）" autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td class="r-border">
+                    <input type="text" autocomplete="off" class="ilastMenses" id="ilastMenses" placeholder="末次月经/绝经年龄" autocomplete="off">
+                    <input type="text" autocomplete="off" class="ilastMenses date none" id="ilastMenses-date" readonly placeholder="末次月经/绝经年龄" autocomplete="off"><br>
+                    <span class="condition">
+                        <input type="checkbox" id="ilastMensesDate">
+                        <label for="ilastMensesDate">是否使用日期</label>
+                    </span>
+                </td>
+                <td>
+                    <input type="text" autocomplete="off" id="icycle" placeholder="周期（天）" autocomplete="off">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="title">实时预览：</div>
+    <div id="preview_slot"></div>
+    <!-- 因canvas捕捉border会有偏差，此处改变边框实现方式 -->
+    <!-- <div id="imgBox">
+        <div>
+            <div class="box" id="firstMenses"><span class="img-tip">初潮年龄</span></div><br>
+            <div class="h-line"></div><br>
+            <div class="box" id="lastMenses"><span class="img-tip">末次月经/绝经年龄</span></div>
+        </div>
+        <div class="v-line"></div>
+        <div>
+            <div class="box" id="period"><span class="img-tip">经期（天）</span></div><br>
+            <div class="h-line"></div><br>
+            <div class="box" id="cycle"><span class="img-tip">周期（天）</span></div>
+        </div>
+    </div> -->
+    <div id="toolbar">
+        <button id="doCancel">取消</button>
+        <button id="doOk">确定</button>
+    </div>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/medical.js"></script>
+    <script type="text/javascript" src="../internal.js"></script>
+    <script src="../../third-party/date/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        var thePlugins = 'menses2';
+        var attrs = {
+            firstMenses: "",
+            lvDate: "",
+            lvType: $("#ifirstMensesDate").is(":checked"),
+            period: "",
+            cycle: "",
+            lastMenses: "",
+            rvDate: "",
+            rvType: $("#ilastMensesDate").is(":checked")
+        };
+    </script>
+    <script src="js/menses.js"></script>
+</body>
+</html>

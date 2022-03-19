@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>文本元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="generator" content="" />
+    <link rel="stylesheet" href="css/ax.dialog.css" />
+    <link rel="stylesheet" href="../../third-party/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../third-party/pages/pagination.css" />
+    <style>
+      .setting-box-zhuanyou1 {
+        margin-right: 12px;
+      }
+      .setting-box-zhuanyou input.strLen {
+        width: 113px;
+        height: 36px;
+        border: 1px solid rgba(220, 223, 230, 1);
+        font-size: 14px;
+        font-family: MicrosoftYaHei;
+        color: rgba(153, 153, 153, 1);
+        line-height: 1;
+      }
+      .num-props li input[type="text"] {
+        width: 80px;
+      }
+      .num-props li select {
+        width: auto;
+      }
+      .num-props li .title,
+      .data-props li .title {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+      }
+      .data-props li,
+      .num-props li {
+        margin: 10px 0;
+      }
+      .borderStyle {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="well well-tooltip" id="tooltip">
+      <table class="tooltip-table">
+          <tr>
+            <td class="first-td">定义</td>
+            <td id="tooltipDefine" class="second-td"></td>
+          </tr>
+          <tr id="valueDomain">
+            <td class="first-td">允许值域</td>
+            <td class="second-td">
+              <table id="tooltipValueDomain" class="tooltip-table" border="1">
+                  <tr>
+                    <th>值</th>
+                    <th>值含义</th>
+                  </tr>
+              </table>
+            </td>
+          </tr>
+      </table>
+    </div>
+    <div class="content">
+
+      <form id="textForm" class="text-form">
+        <fieldset>
+          <legend>基本属性</legend>
+          <table>
+            <tr>
+              <td id="tooltipPoint">数据元</td>
+              <td>
+                <input
+                  type="text"
+                  id="metaData"
+                  style="width:170px;margin-right: 10px;"
+                /><img
+                  title="列表查询"
+                  style="vertical-align: -5px;cursor:pointer;"
+                  src="images/search.png"
+                  id="showMore"
+                />
+                <input type="hidden" id="metaDataId" />
+                <input type="hidden" name="metaData" id="metaDataInfo" />
+              </td>
+            <!-- </tr>
+            <tr> -->
+              <td>元素编码</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="id"
+                  id="id"
+                  readonly
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>元素名称</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="name"
+                  id="name"
+                  style="width: 115px;"
+                />
+                <select
+                  name="namepos"
+                  id="namepos"
+                  class="namepos"
+                  style="width: 80px;"
+                >
+                  <option value="hidden" selected>隐藏</option>
+                  <option value="left">居左</option>
+                  <option value="right">居右</option>
+                </select>
+              </td>
+            <!-- </tr>
+            <tr> -->
+              <td>占位文本</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="placeholderText"
+                  id="placeholderText"
+                />
+              </td>
+            </tr>
+            <tr id="defaultValTr">
+              <td>提示文本</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="tipText"
+                  id="tipText"
+                />
+              </td>
+            <!-- </tr> -->
+            <!-- <tr>
+                    <td>前缀</td>
+                    <td><input type="text" autocomplete="off" name="prefix"></td>
+                    <td>后缀</td>
+                    <td><input type="text" autocomplete="off" name="suffix"></td>
+                </tr> -->
+            <!-- <tr id="defaultValTr"> -->
+              <td>默认值</td>
+              <td colspan="3">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="defaultVal"
+                  id="defaultVal"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>勾选属性</legend>
+          <ul class="checkSettings">
+            <li>
+              <input type="checkbox" name="readonly" id="readonly" />
+              <label for="readonly">只读</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isSecret" id="isSecret" />
+              <label for="isSecret">保密</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isDel" id="isDel" checked />
+              <label for="isDel">可删除</label>
+            </li>
+            <!-- <li>
+              <input
+                type="checkbox"
+                name="showBorder"
+                id="showBorder"
+                checked
+              />
+              <label for="showBorder">显示边框</label>
+            </li> -->
+            <li>
+              <input type="checkbox" name="isHide" id="isHide" />
+              <label for="isHide">隐藏</label>
+            </li>
+            <li>
+              <input type="checkbox" name="quot" id="quot" />
+              <label for="quot">引用</label>
+            </li>
+            <li>
+              <input type="checkbox" name="source" id="source" />
+              <label for="source">源</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isEmpty" id="isEmpty" checked />
+              <label for="isEmpty">可为空</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isPrint" id="isPrint" checked />
+              <label for="isPrint">可打印</label>
+            </li>
+            <li>
+              <input type="checkbox" name="checkDirectCite" id="checkDirectCite" checked />
+              <label for="checkDirectCite">直接引用</label>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>边框设置</legend>
+          <div>
+            <span class="label">显示类型: </span>
+            <input
+              type="radio"
+              name="borderType"
+              id="underline"
+              value="underline"
+            />
+            <label for="underline">下划线</label>
+            <input type="radio" name="borderType" id="border" value="border"
+            checked />
+            <label for="border">边框</label>
+            <input type="radio" name="borderType" id="border" value="none" />
+            <label for="none">隐藏</label>
+          </div>
+          <div id="borderType">
+            <span class="label">边框类型: </span>
+            <select
+              name="borderStyle"
+              id="borderStyle"
+              class="borderStyle"
+              style="width: 100px;"
+            >
+              <option value="0" selected>[]</option>
+              <option value="1">{}</option>
+              <option value="2">“”</option>
+            </select>
+          </div>
+          <div id="borderHolder">
+            <label for="stainholder">边框是否占位</label>
+            <input type="checkbox" name="stainholder" id="stainholder" />
+          </div>
+        </fieldset>
+        <fieldset id="insertPart">
+          <legend>专有属性</legend>
+          <span class="setting-box setting-box-zhuanyou setting-box-zhuanyou1">
+            最小长度
+            <input
+              type="text"
+              autocomplete="off"
+              class="strLen"
+              name="minLen"
+              placeholder="字符"
+            />
+          </span>
+          <span class="setting-box setting-box-zhuanyou">
+            最大长度
+            <input
+              type="text"
+              autocomplete="off"
+              class="strLen"
+              name="maxLen"
+              placeholder="字符"
+            />
+          </span>
+        </fieldset>
+        <fieldset>
+          <legend>级联属性</legend>
+          <span>
+            <input
+              type="text"
+              autocomplete="off"
+              name="cascadeId"
+              id="cascadeId"
+              placeholder="级联来源（上级元素编码）"
+              value=""
+            />
+          </span>
+          <span>
+            <select name="operator" id="operator" class="operator">
+              <option value="=">等于</option>
+              <option value="!=">不等于</option>
+              <option value=">">大于</option>
+              <option value=">=">大于等于</option>
+              <option value="<">小于</option>
+              <option value="<=">小于等于</option>
+              <option value="in">包含</option>
+              <option value="null">为空</option>
+              <option value="notNull">不为空</option>
+            </select>
+          </span>
+          <span>
+            <input
+              type="text"
+              autocomplete="off"
+              name="showCondition"
+              id="showCondition"
+              placeholder="显示条件（写入级联来源的含义）"
+              value=""
+            />
+          </span>
+        </fieldset>
+        <fieldset>
+          <legend>不可用条件</legend>
+          <span>
+            <input
+              type="text"
+              autocomplete="off"
+              name="disabledId"
+              id="disabledId"
+              placeholder="级联来源（上级元素编码）"
+              value=""
+              style="width: 165px"
+            />
+          </span>
+          <span>
+            <select name="disabledOperator" id="disabledOperator" class="disabledOperator" style="width: 74px">
+              <option value="=">等于</option>
+              <option value="!=">不等于</option>
+              <option value=">">大于</option>
+              <option value=">=">大于等于</option>
+              <option value="<">小于</option>
+              <option value="<=">小于等于</option>
+              <option value="in">包含</option>
+              <option value="null">为空</option>
+              <option value="notNull">不为空</option>
+            </select>
+          </span>
+          <span>
+            <input
+              type="text"
+              autocomplete="off"
+              name="disabledCondition"
+              id="disabledCondition"
+              placeholder="不可用条件"
+              value=""
+            />
+          </span>
+          <span>
+            <select name="clearValue" id="clearValue" class="clearValue" style="width: 74px">
+              <option value="yes">清空选中</option>
+              <option value="no">不清空选中</option>
+            </select>
+          </span>
+        </fieldset>
+      </form>
+    </div>
+    <script type="text/html" id="nbEleHtml">
+      <legend>专有属性</legend>
+      <ul class="num-props">
+          <li>
+              <span class="title">弹窗输入：</span> <input type="checkbox" name="isPopuInput" id="isPopuInput">
+          </li>
+          <li>
+              <span class="title">元素单位：</span>
+              <select name="elemUnit" id="elemUnit" class="elemUnit">
+              </select>
+              <input type="checkbox" name="eleUnitContr" id="eleUnitContr">
+              <label for="eleUnitContr">显示</label>
+          </li>
+          <li>
+              <span class="title">小数点：</span>
+              <select name="numAccuracy" id="numAccuracy" class="numAccuracy">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+              </select>
+          </li>
+          <li>
+              <span class="title">值域范围：</span>
+              <input type="text" autocomplete="off" class="valMin" name="valMin"> ~ <input type="text" autocomplete="off" class="valMax" name="valMax">
+          </li>
+          <li>
+              <span class="title">正常值域范围：</span>
+              <input type="text" autocomplete="off" class="normalMin" name="normalMin"> ~ <input type="text" autocomplete="off" class="normalMax" name="normalMax">
+          </li>
+      </ul>
+    </script>
+    <script type="text/html" id="dateEleHtml">
+      <legend>专有属性</legend>
+      <ul class="data-props">
+          <li>
+              <label class="title" for="inserCurDate">刷入时间：</label>
+              <input type="checkbox" name="inserCurDate" id="inserCurDate">
+          </li>
+          <li>
+              <span class="title">时间格式：</span>
+              <select name="dateFormat" id="dateFormat" style="width:200px;">
+                  <option value="yyyy"  type="year" selected="selected">yyyy</option>
+                  <option value="yyyy-MM-dd HH:mm"  type="datetime" selected="selected">yyyy-MM-dd HH:mm</option>
+                  <option value="yyyy-MM-dd" type="date">yyyy-MM-dd</option>
+                  <option value="yyyy年MM月dd日HH时mm分" type="datetime">yyyy年MM月dd日HH时mm分</option>
+                  <option value="yyyy年MM月dd日HH时" type="datetime">yyyy年MM月dd日HH时</option>
+                  <option value="yyyy年MM月dd日" type="date">yyyy年MM月dd日</option>
+                  <option value="yyyy/MM/dd"  type="date">yyyy/MM/dd</option>
+                  <option value="MM-dd"  type="date">MM-dd</option>
+                  <option value="MM:dd"  type="date">MM:dd</option>
+                  <option value="MM月dd日"  type="date">MM月dd日</option>
+                  <option value="HH时mm分" type="time">HH时mm分</option>
+              </select>
+              <input type="text" autocomplete="off" hidden name="dateFormatType" id="dateFormatType" value="datetime">
+          </li>
+          <li>
+              <span class="title">预览：</span><span id="datePreview"></span>
+          </li>
+      </ul>
+    </script>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="../../third-party/jquery-ui.min.js"></script>
+    <script src="../../third-party/pages/pagination.min.js"></script>
+    <script src="../../third-party/date/laydate/laydate.js"></script>
+    <script src="../../third-party/tooltip/jquery.popupoverlay.js"></script>
+    <script src="../internal.js"></script>
+    <script src="js/baseElement.js"></script>
+    <script src="js/dateFormat.js"></script>
+    <script type="text/javascript">
+      var formName = "textForm",
+        thePlugins = "text",
+        pluginCode = "01";
+      switch (
+        urlToObject().element //判断当前页面
+      ) {
+        case "numberelement":
+          thePlugins = "numberelement";
+          pluginCode = "03";
+          break;
+        case "datedomain":
+          thePlugins = "datedomain";
+          pluginCode = "07";
+          break;
+      }
+
+      if (thePlugins === "numberelement") {
+        //数字元素判断
+        var nbEleHtml = $("#nbEleHtml").html();
+        $("#insertPart").html(nbEleHtml);
+        var eleUnits = editor.options.eleUnits;
+        for(var i = 0; i < eleUnits.length; i++) {
+          $("#elemUnit").append("<option value='"+ eleUnits[i].speCharContent +"'>" + eleUnits[i].speCharContent + "</option>")
+        }
+      }
+
+      if (thePlugins === "datedomain") {
+        //日期元素判断
+        var dateEleHtml = $("#dateEleHtml").html();
+        $("#insertPart").html(dateEleHtml);
+        $("#defaultValTr").hide(); //默认值隐藏
+        var oldFormat = $("#dateFormat")
+          .find("option:selected")
+          .text();
+        $("#datePreview").html(insertCurDate(oldFormat));
+        $("#dateFormat").change(function() {
+          var $option = $("#dateFormat").find("option:selected");
+          var newFormat = $option.text();
+          $("#datePreview").html(insertCurDate(newFormat));
+          $("#dateFormatType").val($option.attr("type"));
+        });
+      }
+
+      $("input[name='minLen']").change(function (){
+        var val = $(this).val()
+        if (Number(val) > Number($("input[name='maxLen']").val()) && $("input[name='maxLen']").val() != "") {
+          alert("最小长度值应小于最大长度！");
+          $(this).val("")
+        }
+      })
+
+      $("input[name='maxLen']").change(function (){
+        var val = $(this).val()
+        if (Number(val) < Number($("input[name='minLen']").val()) && $("input[name='minLen']").val() != "") {
+          alert("最大长度值应大于最小长度！");
+          $(this).val("")
+        }
+      })
+
+      $("input[name='valMin']").change(function (){  //值域最小值
+        // 此值应小于其他所有值
+        var val = Number($(this).val());
+        if (val >= Number($("input[name='valMax']").val()) && $("input[name='valMax']").val() != "") {
+          alert("值域最小值应小于值域最大值！");
+          $(this).val("")
+        }else if(val > Number($("input[name='normalMin']").val()) && $("input[name='normalMin']").val() != ""){
+          alert("值域最小值应小于正常值域最小值！");
+          $(this).val("")
+        }else if(val >= Number($("input[name='normalMax']").val()) && $("input[name='normalMax']").val() != ""){
+          alert("值域最小值应小于正常值域最大值！");
+          $(this).val("")
+        }
+
+      })
+      $("input[name='valMax']").change(function (){  //值域最大值
+        // 此值应大于其他所有值
+        var val = Number($(this).val());
+        if (val <= Number($("input[name='valMin']").val()) && $("input[name='valMin']").val() != "") {
+          alert("值域最大值应大于值域最小值！");
+          $(this).val("")
+        }else if(val <= Number($("input[name='normalMin']").val()) && $("input[name='normalMin']").val() != ""){
+          alert("值域最大值应大于正常值域最小值！");
+          $(this).val("")
+        }else if(val < Number($("input[name='normalMax']").val()) && $("input[name='normalMax']").val() != ""){
+          alert("值域最大值应大于正常值域最大值！");
+          $(this).val("")
+        }
+      })
+      $("input[name='normalMin']").change(function (){  //正常值域最小值
+        // 此值应大于值域最小值，小于值域最大和正常值域最大
+        var val = Number($(this).val());
+        if (val < Number($("input[name='valMin']").val()) && $("input[name='valMin']").val() != "") {
+          alert("正常值域最小值应大于值域最小值！");
+          $(this).val("")
+        }else if(val >= Number($("input[name='valMax']").val()) && $("input[name='valMax']").val() != ""){
+          alert("正常值域最小值应小于值域最大值！");
+          $(this).val("")
+        }else if(val >= Number($("input[name='normalMax']").val()) && $("input[name='normalMax']").val() != ""){
+          alert("正常值域最小值应小于正常值域最大值！");
+          $(this).val("")
+        }
+      })
+      $("input[name='normalMax']").change(function (){  //正常值域最大值
+        // 此值应大于值域最小值，小于值域最大,大于正常值域最小
+        var val = Number($(this).val());
+        if (val <= Number($("input[name='valMin']").val()) && $("input[name='valMin']").val() != "") {
+          alert("正常值域最大值应大于值域最小值！");
+          $(this).val("")
+        }else if(val > Number($("input[name='valMax']").val()) && $("input[name='valMax']").val() != ""){
+          alert("正常值域最大值应小于值域最大值！");
+          $(this).val("")
+        }else if(val <= Number($("input[name='normalMin']").val()) && $("input[name='normalMin']").val() != ""){
+          alert("正常值域最大值应大于正常值域最小值！");
+          $(this).val("")
+        }
+      })
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: #605d5a;
+}
+body {
+  font-size: 14px;
+}
+ul{
+  list-style: none;
+}
+input{outline:none} 
+input[type="text"],select {
+  width: 200px;
+  height: 36px;
+  margin-bottom: 0;
+  padding: 0 5px;
+  line-height: 20px;
+  border-radius: 3px;
+  background-color: #fff;
+  border: 1px solid rgba(220, 223, 230, 1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+select{
+  width: 442px;
+  padding: 0 5px;
+}
+input[type="checkbox"]{
+  border: 1px solid #ccc;
+  vertical-align: -2px;
+}
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
+  cursor: not-allowed;
+  background-color: #eee;
+}
+
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  vertical-align: -2px;
+  position: relative;
+}
+
+input[type="checkbox"]:after {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 0;
+  content: " ";
+  background: rgba(255, 255, 255, 1);
+  border-radius: 2px;
+  border: 1px solid rgba(196, 198, 207, 1);
+  display: inline-block;
+  visibility: visible;
+}
+
+input[type=checkbox]:checked:after {
+  content: "✓";
+  font-size: 12px;
+  text-align: center;
+  line-height: 14px;
+  color: rgba(255, 255, 255, 1);
+  background: #605d5a;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+table{
+  width: 100%;
+  border-collapse: 0;
+  border-spacing: 0;
+}
+table.border{
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+table.border th,table.border td {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+table th{
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  background: #eee;
+}
+
+.content{
+  width: 680px;
+  margin: 0 auto;
+}
+
+#paratypeList option:hover{
+  background-color: #ccc;
+}
+#paratypeList .select_active{
+  background-color: #ccc;
+}
+.hidden{
+  display: none;
+}
+
+fieldset {
+  width: calc(100% - 40px);
+  margin: 0;
+  border: 0;
+  background: rgba(255, 255, 255, 1);
+  line-height: 30px;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(220, 223, 230, 1);
+  display: block;
+  margin: 0;
+  padding: 15px 0px 15px 40px;
+  /* margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 15px;
+  padding-block-end: 15px;
+  padding-inline-start: 40px;
+  padding-inline-end: 0px; */
+  min-inline-size: min-content;
+}
+
+fieldset legend {
+  margin-left: -20px;
+  font-size: 14px;
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: bold;
+  color: rgba(153, 153, 153, 1);
+  line-height: 1;
+  display: block;
+  /* padding-block-start: 15px;
+  padding-inline-start: 7px; */
+  padding-left: 7px;
+  padding-top: 15px;
+}
+
+legend::before {
+  width: 4px;
+  height: 14px;
+  content: '';
+  margin-right: 7px;
+  background: rgba(153, 153, 153, 1);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+table tr td {
+  width: 42px;
+  height: 36px;
+  padding: 5px;
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  color: #605d5a;
+  line-height: 1;
+  /* text-align: right; */
+  word-break: keep-all;
+}
+
+table tr td input[type="text"], select ,textarea{
+  width: 200px;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  color: rgba(153, 153, 153, 1);
+  line-height: 1;
+}
+
+table tr td select {
+  width: 200px;
+}
+.checkSettings{
+  overflow: hidden;
+}
+.checkSettings li{
+  float: left;
+  width: 110px;
+  overflow: hidden;
+}
+
+.checkSettings li label {
+  display: inline-block;
+  min-width: 28px;
+  height: 19px;
+  margin-right: 15px;
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  color: #605d5a;
+  line-height: 19px;
+}
+
+.setting-box{
+  margin-right: 0;
+}
+
+#cascadeId, #showCondition {
+  width: 165px;
+  height: 36px;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  color: rgba(153, 153, 153, 1);
+  line-height: 1;
+  border: 1px solid rgba(220, 223, 230, 1);
+}
+#showCondition {
+  width: 195px;
+}
+
+select.operator {
+  width: 74px;
+}
+input[type="text"].strLen{
+  width: 160px;
+}
+.numberElePart input {
+      width: auto;
+}
+
+.datePreview {
+  color: #c3c3c3;
+  font-size: 14px;
+}
+
+#metasDialog{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 600px;
+  height: 500px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  background: #fff;
+}
+#metasDialog .colseIcon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  background: #eee;
+  cursor: pointer;
+}
+#metasTable td{
+  height: 30px;
+  text-align: center;
+}
+.meta-tr:hover{
+  cursor: pointer;
+  background: #eee;
+}
+
+/* tooltip样式 */
+.well {
+  display: none;
+  margin: 1em;
+  max-width: 740px;
+  background: #e8e8e8;
+  padding: 3px;
+  border-radius: 3px;
+  width: 210px;
+  text-align: left;
+}
+.tooltip-table {
+  table-layout:fixed;
+  text-align: left;
+}
+.tooltip-table td {
+  word-wrap:break-word;
+  text-align: left;
+}
+.tooltip-table .first-td {
+  width: 30%;
+}
+.tooltip-table .second-td {
+  width: 70%;
+}

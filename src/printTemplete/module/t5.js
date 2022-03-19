@@ -1,0 +1,40 @@
+let t5 = `
+LODOP.PRINT_INITA("0mm","30mm","147.64mm","210.08mm","");
+LODOP.SET_PRINT_MODE("PRINT_NOCOLLATE",1);
+LODOP.ADD_PRINT_TEXT("9mm","54.77mm","46.04mm","9.26mm","罗湖医院集团");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",16);
+LODOP.SET_PRINT_STYLEA(0,"Alignment",2);
+LODOP.SET_PRINT_STYLEA(0,"Bold",1);
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("18.52mm","38.63mm","81.49mm","9.26mm","家庭病床长期医嘱单");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",16);
+LODOP.SET_PRINT_STYLEA(0,"Alignment",2);
+LODOP.SET_PRINT_STYLEA(0,"Bold",1);
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_LINE("30.98mm","6.61mm","30.69mm","140.71mm",0,1);
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("32.01mm","10.05mm","12.96mm","5.29mm","姓名：");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("32.01mm","20.37mm","22.49mm","5.29mm","Name");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("32.01mm","50.8mm","12.17mm","5.29mm","性别：");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("32.01mm","60.85mm","25.14mm","5.29mm","PatientSex");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("32.01mm","87.31mm","11.91mm","5.29mm","年龄：");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("32.01mm","97.37mm","27.78mm","5.29mm","PatientAge");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("37.04mm","9.79mm","15.88mm","5.29mm","住院号:");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("37.31mm","64.03mm","12.17mm","5.29mm","床号：");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("37.04mm","26.19mm","35.98mm","5.29mm","Inpatient number");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TEXT("37.04mm","77.26mm","38.36mm","5.29mm","\r\n\r\nBed number");
+LODOP.SET_PRINT_STYLEA(0,"ItemType",1);
+LODOP.ADD_PRINT_TABLE(195,38,472,531,"tableCont");
+`;
+export {
+  t5
+};

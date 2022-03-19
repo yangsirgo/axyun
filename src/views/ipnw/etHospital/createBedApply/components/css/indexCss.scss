@@ -1,0 +1,688 @@
+/deep/ .el-table .cell {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  // 新的框架
+  .titleStyle {
+    padding: 20px;
+    display: inline-block;
+  }
+
+  .bg-contain {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: $l-bg-radius-max;
+    overflow-y: inherit;
+    // font-size: 0;
+    box-sizing: border-box;
+
+    .patient-card /deep/ .patient-card-right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .height-button-main {
+      overflow-y: auto;
+      height: calc(100% - 64px) !important;
+    }
+
+    .m-contain {
+      height: calc(100% - 55px) !important;
+      box-sizing: border-box;
+
+      .top-con {
+        margin-top: 17px;
+
+        .top-con-tab {
+          font-size: 12px;
+
+          /deep/ .el-tabs__nav-wrap {
+            padding-left: 18px;
+            border-bottom: 1px solid $l-color-border-8;
+          }
+
+          .first-list {
+            width: 854px;
+            font-size: 0;
+
+            .lay-item {
+              display: inline-block;
+              line-height: 17px;
+              font-size: 12px;
+
+              .item-title {
+                display: inline-block;
+                color: #949da3;
+              }
+
+              .item-contain {
+                margin-left: 8px;
+                display: inline-block;
+                color: #2e323a;
+              }
+
+              .item-title-01 {
+                width: 36px;
+              }
+
+              .item-title-02 {
+                width: 48px;
+              }
+
+              .item-contain-01 {
+                width: 146px;
+              }
+
+              .item-contain-02 {
+                width: 101px;
+              }
+
+              .item-contain-03 {
+                width: 93px;
+              }
+
+              .item-contain-04 {
+                width: 270px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .third-con {
+    position: relative;
+    font-size: 0;
+    padding-left: 17px;
+
+    .input-con {
+      /deep/ .el-input {
+        width: calc(100% - 56px);
+      }
+
+      /deep/ .el-button {
+        margin-left: $l-margin-default-4;
+      }
+    }
+
+    .third-contain {
+      .show-con {
+        width: 854px;
+        padding: 12px $l-padding-default-6;
+        line-height: 20px;
+        font-size: 14px;
+        background: $l-color-bgcolor-18;
+        border-radius: $l-bg-radius-bg;
+
+        .text-left {
+          color: #666c70;
+        }
+
+        .text-right {
+          margin-left: $l-margin-default-4;
+          margin-right: 32px;
+          color: #2e323a;
+        }
+      }
+    }
+
+    /deep/ .bottom-con {
+      padding: 16px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 63px;
+      border-top: 1px solid #e4e4e4;
+    }
+  }
+
+  .paddingStyle {
+    width: 33px;
+    height: 33px;
+    margin-left: 8px;
+  }
+
+  // 媒体查询显示宽度
+  .filingAndChangeindex {
+    // @media screen and (max-width: 1440px) and (min-width: 1024px) {
+    //   .cardList:nth-child(2n) {
+    //     margin-left: 10px;
+    //   }
+
+    //   .width1024-100 {
+    //     width: 100%;
+    //   }
+
+    //   .width1024-33 {
+    //     width: 33%;
+    //     margin-top: 18px;
+    //   }
+
+    //   .width1024-30 {
+    //     width: 30%;
+    //   }
+
+    //   .fontSize1024 {
+    //     font-size: 12px;
+    //   }
+
+    //   .cssNav li {
+    //     padding: 0 10px;
+    //   }
+
+    //   .recordCreate .card-cont1 .form-cont .realNameSystem {
+    //     padding: 0px;
+    //   }
+
+    //   .paddingLeft {
+    //     padding-left: 0px !important;
+    //   }
+
+    //   .width1024-50 {
+    //     width: 49%;
+    //     margin-top: 18px;
+    //   }
+    // }
+
+    // @media only screen and (min-width: 1440px) {
+
+    // }
+  }
+
+  /deep/ .el-form-item {
+    margin-bottom: 0px;
+  }
+
+  .width1024-33 .input-con {
+    /deep/ .el-input {
+      width: calc(100% - 96px) !important;
+    }
+
+    /deep/ .el-button {
+      margin-left: $l-margin-default-4;
+    }
+  }
+
+  .readThe {
+    width: 116px;
+    height: 32px;
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    text-align: center;
+    color: #2e323a;
+    line-height: 32px;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  .patientName-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .patientName-box .block-style {
+    margin: 0px 10px;
+  }
+
+  .patientName-box .span-top span {
+    display: inline-block;
+    margin: 0px 8px;
+  }
+
+  .span-top {
+    padding: 0px 10px;
+    border-right: 1px solid #dfe2e6;
+  }
+
+  .el-font {
+    color: #666c70;
+  }
+
+  .el-font-style {
+    color: #949da3;
+    line-height: 15px;
+  }
+
+  .patientName-top {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .iconFont-style {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: #f2f4f6;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fontSize-style {
+    text-align: left;
+    color: #949da3;
+    line-height: 20px;
+    height: 20px;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .marginStyleelCol {
+    margin: 8px 0px;
+  }
+
+  .w25Style {
+    width: 20%;
+  }
+
+  .viewProfile {
+    height: 100%;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .textNum1 {
+    font-size: 12px;
+    color: rgba(148, 157, 163, 1);
+    line-height: 17px;
+  }
+
+  .textNum2 {
+    font-size: 12px;
+    color: rgba(46, 50, 58, 1);
+    line-height: 17px;
+  }
+
+  .heightButtonMain {
+    height: calc(100% - 64px);
+  }
+
+  .recordCreate {
+    // overflow-y: auto;
+
+    .cardtitle {
+      height: 50px;
+      line-height: 60px;
+    }
+
+    .card-cont1 {
+      height: 100%;
+      // padding: 20px 0 0 0;
+
+      .form-cont {
+        padding: 0 20px;
+
+        .realNameSystem {
+          /*height: 38px;*/
+          padding: 10px 0 10px 20px;
+          margin-bottom: 20px;
+          background: $l-color-bgcolor-18;
+          border-radius: 2px;
+        }
+
+        .img-cont {
+          .img-left {
+            width: calc(100% - 148px);
+          }
+
+          .img-right {
+            width: 118px;
+            height: 118px;
+            border: 1px solid $l-color-bgcolor-11;
+            margin-right: 10px;
+            padding: 3px;
+
+            img {
+              width: 110px;
+              height: 110px;
+            }
+          }
+        }
+
+        .get-detail-button {
+          width: 100%;
+          height: 36px;
+          border-radius: 2px;
+          border: 1px dashed $l-color-bgcolor-11;
+          text-align: center;
+          font-size: 14px;
+          color: $l-color-fontcolor-2;
+          line-height: 36px;
+          cursor: pointer;
+        }
+
+        .veri-code {
+          color: $l-color-fontcolor-3;
+          background: $l-color-bgcolor-11;
+          border-radius: 2px;
+          border: 1px solid $l-color-bgcolor-18;
+        }
+      }
+
+      .footer-bottom {
+        padding: 20px;
+        border-top: 1px solid $l-color-bgcolor-11;
+        overflow: auto;
+        height: auto;
+      }
+    }
+
+    .card-cont2 {
+      height: 130px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .zhezhao {
+      height: 100%;
+      background-color: $l-color-black;
+      opacity: 0.05;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 2s;
+    }
+  }
+
+  .margin-top-10 {
+    margin-top: 10px;
+  }
+
+  .margin-bottom-20 {
+    margin-bottom: 1px;
+  }
+
+  .padding-bottom-30 {
+    padding-bottom: 30px;
+  }
+
+  .margin-bottom-30 {
+    margin-bottom: 30px;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid $l-color-bgcolor-11;
+  }
+
+  .cardList {
+    width: 208px;
+    min-height: 128px;
+    float: left;
+    background: rgba(228, 237, 255, 1);
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 15px 0px;
+    padding: 0px !important;
+    font-size: 14px;
+  }
+
+  .cardListA {
+    background: rgba(255, 242, 219, 1);
+  }
+
+  .cardListB {
+    background: rgba(247, 247, 247, 1);
+  }
+
+  .cardListC {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(228, 228, 228, 1);
+  }
+
+  .cardList:nth-child(2n) {
+    margin-left: 15px;
+  }
+
+  .cardText {
+    color: #000000;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 25px;
+  }
+
+  .cardBorder {
+    font-size: 12px;
+    color: #949da3;
+    line-height: 16px;
+    text-align: center;
+    width: 32px;
+    height: 16px;
+    border: 1px solid #2b4583;
+    border-radius: 2px;
+    color: #2b4583;
+  }
+
+  .imgRight {
+    width: 64px;
+    height: 64px;
+    border: 1px solid #cccccc;
+  }
+
+  .imgRight img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .flexStyle .cardList:nth-child(2) {
+    margin-left: 15px;
+  }
+
+  .flexStyle:nth-child(2) {
+    margin-top: 15px;
+  }
+
+  .flexStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .numRight {
+    text-align: right;
+    font-weight: 600;
+    color: #000000;
+    font-size: 14px;
+  }
+
+  .relieveDiv {
+    // margin-top: 25px;
+    color: rgba(78, 137, 255, 1);
+    text-align: center;
+    line-height: 30px;
+    color: #000000;
+  }
+
+  .cardList .bgcardList {
+    padding: 20px !important;
+    background-color: #f6f6f6;
+  }
+
+  .cardListC {
+    margin-left: 15px;
+  }
+
+  .cardList .bgcardListplus {
+    cursor: pointer;
+    height: 137px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timeNum {
+    font-size: 14px;
+    color: rgba(46, 50, 58, 1);
+    line-height: 20px;
+  }
+
+  .timeStyle {
+    font-size: 14px;
+    color: rgba(148, 157, 163, 1);
+    line-height: 20px;
+  }
+
+  .timebox {
+    display: inline-block;
+  }
+
+  .cardListStyle {
+    background: rgba(228, 237, 255, 1);
+  }
+
+  .similarFilesList {
+    box-sizing: border-box;
+    padding: 15px;
+    background: rgba(243, 245, 247, 1);
+    border-radius: 2px;
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .textSimilar {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .fontColor {
+    font-size: 14px;
+    color: rgba(148, 157, 163, 1);
+    line-height: 20px;
+  }
+
+  .indexNumText {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .newFileBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .addnewFile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 381px;
+    height: 280px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    border: 1px solid rgba(217, 217, 217, 1);
+  }
+
+  .addnewFilesize {
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+    color: rgba(179, 179, 179, 1);
+  }
+
+  .addnewFilesize1 {
+    height: 52px;
+    font-size: 36px;
+    color: rgba(179, 179, 179, 1);
+    line-height: 52px;
+  }
+
+  .addnewFilesize2 {
+    height: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #b9c4cc;
+  }
+
+  // 步骤条的新式样式
+  .cssNav li {
+    width: 33%;
+    padding: 0px 20px;
+    line-height: 40px;
+    background: rgba(241, 244, 246, 1);
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: rgba(44, 69, 131, 1);
+  }
+
+  .cssNav li:after {
+    content: "";
+    display: block;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid rgba(241, 244, 246, 1);
+    position: absolute;
+    right: -20px;
+    top: 0;
+    z-index: 10;
+  }
+
+  .cssNav li:before {
+    content: "";
+    display: block;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #ffffff;
+    position: absolute;
+    left: 0px;
+    top: 0;
+  }
+
+  // 修时头部底部
+  .cssNav li:first-child {
+    border-radius: 4px 0 0 4px;
+    padding-left: 25px;
+  }
+
+  .cssNav li:last-child,
+  .cssNavEnd {
+    border-radius: 0px 4px 4px 0px;
+    padding-right: 25px;
+  }
+
+  .cssNav li:first-child:before {
+    display: none;
+  }
+
+  .cssNav li:last-child:after,
+  .cssNavEnd:after {
+    display: none;
+  }
+
+  // 选中未选中
+  .cssNav li.active {
+    background-color: rgba(44, 69, 131, 1);
+    color: #ffffff;
+  }
+
+  .cssNav li.active:after {
+    border-left-color: rgba(44, 69, 131, 1);
+  }
+
+  /deep/ .son-padding-left>.el-tabs__header {
+    padding-left: 10px;
+  }
+
+  .operate-type-hide {
+    display: none;
+  }
+
+  .operate-type-hide {
+    display: none;
+  }

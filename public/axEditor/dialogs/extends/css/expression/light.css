@@ -1,0 +1,129 @@
+li {
+    list-style: none;
+}
+
+input {
+    padding-left: 10px;
+}
+
+.content {
+    height: 170px;
+}
+
+.content .left, .content .center, .content .right {
+    width: 33%;
+    float: left; 
+    text-align: center;
+}
+
+.img-left, .img-center, .img-right {
+    float: left;
+    text-align: right;
+    padding: 0 10px;
+}
+.content .right {
+    float: right;
+}
+
+input {
+    padding-left: 10px;
+    height: 30px;
+    text-align: center;
+}
+
+.content li input {
+    width: calc(100% - 20px);
+    margin: 6px;
+    height: 26px;
+    line-height: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    text-align: center;
+
+    font: 400 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    font: 400 13.3333px Arial;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 12px;
+}
+
+.imgBox {
+    float: left;
+    overflow: hidden;
+    margin: 30px auto 0;
+}
+
+.imgBox li span {
+    display: inline-block;
+    /* width: 100%; */
+    height: 23px;
+    font-size: 16px !important;
+    /*color: #999;*/
+    line-height: 23px;
+}
+.imgBox li span i{
+    color: #999;
+    font-size: 12px !important;
+}
+.buttons {
+    width: 100%;
+    height: 60px;
+    margin-top: 30px;
+}
+
+.buttons button {
+    float: right;
+    width: 70px;
+    height: 30px;
+    background: rgba(245, 247, 250, 1);
+    border: 1px solid rgba(220, 222, 227, 1);
+    cursor: default;
+}
+
+.buttons button:hover {
+    background: #fff;
+}
+
+.buttons .doOk {
+    margin-right: 30px;
+}
+
+.editor-mark {
+    float: left;
+    margin-right: 10px;
+    /* width: 100%; */
+}
+
+.img-left .editor-mark {
+    text-align: center;
+}
+
+.img-right .editor-mark {
+    text-align: center;
+}
+
+.img-center .editor-mark{
+    text-align: center;
+}
+
+#preview_slot{
+    overflow: hidden;
+}

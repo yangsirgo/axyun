@@ -1,0 +1,317 @@
+.rightMedicalOrder {
+  height: 100%;
+
+  .copyOrderCls {
+    // z-index: 5000 !important;
+  }
+
+  .elCardStyle {
+    padding: 15px;
+
+    /deep/ .el-col-24 {
+      margin: 8px 0px;
+    }
+  }
+
+  .search-box {
+    overflow: hidden;
+    //line-height: 40px;
+    padding-left: 20px;
+    margin: 10px 0;
+
+    .radio-group {
+      float: left;
+      margin-top: 25px;
+    }
+
+    .datePicker {
+      margin: 15px 0 0 10px;
+
+      // 修复datepicker 的删除按钮位置
+      /deep/ .el-date-editor .el-range__close-icon {
+        position: unset;
+      }
+    }
+
+    .select-item {
+      margin-top: 15px;
+      float: left;
+      width: 120px;
+      margin-left: 10px;
+    }
+  }
+
+  .edit-btn-box {
+    // line-height: 30px;
+    // padding-left: 16px;
+    margin: 8px 0;
+
+    span {
+      margin-right: 8px;
+      line-height: 24px;
+      font-size: 14px;
+
+      i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        font-size: 14px !important;
+      }
+    }
+
+    // 撤销按钮 比较大 需要 额外的margin-right
+    .chexiaoSpan>i {
+      margin-right: 10px;
+    }
+
+    .line {
+      display: inline-block;
+      border-right: 2px solid $l-color-bgcolor-11;
+      margin-left: 0px;
+      margin-right: 16px;
+      height: 18px;
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  .disabled {
+    color: $l-color-fontcolor-4;
+  }
+
+  .state-info {
+    position: relative;
+    font-size: 14px;
+
+    font-weight: 400;
+    display: inline-block;
+    width: 100%;
+
+    .state-info-icon {
+      position: absolute;
+      right: 0;
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      color: #ffd2c2;
+      top: 0;
+      cursor: pointer;
+      z-index: 100;
+    }
+  }
+
+  .detail-table {
+    left: 0;
+    width: 100%;
+    transition: all 0.5s;
+
+    .title {
+      background-color: $l-color-bgcolor-18;
+      padding-left: 10px;
+      line-height: 30px;
+      color: $l-color-fontcolor-3;
+      font-size: 14px;
+
+      span {
+        width: 80px;
+        height: 20px;
+        text-align: center;
+        left: 50%;
+        top: 1px;
+        transform: translateX(-50%);
+        background-color: #fff;
+        cursor: pointer;
+        border: 1px solid $l-color-bgcolor-11;
+        border-radius: 0px 2px 2px 0px;
+
+        i {
+          position: relative;
+          top: -5px;
+          transition: all 0.5s;
+        }
+
+        i.active {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
+  .bottom {
+    //bottom: 0;
+    //right: 0;
+    //left: 0;
+    height: 30%;
+
+    //position: absolute;
+    /deep/ .el-table th.is-leaf,
+    .el-table td {
+      height: 40px;
+    }
+
+    /deep/ .el-tabs__nav-scroll {
+      padding-left: 10px !important;
+    }
+
+    .tabs {
+      /*padding: 10px 20px 20px 5px;*/
+
+      /deep/.el-tabs__nav {
+        // z-index: 5000;
+      }
+
+      /deep/ .el-tabs__content {
+        height: calc(100% - 16px);
+        /*overflow: auto;*/
+      }
+    }
+  }
+}
+
+.bunchingUp {
+  display: inline-block;
+  color: $l-color-primary;
+
+  &::after {
+    content: "┓";
+  }
+}
+
+.bunchingCenter {
+  display: inline-block;
+  color: $l-color-primary;
+
+  &::after {
+    content: "┫";
+  }
+}
+
+.bunchingDown {
+  color: $l-color-primary;
+  display: inline-block;
+
+  &::after {
+    content: "┛";
+  }
+}
+
+.el-table .cell {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+  line-height: 23px;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.mainTableCls {
+  height: calc(100% - 35px);
+
+  >.title {
+    margin-left: 20px;
+  }
+
+  >.mainTableContent {
+    padding-left: 10px;
+    width: 100%;
+    height: calc(100% - 63px);
+  }
+
+  .herMask {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: black;
+    opacity: 0.01;
+  }
+}
+
+.displayDrugInfo {
+  position: absolute;
+  right: 20px;
+  line-height: 40px;
+
+  .info-title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 16px;
+  }
+
+  .info-value {
+    /*padding-left: 5px;*/
+  }
+}
+
+.copyOrderCls {
+  /deep/ .el-dialog {
+    width: 80% !important;
+  }
+}
+
+.tabs {
+  padding: 0px 16px 16px 8px;
+}
+
+.selectGroup {
+  padding: 0 16px;
+
+  .demo-ruleForm {
+    /deep/ .el-form--inline .el-form-item {
+      margin-right: 0px;
+    }
+  }
+}
+
+/deep/ .filter-item {
+  margin-left: 0;
+}
+
+.edit-btn-box {
+  font-size: 0;
+  color: #2e323a;
+
+  /deep/ .el-button {
+    &>i {
+      font-size: 18px;
+      vertical-align: middle;
+    }
+
+    &>span {
+      margin-left: 5px;
+    }
+  }
+
+  .el-button--text,
+  .el-button--text:hover {
+    font-size: 14px;
+
+    font-weight: 400;
+    color: rgba(46, 50, 58, 1);
+  }
+
+  /deep/ .el-button [class*="el-icon-"]+span {
+    margin-left: 2px;
+    /*font-size: 12px;*/
+  }
+}
+
+.delivery-box {
+  padding: 20px;
+}
+
+.mgb8 {
+  margin-bottom: 8px;
+}
+
+.demo-ruleForm {
+  .el-form-item {
+    margin-bottom: 0;
+  }
+}

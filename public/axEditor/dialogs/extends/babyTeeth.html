@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/expression/teeth.css">
+    <link rel="stylesheet" href="./css/expression/public.css">
+    <style>
+        .content{
+            width: 240px;
+        }
+    </style>
+</head>
+<body >
+<div class="content">
+    <!--上牙-->
+    <div class="top">
+        <div class="topYaMian clearfloat"></div>
+        <div class="topTeeth clearfloat">
+            <span class="teethItem selected teethItem0" teeth="0">Ⅴ</span>
+            <span class="teethItem selected teethItem1" teeth="1">Ⅳ</span>
+            <span class="teethItem selected teethItem2" teeth="2">Ⅲ</span>
+            <span class="teethItem selected teethItem3" teeth="3">Ⅱ</span>
+            <span class="teethItem selected teethItem4 mr" teeth="4">Ⅰ</span>
+            <span class="teethItem selected teethItem5" teeth="5">Ⅰ</span>
+            <span class="teethItem selected teethItem6" teeth="6">Ⅱ</span>
+            <span class="teethItem selected teethItem7" teeth="7">Ⅲ</span>
+            <span class="teethItem selected teethItem8" teeth="8">Ⅳ</span>
+            <span class="teethItem selected teethItem9" teeth="9">Ⅴ</span>
+
+        </div>
+    </div>
+    <!--下牙-->
+    <div class="bottom">
+        <div class="bottomTeeth clearfloat">
+            <span class="teethItem selected teethItem10" teeth="10">Ⅴ</span>
+            <span class="teethItem selected teethItem11" teeth="11">Ⅳ</span>
+            <span class="teethItem selected teethItem12" teeth="12">Ⅲ</span>
+            <span class="teethItem selected teethItem13" teeth="13">Ⅱ</span>
+            <span class="teethItem selected teethItem14 mr" teeth="14">Ⅰ</span>
+            <span class="teethItem selected teethItem15" teeth="15">Ⅰ</span>
+            <span class="teethItem selected teethItem16" teeth="16">Ⅱ</span>
+            <span class="teethItem selected teethItem17" teeth="17">Ⅲ</span>
+            <span class="teethItem selected teethItem18" teeth="18">Ⅳ</span>
+            <span class="teethItem selected teethItem19" teeth="19">Ⅴ</span>
+        </div>
+        <div class="bottomYaMian clearfloat"></div>
+    </div>
+</div>
+<div class="title">实时预览：</div>
+<div class="result">
+    <div id="preview_slot"></div>
+    <!-- <div id="imgBox" class="imgBox">
+        <div class="topTeethImg clearfloat">
+            <span class="teethItemImg teethItemImg0" teeth="0"><div class="h-line"></div>Ⅴ<i class="teethItemI teethItemI0" teeth="0"></i></span>
+            <span class="teethItemImg teethItemImg1" teeth="1"><div class="h-line"></div>Ⅳ<i class="teethItemI teethItemI1" teeth="1"></i></span>
+            <span class="teethItemImg teethItemImg2" teeth="2"><div class="h-line"></div>Ⅲ<i class="teethItemI teethItemI2" teeth="2"></i></span>
+            <span class="teethItemImg teethItemImg3" teeth="3"><div class="h-line"></div>Ⅱ<i class="teethItemI teethItemI3" teeth="3"></i></span>
+            <span class="teethItemImg teethItemImg4" teeth="4"><div class="h-line"></div><div class="v-line"></div>Ⅰ<i class="teethItemI teethItemI4" teeth="4"></i></span>
+            <span class="teethItemImg teethItemImg5" teeth="5"><div class="h-line"></div>Ⅰ<i class="teethItemI teethItemI5" teeth="5"></i></span>
+            <span class="teethItemImg teethItemImg6" teeth="6"><div class="h-line"></div>Ⅱ<i class="teethItemI teethItemI6" teeth="6"></i></span>
+            <span class="teethItemImg teethItemImg7" teeth="7"><div class="h-line"></div>Ⅲ<i class="teethItemI teethItemI7" teeth="7"></i></span>
+            <span class="teethItemImg teethItemImg8" teeth="8"><div class="h-line"></div>Ⅳ<i class="teethItemI teethItemI8" teeth="8"></i></span>
+            <span class="teethItemImg teethItemImg9" teeth="9"><div class="h-line"></div>Ⅴ<i class="teethItemI teethItemI9" teeth="9"></i></span>
+        </div><br>
+        <div class="bottomTeethImg clearfloat">
+            <span class="teethItemImg teethItemImg10" teeth="10">Ⅴ<i class="teethItemI teethItemI10" teeth="10"></i></span>
+            <span class="teethItemImg teethItemImg11" teeth="11">Ⅳ<i class="teethItemI teethItemI11" teeth="11"></i></span>
+            <span class="teethItemImg teethItemImg12" teeth="12">Ⅲ<i class="teethItemI teethItemI12" teeth="12"></i></span>
+            <span class="teethItemImg teethItemImg13" teeth="13">Ⅱ<i class="teethItemI teethItemI13" teeth="13"></i></span>
+            <span class="teethItemImg teethItemImg14" teeth="14"><div class="v-line"></div>Ⅰ<i class="teethItemI teethItemI14" teeth="14"></i></span>
+            <span class="teethItemImg teethItemImg15" teeth="15">Ⅰ<i class="teethItemI teethItemI15" teeth="15"></i></span>
+            <span class="teethItemImg teethItemImg16" teeth="16">Ⅱ<i class="teethItemI teethItemI16" teeth="16"></i></span>
+            <span class="teethItemImg teethItemImg17" teeth="17">Ⅲ<i class="teethItemI teethItemI17" teeth="17"></i></span>
+            <span class="teethItemImg teethItemImg18" teeth="18">Ⅳ<i class="teethItemI teethItemI18" teeth="18"></i></span>
+            <span class="teethItemImg teethItemImg19" teeth="19">Ⅴ<i class="teethItemI teethItemI19" teeth="19"></i></span>
+        </div>
+    </div> -->
+</div>
+<div id="buttons" class="buttons">
+    <button class="doCancel">取消</button>
+    <button class="doOk">确定</button>
+</div>
+<span id="ruler"></span>
+<script src="../../third-party/jquery-1.10.2.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/medical.js"></script>
+<script type="text/javascript" src="../internal.js"></script>
+<script src="../../third-party/date/laydate/laydate.js"></script>
+<script type="text/javascript">
+    let thePlugins = 'babyteeth';
+    let attrsLength = 20;
+</script>
+<script src="js/babyTeeth.js"></script>
+</body>
+</html>

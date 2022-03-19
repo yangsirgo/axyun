@@ -1,0 +1,1017 @@
+// 填写表格
+.table_form {
+  font-size: 14px !important;
+  // font-family: "微软雅黑" !important;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 20px 0;
+
+  // /deep/ .el-input__inner:focus {
+  //   border: 1px solid #f56c6c;
+  // }
+
+  // /deep/ .el-textarea__inner:focus {
+  //   border: 1px solid #f56c6c;
+  // }
+
+  /deep/.el-input-group__append {
+    height: 30px !important;
+    background: #fff;
+    // padding: 5px;
+    padding: 0 5px;
+  }
+
+  /deep/.el-form-item__label {
+    height: 30px !important;
+    line-height: 30px !important;
+  }
+
+  /deep/ label {
+    font-weight: 500;
+  }
+
+  /deep/.el-form-item--medium .el-form-item__content {
+    height: 30px !important;
+    line-height: 30px !important;
+    font-size: 14px;
+  }
+
+  /deep/.el-input--medium {
+    font-size: 14px;
+    height: 30px !important;
+  }
+
+  /deep/.el-input--medium .el-input__inner {
+    height: 30px !important;
+    font-size: 14px;
+    border-radius: 2px;
+  }
+
+  /deep/.el-input--medium .el-input__icon {
+    line-height: 30px;
+  }
+
+  .table_header {
+    .table_title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .table_main {
+    width: 100%;
+    height: 100%;
+
+    .rowChildren {
+      .el-row {
+        border: none;
+        border-bottom: 1px solid #000;
+
+        &:last-child {
+          border: none;
+        }
+
+        /deep/.el-button--primary,
+        .el-button--default {
+          // padding: 5px 20px;
+          height: 25px;
+          font-size: 13px;
+          padding: 4px 8px;
+        }
+      }
+
+      .el-col {
+        min-height: 30px;
+        line-height: 30px;
+        border-left: 1px solid #000;
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+
+    .el-row {
+      min-height: 30px;
+      line-height: 30px;
+      border-top: 1px solid #000;
+      border-right: 1px solid #000;
+      border-left: 1px solid #000;
+
+      &:last-child {
+        border-bottom: 1px solid #000;
+      }
+    }
+
+    .el-col {
+      min-height: 30px;
+      line-height: 30px;
+      border-left: 1px solid #000;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}
+
+.FunctionPopup {
+  .FunctionPopup_title {
+    background-color: #F5F8FA;
+  }
+
+  .table_main {
+    width: 100%;
+    height: 100%;
+
+    .el-row {
+      min-height: 30px;
+      line-height: 30px;
+      border-top: 1px solid rgba(228, 228, 228, 1);
+      border-right: 1px solid rgba(228, 228, 228, 1);
+      border-left: 1px solid rgba(228, 228, 228, 1);
+
+      &:last-child {
+        border-bottom: 1px solid rgba(228, 228, 228, 1);
+      }
+    }
+
+    .el-col {
+      min-height: 30px;
+      line-height: 30px;
+      border-left: 1px solid rgba(228, 228, 228, 1);
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+
+    .FunctionPopup_main {
+      .el-row {
+        border: none;
+        // border-bottom: 1px solid rgba(228, 228, 228, 1);
+
+        &:last-child {
+          border: none;
+        }
+      }
+
+      .el-col {
+        // min-height: 30px;
+        // line-height: 30px;
+        border-left: none;
+        // border-left: 1px solid rgba(228, 228, 228, 1);
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+
+
+    }
+
+
+  }
+}
+
+// 过长隐藏后的提示框
+.el-tooltip__popper {
+  max-width: 20%;
+}
+
+// 查询列表
+.QueryList {
+  background: #f0f3f5;
+  height: 100%;
+  .QueryList_header {
+    background: #fff;
+    border-radius: 4px;
+
+    .query_conditions {
+      padding: 8px 20px 20px 20px;
+
+      .l-input-wrap {
+        width: 300px;
+      }
+
+      /deep/.el-date-editor .el-range-input {
+        width: 65%;
+      }
+
+      /deep/.el-date-editor .el-range__close-icon {
+        position: absolute;
+        right: 18px;
+        bottom: -1px;
+      }
+
+      /deep/.el-date-editor .el-range__icon {
+        font-size: 14px;
+        margin-left: -5px;
+        color: #c0c4cc;
+        float: left;
+        line-height: 32px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+
+      /deep/.el-range-editor.el-input__inner {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 3px 30px 3px 0;
+      }
+    }
+  }
+
+  .QueryList_main {
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: max-height 0.5s;
+    transition: min-height 0.5s;
+    height: 100%;
+    .el-icon-more {
+      color: #D4D4D4;
+      cursor: pointer;
+    }
+
+    .el-button--mini {
+      padding: 7px 15px;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+
+    .el-button--success {
+      line-height: 15px;
+      color: #606266;
+      background: #fff;
+      border-color: #dcdfe6;
+      padding: 7px 15px;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+
+    .el-button--primary,
+    .el-button--primary:hover,
+    .el-button--primary:focus {
+      background: #2b4583;
+      border-color: #2b4583;
+      color: #fff;
+      line-height: 15px;
+      height: 31px;
+      padding: 7px 15px;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+
+    /deep/.has-gutter {
+      height: 65px;
+      line-height: 65px;
+
+      .cell {
+        padding: 9px 0;
+      }
+
+      th {
+        background: #F5F8FA;
+        background-color: #F5F8FA;
+      }
+
+      th:nth-last-child(2) {
+        border-right: none;
+      }
+
+    }
+
+    /deep/.el-table__row {
+      td {
+        padding: 10px 0;
+        font-size: 14px;
+        // font-family: DINPro-Regular, DINPro;
+        font-weight: 400;
+        color: rgba(50, 53, 59, 1);
+      }
+    }
+
+    .table_header {
+      width: 100%;
+      height: 20px;
+      line-height: 20px;
+      font-size: 14px;
+      // font-family: SourceHanSansSC-Regular, SourceHanSansSC;
+      font-weight: 400;
+      color: rgba(148, 157, 163, 1);
+    }
+  }
+
+  /deep/.QueryList_main.el-button--default {
+    border-radius: 2px;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+  }
+
+  .QueryList_main_page {
+    margin-top: 22px;
+    text-align: right;
+    height: 28px;
+    padding: 0;
+
+    /deep/ .el-input__inner {
+      line-height: 28px !important;
+      height: 28px !important;
+    }
+  }
+}
+
+.hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// width
+.w30 {
+  max-width: 30px;
+}
+.w50 {
+  max-width: 50px;
+}
+
+.w60 {
+  max-width: 60px;
+}
+
+.w70 {
+  max-width: 70px;
+}
+
+.w78 {
+  width: 78px;
+}
+
+.w80 {
+  max-width: 80px;
+}
+
+.mw90 {
+  max-width: 90px;
+}
+
+.mw100 {
+  max-width: 100px;
+}
+
+.w90 {
+  width: 90px;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.w120 {
+  width: 120px;
+}
+
+.w130 {
+  width: 130px;
+}
+
+.w140 {
+  width: 140px;
+}
+
+.w150 {
+  width: 150px;
+}
+
+.w190 {
+  width: 190px;
+}
+
+.w237 {
+  width: 237px;
+}
+
+.w654 {
+  width: 654px;
+}
+
+// height
+.h25 {
+  max-height: 25px;
+  line-height: 25px;
+}
+
+.h30 {
+  max-height: 30px;
+  line-height: 30px;
+}
+
+.h40 {
+  max-height: 40px;
+  line-height: 40px;
+}
+
+.h50 {
+  max-height: 50px;
+  line-height: 50px;
+}
+
+.h55 {
+  max-height: 55px;
+  height: 55px;
+}
+
+.h60 {
+  max-height: 60px;
+  line-height: 60px;
+}
+
+.h70 {
+  max-height: 70px;
+  line-height: 70px;
+}
+
+.h85 {
+  height: 85px;
+  max-height: 85px;
+}
+
+.h90 {
+  height: 90px;
+  max-height: 90px;
+}
+
+.h100 {
+  max-height: 100%;
+  line-height: 100%;
+}
+
+.h186 {
+  height: 186px;
+}
+
+.h161 {
+  height: 270px;
+  // min-height: 161px;
+  // background: #000;
+}
+
+// line-height
+.lh18 {
+  max-height: 18px;
+  line-height: 18px;
+}
+
+.lh19 {
+  max-height: 19px;
+  line-height: 19px;
+}
+
+.lh20 {
+  max-height: 20px;
+  line-height: 20px;
+}
+
+.lh22 {
+  line-height: 22px;
+}
+
+.lh24 {
+  line-height: 24px;
+}
+
+.lh26 {
+  max-height: 26px;
+  line-height: 26px;
+}
+
+.lh28 {
+  max-height: 28px;
+  line-height: 28px;
+}
+
+.lh40 {
+  height: 40px;
+  line-height: 40px;
+}
+
+.lh48 {
+  height: 48px;
+  line-height: 48px;
+}
+
+.lh49 {
+  height: 49px;
+  line-height: 49px;
+}
+
+.lh50 {
+  height: 50px;
+  line-height: 50px;
+}
+
+.lh53 {
+  height: 53px;
+  line-height: 53px;
+}
+
+.lh55 {
+  height: 55px;
+  line-height: 55px;
+}
+
+.lh56 {
+  height: 56px;
+  line-height: 56px;
+}
+
+.lh60 {
+  height: 60px;
+  line-height: 60px;
+}
+
+.lh61 {
+  height: 61px;
+  line-height: 61px;
+}
+
+.lh62 {
+  height: 62px;
+  line-height: 62px;
+}
+
+.lh64 {
+  height: 64px;
+  line-height: 64px;
+}
+
+.lh72 {
+  height: 72px;
+  line-height: 72px;
+}
+
+.lh74 {
+  height: 74px;
+  line-height: 74px;
+}
+
+.lh89 {
+  height: 89px;
+  line-height: 89px;
+}
+
+.lh90 {
+  height: 90px;
+  line-height: 90px;
+}
+
+.lh93 {
+  height: 93px;
+  line-height: 93px;
+}
+
+.lh101 {
+  height: 101px;
+  line-height: 101px;
+}
+
+.lh120 {
+  height: 120px;
+  line-height: 120px;
+}
+
+.lh186 {
+  height: 186px;
+  line-height: 186px;
+}
+
+.lh167 {
+  height: 167px;
+  line-height: 167px;
+}
+
+.lh187 {
+  height: 187px;
+  line-height: 187px;
+}
+
+.lh196 {
+  height: 196px;
+  line-height: 196px;
+}
+
+.lh204 {
+  height: 204px;
+  line-height: 204px;
+}
+
+.lh210 {
+  height: 210px;
+  line-height: 210px;
+}
+
+.lh216 {
+  height: 216px;
+  line-height: 216px;
+}
+
+.lh247 {
+  height: 247px;
+  line-height: 247px;
+}
+
+.lh339 {
+  height: 339px;
+  line-height: 339px;
+}
+
+.lh636 {
+  height: 636px;
+  line-height: 636px;
+}
+
+.lhauto {
+  height: 100%;
+  line-height: 100%;
+}
+
+// text-align
+.center {
+  text-align: center;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_right {
+  text-align: right;
+}
+
+// 字间距
+.letter {
+  letter-spacing: 10px;
+}
+
+// 边框
+.borderNone {
+  border: none;
+}
+
+.bordertop {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.borderright {
+  border-right: 1px solid #fff;
+}
+
+.borderbottom {
+  border-bottom: 1px solid #fff;
+}
+
+// 浮动
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+// flex
+.flex {
+  display: flex;
+}
+
+.flex_c {
+  display: flex;
+  align-items: center;
+}
+
+.flex_cs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.space_between {
+  justify-content: space-between;
+}
+
+.flex_start {
+  justify-content: flex-start;
+}
+
+// padding
+.padding-5 {
+  padding: 5px;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+
+.padding-15 {
+  padding: 15px;
+}
+
+.padding-30 {
+  padding: 30px;
+}
+
+.padding-60 {
+  padding: 60px 0;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+// margin
+.margin-2 {
+  margin: 2px;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.margin-15 {
+  margin: 15px;
+}
+
+.margin-20 {
+  margin: 20px;
+}
+
+.pt-5 {
+  padding-top: 5px;
+}
+
+.pt-10 {
+  padding-top: 10px;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.pr-20 {
+  padding-right: 20px;
+}
+
+.pl-2 {
+  padding-left: 2px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pl-20 {
+  padding-left: 20px;
+}
+
+.pl-26 {
+  padding-left: 26px;
+}
+
+.pb-10 {
+  padding-bottom: 10px;
+}
+
+.plr-10 {
+  padding: 0 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+
+.mr-2 {
+  margin-right: 2px;
+}
+
+.ml-2 {
+  margin-left: 2px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mb-2 {
+  margin-bottom: 2px;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+
+.mt-3 {
+  margin-top: 3px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.margin-16 {
+  margin: 16px 0;
+}
+
+.margin-30 {
+  margin: 30px 0;
+}
+
+.mlr-5 {
+  margin: 0 5px;
+}
+
+.mlr-10 {
+  margin: 0 10px;
+}
+
+.mtb-5 {
+  margin: 5px 0;
+}
+
+// 定位 position
+
+.position_r {
+  position: relative;
+}
+
+.position_a {
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.blnone {
+  border-left: none;
+}
+
+.brnone {
+  border-right: none;
+}
+
+.btnone {
+  border-top: none;
+}
+
+.bbnone {
+  border-bottom: none;
+}
+.lh24Row{
+  border-bottom: none !important;
+}
+.rowChildrenLocation{
+    position: relative;
+}
+.rowChildrenLocationRight input{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.el-form-item-bottom{
+  margin-bottom: 1px !important;
+}
+.text-lan{
+  text-align: center;
+}
+.rowChildren .el-row .textAlign{
+    text-align: left;
+    padding-left: 150px !important;
+}
+
+//
+.userInforStyle .el-form-item__content{
+    margin-left: 100px !important;
+  }
+.userInforStyle .el-form-item__label{
+    width: 100px !important;
+}
+//
+.addFM .gridStyle .el-cascader .el-input .el-input__inner{
+        width: 300px;
+        margin-top: -5px;
+}
+
+.lungTable .symptomsInput .el-input--medium .el-input__inner{
+         width: 20px !important;
+         height: 20px !important;
+         padding: 0px !important;
+         text-align: center;
+         border-radius: 3px;
+
+      }
+.lungTable .boxInput .el-input__inner{
+      padding: 0px 5px !important;
+}
+.lungTable .elColStyleDay .el-input__inner{
+      padding: 0px 2px !important;
+}
+.lungTable .elColStyleDay .elColStyleDay1 .el-input__inner{
+      padding: 0px 2px !important;
+}
+.lungTable .dangerousAct .el-input--medium {
+        height: 20px !important;
+}
+.lungTable .dangerousAct .el-radio{
+          margin-right: 0px;
+          margin-left : 15px;
+}
+.lungTable .dangerousAct .el-radio__input{
+  display: none;
+}
+.lungTable .dangerousAct .dangerousActStyle .el-radio__input{
+  display: block;
+}
+
+// DocSignpage
+.DocSignpage .transfer-class .el-transfer-panel{
+          width: 300px !important;
+    }
+
+// phss里面table 样式
+ .QueryList .QueryList_main .table_header{
+      text-align: center;
+    }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>标签元素</title>
+    <link rel="stylesheet" href="css/ax.dialog.css" />
+  </head>
+  <body>
+    <div class="content">
+      <form id="tagForm">
+        <fieldset>
+          <legend>基本属性</legend>
+          <table>
+            <tr>
+              <td>元素编码</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="id"
+                  id="id"
+                  readonly
+                />
+              </td>
+            <!-- </tr>
+            <tr> -->
+              <td>元素名称</td>
+              <td style="width: 246px">
+                <input type="text" autocomplete="off" name="name" id="name" style="width: 115px;"/>
+                <select
+                  name="namepos"
+                  id="namepos"
+                  class="namepos"
+                  style="width: 80px;"
+                >
+                  <option value="hidden" selected>隐藏</option>
+                  <option value="left">居左</option>
+                  <option value="right">居右</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>提示文本</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="tipText"
+                  id="tipText"
+                />
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr style="display: none">
+              <!--<tr>-->
+              <td>默认值</td>
+              <td colspan="3">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="defaultVal"
+                  id="defaultVal"
+                />
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>勾选属性</legend>
+          <ul class="checkSettings">
+            <li>
+              <input type="checkbox" name="readonly" id="readonly" checked />
+              <label for="readonly">只读</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isDel" id="isDel" checked />
+              <label for="isDel">可删除</label>
+            </li>
+            <!-- <li>
+                    <input type="checkbox" name="showBorder" id="showBorder">
+                    <label for="showBorder">显示边框</label>
+                </li> -->
+            <li>
+              <input type="checkbox" name="isPrint" id="isPrint" checked />
+              <label for="isPrint">可打印</label>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>边框设置</legend>
+          <div>
+            <span class="label">显示类型: </span>
+            <input
+              type="radio"
+              name="borderType"
+              id="underline"
+              value="underline"
+            />
+            <label for="underline">下划线</label>
+            <input type="radio" name="borderType" id="border" value="border"
+            checked />
+            <label for="border">边框</label>
+            <input type="radio" name="borderType" id="border" value="none" />
+            <label for="none">隐藏</label>
+          </div>
+          <div id="borderType">
+            <span class="label">边框类型: </span>
+            <select
+              name="borderStyle"
+              id="borderStyle"
+              class="borderStyle"
+              style="width: 100px;"
+            >
+              <option value="0" selected>[]</option>
+              <option value="1">{}</option>
+              <option value="2">“”</option>
+            </select>
+          </div>
+          <div id="borderHolder">
+            <label for="stainholder">边框是否占位</label>
+            <input type="checkbox" name="stainholder" id="stainholder" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+
+  <script src="../../third-party/jquery-1.10.2.min.js"></script>
+  <script src="../internal.js"></script>
+  <script src="js/baseElement.js"></script>
+  <script>
+    var formName = "tagForm",
+      thePlugins = "tagelement",
+      pluginCode = "02";
+    $("#name").blur(function() {
+      //标签元素的默认值是元素名称
+      var name = $("#name").val();
+      $("#defaultVal").val(name);
+    });
+  </script>
+</html>

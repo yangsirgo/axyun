@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/font/iconfont.css">
+    <link rel="stylesheet" href="ztree/zTreeStyle/zTreeStyle.css">
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="ztree/jquery.ztree.min.js"></script>
+    <link rel="stylesheet" href="css/structure/cascadesetter.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="main">
+            <div class="center-fix">
+                <div class="center">
+                    <div class="row-header">
+                        <span>条件设置</span>
+                        <div class="addBtn" id="addBtn">
+                            <img src="./images/add.png" alt="">
+                            添加
+                        </div>
+                    </div>
+                    <div class="row-content formContainer">
+                        <div class="headTop">
+                            <div class="conditionSet">条件关系</div>
+                            <div class="conditionSet width9">成组</div>
+                            <div class="conditionSet width21">条件项</div>
+                            <div class="conditionSet">条件</div>
+                            <div class="conditionSet width21">触发值</div>
+                            <div class="conditionSet width9">成组</div>
+                            <div class="conditionSet options"></div>
+                        </div>
+                        <div class="formItem">
+                            <form id="casSetter0">
+                                <div class="conditionSet width9">
+                                    <select name="group" id="group" class="operator">
+                                        <!--<option value="">请选择条件</option>-->
+                                        <option value=" "> </option>
+                                        <option value="(">(</option>
+                                    </select>
+                                </div>
+                                <div class="conditionSet width21">
+                                    <!-- <span>条件项：</span> -->
+                                    <select name="cascadeId" id="cascadeId">
+                                        <option value="">条件项</option>
+                                    </select>
+                                    <!--隐藏的input 提交 cascadeIdText 的 数据-->
+                                    <input type="text" autocomplete="off" name="cascadeIdText" value=""
+                                        id="cascadeIdText" hidden>
+                                    <!--<button type="button"  id="delCascadeSetter"> 删除 - </button>-->
+                                </div>
+                                <div class="conditionSet">
+                                    <!-- <span>条件：</span> -->
+                                    <select name="operator" id="operator" class="conditionOperator">
+                                        <!--<option value="">请选择条件</option>-->
+                                        <option value="=">等于</option>
+                                        <option value="!=">不等于</option>
+                                        <option value=">">大于</option>
+                                        <option value=">=">大于等于</option>
+                                        <option value="<">小于</option>
+                                        <option value="<=">小于等于</option>
+                                        <option value="in">包含</option>
+                                        <option value="null">为空</option>
+                                        <option value="notNull">不为空</option>
+                                    </select>
+                                    <!--隐藏的input 提交 showConditionList 的 数据-->
+                                    <input type="text" autocomplete="off" name="operatorText" value=""
+                                        id="operatorText" hidden>
+                                </div>
+                                <div class="conditionSet width21">
+                                    <!-- <span>触发值：</span> -->
+                                    <select id="showCondition" style="display: none;">
+                                        <option value="">条件项</option>
+                                    </select>
+                                    <input type="text" id="showCondition">
+                                    <input type="hidden" name="showConditionText">
+                                    <!--隐藏的input 提交 showConditionList 的 数据-->
+                                    <input type="text" autocomplete="off" name="showConditionList" value=""
+                                        id="showConditionList" hidden>
+                                    <!--隐藏的input 提交 showConditionText 的 数据-->
+                                    <input type="text" autocomplete="off" name="hideConditionList" value=""
+                                        id="hideConditionList" hidden>
+                                </div>
+                                <div class="conditionSet width9">
+                                    <select name="group" id="group" class="operator">
+                                        <!--<option value="">请选择条件</option>-->
+                                        <option value=" "> </option>
+                                        <option value=")">)</option>
+                                    </select>
+                                </div>
+                                <div class="conditionSet">
+                                    <select name="condition" id="condition" class="operator">
+                                        <!--<option value="">请选择条件</option>-->
+                                        <option value="and">并且</option>
+                                        <option value="or">或者</option>
+                                    </select>
+                                </div>
+                                <div class="conditionSet options">
+                                    <!-- <button type="button" id="addCascadeSetter" title="添加" class="icon iconfont el-icon-ali-zengjia1">  </button> -->
+                                    <!-- <img src="./images/del1.png" id="delCascadeSetter" index="0" title="删除"> </img> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-below">
+                    <div class="row-header">
+                        <span>描述</span>
+                    </div>
+                    <div class="row-content discription-row-content">
+                        <!--<div class="row-content-item selected">-->
+                        <!-- <div class="cas_setter">
+                        if
+                        <span class="cascadeIdTextDis"></span>
+                        <span class="operatorTextDis">等于</span>
+                        <span class="showConditionTextDis"></span>
+                    </div> -->
+                        <div class="ulDis">
+                            <span>显示</span>
+                            <ul class="showLi">
+                                <!--<li>元素</li>-->
+                            </ul>
+                            <span>隐藏</span>
+                            <ul class="hideLi">
+                                <!--<li>元素</li>-->
+                            </ul>
+                        </div>
+                        <!--</div>-->
+                    </div>
+                    <div class="row-bottom">
+                        <button id="confirmBtn" title="确定" class="icon iconfont el-icon-ali-duigou">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="row-header">元素结构</div>
+            <div class="row-content">
+                <div id="treeDemo" class="ztree"></div>
+                <div class="controlShow">
+                    <span class="label">可见性：</span>
+                    <input type="radio" name="control" id="showContr" value="1" checked>
+                    <label for="showContr">显示</label>
+                    <input type="radio" name="control" id="hideContr" value="0">
+                    <label for="hideContr">隐藏</label>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="rightInner">
+                <div class="row-header ">结果展现</div>
+                <div class="row-content  row-content-result">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../internal.js"></script>
+<script src="js/getDomTreeData.js"></script>
+<script>
+
+    var showText = '显示';
+    var hideText = '隐藏';
+    var thePlugins = 'combine';
+    var oNode = null;
+    var usersetting = null;//用户设置的 条件项 条件 条件值，window.onload的时候使用
+    var rules = []; // 设置的规则  用于显示隐藏dom节点
+    var formList = [
+        0
+    ]; // 添加多个条件 记录form的集合
+    var eleSetting = {
+        check: {
+            enable: true,
+            chkboxType: {// 父元素选中 所有子元素选中  ，所有子元素选中，父元素不一定选中
+                Y: "s",
+                N: "s"
+            },
+        },
+        view: {
+            showIcon: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onCheck: clickNode,
+            onClick: clickNode
+            // onDblClick:function (event, treeId,treeNode){
+            //     //双击node 默认选中 checkbox
+            //     zTreeObj.checkNode(treeNode, !treeNode.checked, true);
+            // }
+        }
+    };
+    var displaySetting = {
+        view: {
+            showIcon: false,
+            nameIsHTML: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+    var elezNodesOrigin = [];// 获取 dom 元素的数据，是树的初始化数据
+    var elezNodes = [];//初始化数据 有isShow 字段
+    var displayNodes = [];// znode 数据 里面有了isShow字段 并有 显示 隐藏的text
+
+    window.onload = function () {
+        if (AX.plugins[thePlugins].editdom) {
+            oNode = AX.plugins[thePlugins].editdom;
+            // console.log(walkDom(oNode));
+            var cascadeSetData = $(oNode).attr('cascadesetdata');
+            if (cascadeSetData != null) {//存储了用户设置
+                loadLocalstor(cascadeSetData);
+            } else {//用户第一次进弹窗
+                elezNodesOrigin = getDomTreeData(oNode);
+                // elezNodesOrigin 数据拷贝到 elezNodes
+                originTransfereleNodes();
+            }
+            // 无论用户第几次进入，实时获取最新节点
+            elezNodesOrigin = getDomTreeData(oNode);
+            originTransfereleNodes();
+            //最外层组合元素禁用
+            setCheckboxDisabled(elezNodes);
+            //左边的树重新刷新置空
+
+            elezNodes = $.grep(elezNodes, function (item) {
+                var t = item.node.text;
+                t = t.replace(/(^\s*)|(\s*$)/g, "");
+                return !(t == '' && item.node.eleType == 'textnode')
+            });
+            // debugger;
+            rules = $(oNode).attr('rules')? JSON.parse($(oNode).attr('rules')): []; // 初始化条件
+            $.fn.zTree.init($("#treeDemo"), eleSetting, elezNodes);
+            //条件列表加载
+            initCascadeId(elezNodes, $("#cascadeId"));
+            // node节点 设置 显示隐藏 字段 并对全局变量的 displayNodes 赋值
+            setdisplayNode(true);
+            //描述部分 默认是全部显示的
+            setNodeAllShow();
+        }
+    };
+
+
+    function setCheckboxDisabled(elezNodes) {
+        $.each(elezNodes, function (index, item) {
+            if (item.pId === undefined && item.pKey === undefined) {
+                item.chkDisabled = true;
+            }
+        });
+    }
+
+    //设置节点禁用
+    function setNodeDisabled(id) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        //根节点禁用
+        $.each(elezNodes, function (index, item) {
+            var disabledNode = zTree.getNodeByParam("id", item.id);
+            if (item.pId === undefined && item.pKey === undefined) {
+                // item.chkDisabled = true;
+                zTree.setChkDisabled(disabledNode, true);
+            } else {
+                zTree.setChkDisabled(disabledNode, false);
+            }
+        });
+        //选择节点禁用
+        if (id != undefined) {
+            var disabledNode = zTree.getNodeByParam("id", id);
+            zTree.setChkDisabled(disabledNode, true);
+        }
+
+    }
+
+    /**
+     *  为了显示，需要对数据增加显示隐藏字段
+     * @param flag  true 对node 节点设为显示
+     */
+    function setdisplayNode(flag) {
+        displayNodes = setzTreeNodesShowText(flag);
+        // $.fn.zTree.init($("#displayTree"), displaySetting, displayNodes);
+    }
+
+    // zTreeNodes item 需要 将elezNodes 数组转换成会有 isShow 字段 可用在判断是否显示
+    //默认 isShow 是true 有设置 按照设置走
+    // flag 为true 时 对node 设置全部显示
+    function setzTreeNodesShowText(flag) {
+        if (flag) {// 设置flag 是 true node 全部显示
+            $.each(elezNodes, function (index, item) {
+                item.isShow = item.isShow === undefined ? true : item.isShow;
+            });
+        }
+
+
+        // 结果展现中点击单条记录 回显 displayNodes 是有值的 不需要clone
+        // if (displayNodes.length === 0) {//displayNodes 没有值需要 clone  elezNodes
+        //     displayNodes = $.extend(true, [], elezNodes);
+        // }
+        var displayNodesInner = $.extend(true, [], elezNodes);
+        // console.log(displayNodes);
+        $.each(displayNodesInner, function (index, item) {
+            var isShow = true;
+            item.isShow = item.isShow === undefined ? isShow : item.isShow;
+            var isShowText = item.isShow == true ? showText : hideText;
+            item.name = item.node.name + "&nbsp;&nbsp;&nbsp;<span style='color: blue'>" + isShowText + "</span>";
+        });
+        return displayNodesInner;
+    }
+
+
+
+
+
+    //获取treeNode 节点所有子元素 id
+    function getChildren(ids, treeNode) {
+        ids.push(treeNode.id);
+        treeNode.isShow = false;
+        if (treeNode.isParent) {
+            for (var obj in treeNode.children) {
+                getChildren(ids, treeNode.children[obj]);
+            }
+        }
+        return ids;
+    }
+
+    //设置children 为 hide
+    function setChildrenHide(ids, node) {
+        if (!ids || ids.length === 0) return;
+        // debugger;
+        $.each(elezNodes, function (index, item) {
+            if (ids.indexOf(item.id) > -1) {
+                item.isShow = false;
+            }
+        });
+    }
+
+    //设置设置children
+    function setChildren(ids, node, isShow) {
+        if (!ids || ids.length === 0) return;
+        // debugger;
+        $.each(elezNodes, function (index, item) {
+            if (item.id === node.id) {
+                item.isShow = isShow;
+            }
+        });
+    }
+
+    /**
+     *  点击节点事件 回调函数
+     */
+    function clickNode(event, treeId, treeNode) {
+        var zTreeObj = $.fn.zTree.getZTreeObj(treeId);
+        if (event.type !== 'ztree_check') {
+            zTreeObj.checkNode(treeNode, !treeNode.checked, true);
+        }
+        var nodes = zTreeObj.getCheckedNodes(true);
+        $.each(nodes, function (index, item) {
+            if (!item.getCheckStatus().half) {//过滤掉半选
+                updateNode(treeId, item);
+            }
+        });
+        inserShowHideEle();
+
+        $(".controlShow").find("input[type=radio]").off('change.showControl').on('change.showControl', function () {
+            // var nodes = zTreeObj.getSelectedNodes();
+            // $.each(nodes, function (index,item){
+            //     updateNode(treeId,item);
+            // });
+            zTreeObj.checkAllNodes(false);//清空所选节点  后续用户在操作
+
+            var nodes = zTreeObj.getCheckedNodes(true);
+            $.each(nodes, function (index, item) {
+                if (!item.getCheckStatus().half) {//过滤掉半选
+                    updateNode(treeId, item);
+                }
+            });
+            inserShowHideEle();
+        });
+
+    }
+
+
+    // 回显时if 后面的 判断条件 插入
+    function insertCondition() {
+        var operator = $("#operator").find('option:selected').text();
+        $(".operatorTextDis").html(operator);
+        var showCondition = $("#showCondition").val();
+        $(".showConditionTextDis").html(showCondition);
+    }
+
+    //在显示 隐藏的li中插入元素
+    function inserShowHideEle() {
+        var showList = $.grep(displayNodes, function (item) {
+            return item.isShow;
+        });
+        render($(".showLi"), showList);
+        var hideList = $.grep(displayNodes, function (item) {
+            return !item.isShow;
+        });
+        render($(".hideLi"), hideList);
+        insertCondition();// 回显时if 后面的 判断条件 插入
+        setShowHideList(showList, hideList)
+        function render($p, list) {
+            var html = '';
+            $.each(list, function (index, item) {
+                html += '<li>' + item.node.name + '</li>'
+            });
+            $p.html(html);
+        }
+
+
+    }
+
+    function setShowHideList(showList, hideList) {
+        var showId = '',
+            hideId = '';
+        showId = showList.map(function (item) {
+            return item.id
+        })
+        hideId = hideList.map(function (item) {
+            return item.id
+        })
+        $("#showConditionList").val(showId.toString())
+        $("#hideConditionList").val(hideId.toString())
+    }
+    
+    $(document).on("change","#cascadeId",function () {
+        var index = $(this).find('option:selected').index() - 1;
+        if (index < 0) {
+            return;
+        }
+        var id = $(this).find('option:selected').attr('value');
+        var text = $(this).find('option:selected').text();
+        var filtered = $.grep(elezNodes, function (item) {
+            return item.id == id;
+        });
+        var options = filtered[0].node.options;
+        // showConditionList = options;// 触发值列表
+        //描述中增加 条件项
+        $(".cascadeIdTextDis").html(text);
+        // 条件项 和 触发项选择的时候 默认给 hidden input 加值
+        insertHiddenIpt(options, text, null, null, $(this).parent());
+        if (filtered[0].eleType === "selectmulti" || filtered[0].eleType === "select") {
+            $("input#showCondition").hide();
+            $("select#showCondition").show();
+            initCondition(options, $(this).parent().parent().find("#showCondition"));
+        }else if(filtered[0].eleType === "haveornot"){
+            var haveOrNotObj = [
+                {
+                    index: 1,
+                    isDefault: false,
+                    key: "有",
+                    value: "有"
+                },
+                {
+                    index: 2,
+                    isDefault: false,
+                    key: "无",
+                    value: "无"
+                }
+            ]
+            $("input#showCondition").hide();
+            $("select#showCondition").show();
+            initCondition(haveOrNotObj,$(this).parent().parent().find("#showCondition"));
+        } else {
+            $("input#showCondition").show();
+            $("select#showCondition").hide();
+        }
+        setNodeDisabled(id);
+    });
+
+    $(document).on("change","#showCondition",function (e) {
+        if (e.currentTarget.tagName == 'SELECT') {
+            $(this).parent().find("input[name='showConditionText']").val($(this).find("option:selected").text())
+            $(".showConditionTextDis").html($(this).find("option:selected").text());
+        }else{
+            $(this).parent().find("input[name='showConditionText']").val($(this).val())
+            $(".showConditionTextDis").html($(this).val());
+        }
+    })
+
+    $(document).on("change",".conditionOperator",function (e) {
+        var value = $(this).find('option:selected').attr("value");
+        var text = $(this).find('option:selected').text();
+        $(".operatorTextDis").html(text);
+        insertHiddenIpt(null, null, null, text, $(this).parent());
+    })
+
+    // $(".conditionOperator").change(function () {
+    //     var value = $(this).find('option:selected').attr("value");
+    //     var text = $(this).find('option:selected').text();
+    //     $(".operatorTextDis").html(text);
+    //     console.log('operatorTextDis====', $(".operatorTextDis"), text)
+    //     insertHiddenIpt(null, null, null, text, $(this).parent());
+    // });
+
+
+    // $("#showCondition").change(function (){
+    //     var index = $(this).find('option:selected').index() - 1;
+    //     if(index >= 0){
+    //         // 条件项 和 触发项选择的时候 默认给 hidden input 加text
+    //         // var key =  $(this).find('option:selected').attr('value');
+    //         var text = $(this).find('option:selected').text();
+    //         insertHiddenIpt (null,null,text);
+    //     }
+    //     inserShowHideEle();
+    // });
+
+
+    setTimeout(function () {
+        $.each(displayNodes, function (index, item) {
+            // if (item.isShow) {
+            var id = item.id;
+            if (id === oNode.id) return;//最高级的 组合元素不操作
+            // if (id === cascadeId) return;//条件项id 元素不处理
+            // console.log($(oNode).find("#" + id).attr('cascadeState',item.isShow ? 'show': 'hide'));
+            // $(oNode).find("#" + id).attr("cascadeid",cascadeId)
+            //     .attr("showcondition",showCondition);
+            // updateNewOperator (doc,id,operator);
+            // }
+        });
+    }, 500);
+
+    // 点击弹窗的确定按钮
+    dialog.onok = function () {
+        var doc = editor.document;
+
+        // 用户设置 需要在本地存储
+        // key 是 oNode 的Id
+        saveLocalstore(oNode);
+
+        if (oNode) {
+            var itemNodeList = $('.row-content-result').find(".row-content-item");
+            // var saveData = [];
+            var showConditionArr = [];
+            var cascadeIdArr = [];
+            var operatorArr = [];
+
+            $.each(rules, function (pindex, pitem) {
+                // var cascadestateArr = [];
+                // var data = $(pitem).data('data');
+                // var userSetting = data.setting;
+                // var showCondition = userSetting.showCondition;
+                // var cascadeId = userSetting.cascadeId;
+                // var operator = userSetting.operator;
+
+                // rules.push(userSetting)
+                // showConditionArr.push(showCondition);
+                // cascadeIdArr.push(cascadeId);
+                // operatorArr.push(operator);
+                // cascadestateArr.push(showCondition);
+
+
+                // var displayNodes = displayNodes;
+                // doc 中的节点 增加属性 cascadeid   showcondition operator 的值
+                $.each(displayNodes, function (index, item) {
+                    // if (item.isShow) {
+                    var id = item.id;
+                    // if (id === oNode.id) return;//最高级的 组合元素不操作
+                    // if (id === userSetting.cascadeId) return;//条件项id 元素不处理
+
+                    var tarNode = oNode.id === id ? $(oNode) : $(oNode).find("#" + id);
+
+                    // if (pindex == itemNodeList.length-1) {
+                    //     removeAttr(tarNode,['combicasId','combicascondition']);
+                    //     // console.log(tarNode.attr('cascadeid_'));
+                    //     // console.log(tarNode.attr('showcondition'));
+                    //     // console.log(tarNode);
+                    //     // console.log("cascadeIdArr:",cascadeIdArr.toString());
+                    //     // console.log("showConditionArr",showConditionArr.toString());
+                    //     tarNode.attr('combicasId',cascadeIdArr.toString())
+                    //         .attr('combicascondition',showConditionArr.toString())
+                    //         .attr('combicasoper',operatorArr.toString());
+                    //     // updateNewSetting (tarNode,id,userSetting);
+                    // }
+                    if (pitem.cascadeId == item.id && (tarNode.attr('combicasoper') == null || tarNode.attr('combicasoper') == 'undefined')) {
+                        tarNode.attr('combicasId', pitem.cascadeId)
+                            .attr('combicascondition', pitem.showConditionText)
+                            .attr('combineshow', pitem.showConditionList)
+                            .attr('combinehide', pitem.hideConditionList)
+                            .attr('combicasoper', pitem.operator);
+                    } else if (pitem.cascadeId == item.id) {
+                        tarNode.attr('combicasId', tarNode.attr('combicasId') + ',' + pitem.cascadeId)
+                            .attr('combicascondition', tarNode.attr('combicascondition') + ',' + pitem.showConditionText)
+                            .attr('combineshow', tarNode.attr('combineshow') + '-' + pitem.showConditionList)
+                            .attr('combinehide', tarNode.attr('combinehide') + '-' + pitem.hideConditionList)
+                            .attr('combicasoper', tarNode.attr('combicasoper') + ',' + pitem.operator);
+                    }
+
+                    if (pindex == 0) {
+                        tarNode.removeAttr('cascadestate');
+                        tarNode.attr('rules', JSON.stringify(rules))
+                    }
+                    //设置 dom 元素上的属性
+
+                    // setAttr(tarNode,'cascadeid_',cascadeId);
+                    // setAttr(tarNode,'showcondition',showCondition);
+                    // console.log(item.isShow ? 'show': 'hide');
+                    setAttr(tarNode, 'combicasstate', item.isShow ? 'show' : 'hide');
+
+                    // updateNewSetting (tarNode,id,json);
+                    // updateNewSetting (tarNode,id,userSetting);
+                    // }
+                });
+            });
+            // return false;
+            // 刷新 组合元素的 弹窗
+            try {
+                if (editor.ui._dialogs.combieleDialog) {
+                    editor.ui._dialogs.combieleDialog.reset();
+                }
+            } catch (e) {
+
+            }
+
+        }
+        AX.plugins[thePlugins].editdom = null; // 防止二次打开信息错误
+    };
+    dialog.oncancel = function () {
+        AX.plugins[thePlugins].editdom = null; // 防止二次打开信息错误
+    };
+
+    /**
+     *  更新 span 的 设置
+     * @param $parent oNode
+     * @param json  设置的json
+     */
+    function updateNewSetting($parent, json) {
+        // var tarNode = parent.id === id ? $(parent) : $(parent).find("#" + id);
+        var attrs = $parent.attr("attrs");
+        var attrsObj = JSON.parse(attrs);
+        attrsObj.operator = json.operator;
+        attrsObj.cascadeId = json.cascadeId;
+        attrsObj.showCondition = json.showCondition;
+        var attrsString = JSON.stringify(attrsObj);
+        $parent.attr("attrs", attrsString);
+    }
+
+
+    function loadLocalstor(cascadeSetData) {
+        var cascadeData = JSON.parse(cascadeSetData);
+        elezNodes = $.extend(true, [], cascadeData[0].elezNodes);
+        //右侧列表渲染
+        renderResultPresentation(cascadeData);
+    }
+
+    /**
+     * 将用户设置和 displayNodes 存在本地
+     * @param node
+     */
+    function saveLocalstore(node) {
+
+        var itemNodeList = $('.row-content-result').find(".row-content-item");
+        var saveData = [];
+        $.each(itemNodeList, function (index, item) {
+            var data = $(item).data('data');
+            var setting = data.setting;
+            if (setting.cascadeId && setting.showConditionText) {
+                saveData.push(data);
+            }
+        });
+        if (saveData.length) {
+            var saveValueStr = JSON.stringify(saveData);
+            $(node).attr('cascadesetdata', saveValueStr);
+        } else {
+            $(node).removeAttr('cascadesetdata');//清除数据
+            $.each(elezNodes, function (index, item) {// 清除节点的挂载数据
+                var id = item.id;
+                var tarNode = oNode.id === id ? $(oNode) : $(oNode).find("#" + id);
+                if (id) {
+                    removeAttr(tarNode, ['combicasId', 'combicascondition', 'combicasoper', 'cascadestate']);
+                }
+            });
+        }
+    }
+
+
+    //整理节点数组中显示隐藏的nameList
+    function getNameList() {
+        var hideNameList = [];
+        var showNameList = [];
+        $.each(displayNodes, function (index, item) {
+            if (item.isShow) {
+                showNameList.push(item.node.name);
+            } else {
+                hideNameList.push(item.node.name);
+            }
+        });
+        return {
+            hideNameList: hideNameList,
+            showNameList: showNameList
+        }
+    }
+
+    /**
+     * 加载描述 和 左边的树 、中间的描述
+     * @param LNodes
+     * @param json
+     * @param showNameList
+     * @param hideNameList
+     */
+    function loadLTreeAndDescrip(LNodes, json, showNameList, hideNameList) {
+        // $.fn.zTree.init($("#treeDemo"), eleSetting, LNodes);
+        setNodeDisabled(json.cascadeId);
+        $(".discription-row-content").find(".cascadeIdTextDis").html(json.cascadeIdText);
+        $(".discription-row-content").find(".operatorTextDis").html(json.operatorText);
+        $(".discription-row-content").find(".showConditionTextDis").html(json.showConditionText);
+        renderUl($(".showLi"), showNameList);
+        renderUl($(".hideLi"), hideNameList);
+        setCheckboxDisabled(elezNodes);
+    }
+
+
+    function setNodeAllShow() {
+        var showNameList = $.map(elezNodes, function (item) {
+            return item.node.name;
+        });
+        renderUl($(".showLi"), showNameList);
+    }
+
+    /**
+     * // 渲染 ul 下的li
+     * @param $p
+     * @param list
+     */
+    function renderUl($p, list) {
+        var html = '';
+        $.each(list, function (index, item) {
+            html += '<li>' + item + '</li>'
+        });
+        $p.html(html);
+    }
+
+
+    /**
+     *  初始化条件
+     * @param elezNodes
+     * @param $pNode
+     */
+    function initCondition(elezNodes, $pNode, val) {
+        // debugger
+        var options = '<option>请选择</option>';
+        for (var i = 0; i < elezNodes.length; i++) {
+            if (val && elezNodes[i].key === val) {
+                options += '<option value="' + elezNodes[i].key + '"  selected="selected">' + elezNodes[i].value + '</option>';
+            } else {
+                options += '<option value="' + elezNodes[i].key + '">' + elezNodes[i].value + '</option>';
+            }
+        }
+        $pNode.html(options);
+    }
+
+    /**
+     * 条件列表加载
+     * @param elezNodes
+     * @param $pNode
+     */
+    function initCascadeId(elezNodes, $pNode) {
+        var options = '<option>请选择</option>';
+        //过滤掉自由文本
+        var elezNodes = $.extend(true, [], elezNodes);
+        elezNodes = $.grep(elezNodes, function (item) {
+            return item.node.eleType != 'textnode';
+        });
+        for (var i = 0; i < elezNodes.length; i++) {
+            if (usersetting && usersetting.cascadeId === elezNodes[i].id) {
+                options += '<option value="' + elezNodes[i].id + '" selected="selected">' + elezNodes[i].name + '</option>'
+            } else {
+                options += '<option value="' + elezNodes[i].id + '">' + elezNodes[i].name + '</option>'
+            }
+
+        }
+        $pNode.html(options);
+    }
+
+    /**
+     *  对node数据 设置 显示隐藏操作
+     * @param treeId
+     * @param node
+     */
+    function updateNode(treeId, node) {
+        if (!node) return;
+        var isShow = $("input[name='control']:checked").val() == '1' ? true : false;
+        var ids = [];//选中的id 集合，如果是隐藏元素 是id 及 子元素集合
+        node.isShow = isShow;//针对原始node数据设置isShow
+        if (!isShow && node.isParent) {
+            ids = getChildren(ids, node);
+            setChildrenHide(ids, node);
+        } else {
+            ids.push(node.id);
+            //id 及 子元素集合 隐藏
+            setChildren(ids, node, isShow);
+        }
+        setdisplayNode();//增加显示隐藏字段
+    }
+
+
+    /**
+     * 设置属性
+     * @param tarNode
+     * @param attr
+     * @param newAttrValue
+     */
+    function setAttr(tarNode, attr, newAttrValue) {
+        var attrOld = tarNode.attr(attr);
+
+        if (attrOld === undefined) {
+            tarNode.attr(attr, newAttrValue);
+        } else {
+            var arr = [];
+            arr.push(attrOld);
+            // console.log("attrOld：",attrOld);
+            // console.log("newAttrValue",newAttrValue);
+            arr.push(newAttrValue);
+            tarNode.attr(attr, arr.toString());
+        }
+    }
+
+
+    function removeAttr(node, attrList) {
+        $.each(attrList, function (index, item) {
+            node.removeAttr(item);
+        });
+    }
+</script>
+<script src="js/cascadesetter.js"></script>

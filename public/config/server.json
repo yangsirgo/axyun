@@ -1,0 +1,32 @@
+{
+    "dev": {
+        "BASE_API": "http://192.168.197.101:8762",
+        "UREPORT_API": "http://192.168.197.101:8887",
+        "EDITOR_PATH": "http://192.168.197.132:8001/yun/#/record/?env=yun_dev"
+    },
+    "development": {
+        "BASE_API": "http://192.168.197.101:8762",
+        "UREPORT_API": "http://192.168.197.101:8887",
+        "EDITOR_PATH": "http://192.168.197.132:8001/yun/#/record/?env=yun_dev"
+    },
+    "production": {
+        "BASE_API": "http://192.168.197.101:8762",
+        "UREPORT_API": "http://192.168.197.101:8887",
+        "EDITOR_PATH": "http://192.168.197.132:8001/yun/#/record/?env=yun_dev"
+    },
+    "staging": {
+        "BASE_API": "/stage-api",
+        "UREPORT_API": "http://192.168.197.101:8887",
+        "EDITOR_PATH": "http://192.168.197.132:8001/yun/#/record/?env=yun_dev"
+    },
+    "test": {
+        "BASE_API": "http://192.168.197.185:32762",
+        "UREPORT_API": "http://192.168.197.185:32887",
+        "EDITOR_PATH": "http://192.168.197.132:8001/yun/#/record/?env=yun_dev"
+    },
+    "v1": {
+        "BASE_API": "http://192.168.197.101:10762",
+        "UREPORT_API": "http://192.168.197.185:32887",
+        "EDITOR_PATH": "http://192.168.197.132:8001/yun/#/record/?env=yun_dev"
+    }
+}

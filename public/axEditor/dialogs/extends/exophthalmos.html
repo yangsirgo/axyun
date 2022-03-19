@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>眼球突出度</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="generator" content="" />
+    <link rel="stylesheet" href="./css/ax.dialog.css">
+    <link rel="stylesheet" href="./css/expression/public.css">
+    <link rel="stylesheet" href="./css/expression/expression.css">
+    <link rel="stylesheet" href="./css/expression/exophthalmos.css">
+</head>
+<body>
+    <div class="content">
+        <div class="eye-wrap">
+            <div class="lefttop-line line"></div>
+            <div class="left-inputwrap">
+                <label for="leftinput">左</label>
+                <input class="value-input" type="text" name="lefteyespace" autocomplete="off" id="ivalue1">
+                <span>mm</span>
+            </div>
+            <div class="leftbottom-line line"></div>
+            <div class="center">
+                <div class="center-inputwrap">
+                    <label for="centerinput">眶距 </label>
+                    <input class="value-input" type="text" name="centereyespace" autocomplete="off" id="ivalue2">
+                    <span>mm</span>
+                </div>
+                
+            </div>
+            <div class="center-line"></div>
+            <div class="righttop-line line"></div>
+            <div class="right-inputwrap">
+                <label for="rightinput">右</label>
+                <input class="value-input" type="text" name="righteyespace" autocomplete="off" id="ivalue3">
+                <span>mm</span>
+            </div>
+            <div class="rightbottom-line line"></div>
+        </div>
+    </div>
+    <div class="title">实时预览：</div>
+    <div id="preview_slot"></div>
+    <!-- <div id="imgBox">
+        <div class="eye-wrap">
+            <div class="lefttop-line line"></div>
+            <div class="left-inputwrap">
+                <label for="leftinput">左</label>
+                <span class="value-wrapper" id="value1"></span>
+                <span>mm</span>
+            </div>
+            <div class="leftbottom-line line"></div>
+            <div class="center">
+                <div class="center-inputwrap">
+                    <label for="centerinput">眶距 </label>
+                    <span class="value-wrapper" id="value2"></span>
+                    <span>mm</span>
+                </div>
+            </div>
+            <div class="center-line"></div>
+            <div class="righttop-line line"></div>
+            <div class="right-inputwrap">
+                <label for="rightinput">右</label>
+                <span class="value-wrapper" id="value3"></span>
+                <span>mm</span>
+            </div>
+            <div class="rightbottom-line line"></div>
+        </div>
+    </div> -->
+    <div id="toolbar">
+        <button id="doCancel">取消</button>
+        <button id="doOk">确定</button>
+    </div>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/medical.js"></script>
+    <script type="text/javascript" src="../internal.js"></script>
+    <script src="../../third-party/date/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        var thePlugins = 'exophthalmos';
+        var attrs = {
+            value1: "",
+            value2: "",
+            value3: ""
+        };
+    </script>
+    <script src="js/exophthalmos.js"></script>
+</body>
+</html>

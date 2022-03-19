@@ -1,0 +1,30 @@
+.well--tooltip {
+    min-width: 300px;
+    max-width: 300px;
+    margin: 0;
+}
+
+@media (min-width: 500px) {
+    .well--tooltip {
+        max-width: 380px;
+    }
+}
+
+/* Tooltip Arrow */
+.well--tooltip::before,
+.well--tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -14px;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 14px solid #cccccc;
+}
+.well--tooltip::after {
+    border-top-color: #f5f5f5;
+    margin-top:  -1px;
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>签名元素</title>
+    <link rel="stylesheet" href="css/ax.dialog.css" />
+    <style>
+      .previews {
+        color: #cccccc;
+        font-size: 14px;
+        padding-left: 36px;
+      }
+      .preview {
+        padding-left: 46px;
+      }
+      .preview span {
+        display: none;
+      }
+      .checkshow {
+        display: none;
+      }
+      table tr td {
+        text-align: left;
+      }
+      table tr td:first-child {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <form id="signature">
+        <fieldset>
+          <legend>基本属性</legend>
+          <table>
+            <tr>
+              <td>元素编码</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="id"
+                  id="id"
+                  readonly
+                />
+              </td>
+              <!-- </tr>
+                <tr> -->
+              <td>元素名称</td>
+              <td style="width: 246px">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="name"
+                  id="name"
+                  style="width: 115px;"
+                />
+                <!-- <select
+                  name="namepos"
+                  id="namepos"
+                  class="namepos"
+                  style="width: 80px;"
+                >
+                  <option value="hidden" selected>隐藏</option>
+                  <option value="left">居左</option>
+                  <option value="right">居右</option>
+                </select> -->
+              </td>
+            </tr>
+            <tr>
+              <td>提示文本</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="tipText"
+                  id="tipText"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>勾选属性</legend>
+          <ul class="checkSettings">
+            <!-- <li>
+              <input type="checkbox" name="isEmpty" id="isEmpty" />
+              <label for="isEmpty">可为空</label>
+            </li> -->
+            <li>
+              <input type="checkbox" name="isDel" id="isDel" />
+              <label for="isDel">可删除</label>
+            </li>
+            <li style="width: 120px;">
+              <input type="checkbox" name="showPlaceholder" id="showPlaceholder">
+              <label for="showPlaceholder">显示占位文本</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isPrint" id="isPrint"  checked/>
+              <label for="isPrint">可打印</label>
+            </li>
+            <!-- <li>
+              <input type="checkbox" name="checkDirectCite" id="checkDirectCite" checked />
+              <label for="checkDirectCite">直接引用</label>
+            </li> -->
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>边框设置</legend>
+          <div>
+            <span class="label">显示类型: </span>
+            <input
+              type="radio"
+              name="borderType"
+              id="underline"
+              value="underline"
+            />
+            <label for="underline">下划线</label>
+            <input type="radio" name="borderType" id="border" value="border"
+            checked />
+            <label for="border">边框</label>
+            <input type="radio" name="borderType" id="border" value="none" />
+            <label for="none">隐藏</label>
+          </div>
+          <div id="borderType">
+            <span class="label">边框类型: </span>
+            <select
+              name="borderStyle"
+              id="borderStyle"
+              class="borderStyle"
+              style="width: 100px;"
+            >
+              <option value="0" selected>[]</option>
+              <option value="1">{}</option>
+              <option value="2">“”</option>
+            </select>
+          </div>
+          <div id="borderHolder">
+            <label for="stainholder">边框是否占位</label>
+            <input type="checkbox" name="stainholder" id="stainholder" />
+          </div>
+        </fieldset>
+        <fieldset id="insertPart1">
+          <legend>专有属性</legend>
+          <span class="setting-box">
+            <input
+              type="radio"
+              name="signtype"
+              id="textsign"
+              value="textsign"
+              class="signtype"
+              checked
+            />
+            <label for="textsign">正文签名</label>
+          </span>
+          <span class="setting-box">
+            <input
+              type="radio"
+              name="signtype"
+              id="checksign"
+              value="checksign"
+              class="signtype"
+            />
+            <label for="checksign">审签签名</label>
+          </span>
+          <div class="checkshow">
+            <span class="setting-box">
+              <input
+                type="radio"
+                name="sort"
+                id="isHorizontal"
+                value="isHorizontal"
+                class="sort"
+              />
+              <label for="isHorizontal">横版</label>
+            </span>
+            <span class="setting-box">
+              <input
+                type="radio"
+                name="sort"
+                id="isVertical"
+                value="isVertical"
+                class="sort"
+                checked
+              />
+              <label for="isVertical">竖版</label>
+            </span>
+          </div>
+
+          <div class="textshow">
+            <label for="placeholderText">占位文本</label>
+            <input
+              type="text"
+              autocomplete="off"
+              name="placeholderText"
+              id="placeholderText"
+              style="width: 250px;"
+            />
+            <br />
+            <input type="checkbox" name="isCurrDoctor" id="isCurrDoctor" />
+            <label for="isCurrDoctor">默认当前书写医师</label>
+          </div>
+        </fieldset>
+        <div class="checkshow">
+          <table>
+            <tr>
+              <td width="100"></td>
+              <td>审签级别</td>
+              <td>占位文本</td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="signatureLevel"
+                  value="oneLevel"
+                  id="oneLevel"
+                  checked
+                />
+              </td>
+              <td><label for="oneLevel">一级</label></td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="placeholderTextArr"
+                  placeholder="一级医师"
+                  style="width: 250px;"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="signatureLevel"
+                  value="twoLevel"
+                  id="twoLevel"
+                />
+              </td>
+              <td><label for="twoLevel">二级</label></td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="placeholderTextArr"
+                  placeholder="二级医师"
+                  style="width: 250px;"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="signatureLevel"
+                  value="threeLevel"
+                  id="threeLevel"
+                />
+              </td>
+              <td><label for="threeLevel">三级</label></td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="placeholderTextArr"
+                  placeholder="三级医师"
+                  style="width: 250px;"
+                />
+              </td>
+            </tr>
+          </table>
+
+          <!-- <span class="setting-box">
+                <input type="checkbox" name="signatureLevel" value="oneLevel" id="oneLevel" checked>
+                <label for="oneLevel">一级</label>
+            </span>
+            <span class="setting-box">
+                <input type="checkbox" name="signatureLevel" value="twoLevel" id="twoLevel">
+                <label for="twoLevel">二级</label>
+            </span>
+            <span class="setting-box">
+                <input type="checkbox" name="signatureLevel" value="threeLevel" id="threeLevel">
+                <label for="threeLevel">三级</label>
+            </span> -->
+          <div class="previews">
+            <p>预览</p>
+            <div class="preview">主管医师</div>
+            <div class="preview"><span>/</span>主治医师</div>
+            <div class="preview"><span>/</span>主任医师</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+
+  <script src="../../third-party/jquery-1.10.2.min.js"></script>
+  <script src="../internal.js"></script>
+  <script src="js/baseElement.js"></script>
+  <script>
+    var formName = "signature",
+      thePlugins = "signature";
+    $("#name").blur(function() {
+      //标签元素的默认值是元素名称
+      var name = $("#name").val();
+      $("#defaultVal").val(name);
+    });
+
+    $(".sort").change(function() {
+      if ($(this).val() === "isVertical") {
+        $(".preview").css("display", "block");
+        $(".preview span").hide();
+      } else {
+        $(".preview").css("display", "inline-block");
+        $(".preview span").show();
+      }
+    });
+    $(".signtype").change(function() {
+      if ($(this).val() === "textsign") {
+        $(".textshow").show();
+        $(".checkshow").hide();
+      } else {
+        $(".checkshow").show();
+        $(".textshow").hide();
+      }
+    });
+  </script>
+</html>

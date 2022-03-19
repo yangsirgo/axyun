@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>下拉元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="generator" content=""/>
+    <link rel="stylesheet" href="css/ax.dialog.css">
+    <link rel="stylesheet" href="../../third-party/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../third-party/pages/pagination.css">
+    <style>
+        #toolbar{
+            text-align: right;
+        }
+        .range-table td{
+            text-align: center;
+        }
+        .range-table td input[type="text"]{
+            width: 70px;
+            height: 26px;
+            padding: 0 5px;
+        }
+        .opt-icon{
+            width: 16px;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <form id="radioForm">
+        <fieldset>
+            <legend>基本属性</legend>
+            <table>
+                <tr>
+                    <td>数据元</td>
+                    <td>
+                        <input type="text" id="metaData" style="width:316px;margin-right: 10px;"><img title="列表查询" style="vertical-align: -5px;cursor:pointer;" src="images/search.png" id="showMore">
+                        <input type="hidden" id="metaDataId">
+                        <input type="hidden" name="metaData" id="metaDataInfo">
+                    </td>
+                </tr>
+                <tr>
+                    <td>元素编码</td>
+                    <td><input type="text" autocomplete="off" name="id" id="id" readonly></td>
+                </tr>
+                <tr>
+                    <td>元素名称</td>
+                    <td><input type="text" autocomplete="off" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <td>占位文本</td>
+                    <td><input type="text" autocomplete="off" name="placeholderText" id="placeholderText"></td>
+                </tr>
+                <tr>
+                    <td>提示文本</td>
+                    <td><input type="text" autocomplete="off" name="tipText" id="tipText"></td>
+                </tr>
+                <!-- <tr>
+                    <td>前缀</td>
+                    <td><input type="text" autocomplete="off" name="prefix"></td>
+                    <td>后缀</td>
+                    <td><input type="text" autocomplete="off" name="suffix"></td>
+                </tr> -->
+                <!--<tr id="defaultValTr">-->
+                    <!--<td>默认值</td>-->
+                    <!--<td colspan="3">-->
+                        <!--<input type="text" autocomplete="off" name="defaultVal" id="defaultVal">-->
+                    <!--</td>-->
+                <!--</tr>-->
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>勾选属性</legend>
+            <ul class="checkSettings">
+                <li>
+                    <input type="checkbox" name="readonly" id="readonly">
+                    <label for="readonly">只读</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="isSecret" id="isSecret">
+                    <label for="isSecret">保密</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="isDel" id="isDel" checked>
+                    <label for="isDel">可删除</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="showBorder" id="showBorder" checked>
+                    <label for="showBorder">显示边框</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="isHide" id="isHide">
+                    <label for="isHide">隐藏</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="quot" id="quot">
+                    <label for="quot">引用</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="source" id="source">
+                    <label for="source">源</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="isEmpty" id="isEmpty" checked>
+                    <label for="isEmpty">可为空</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="isPrint" id="isPrint" checked>
+                    <label for="isPrint">可打印</label>
+                </li>
+            </ul>
+        </fieldset>
+        <!-- <fieldset>
+            <legend>打印设置</legend>
+            <span class="setting-box setting-box-dayin1">
+                    <input type="checkbox" name="startStain" id="startStain">
+                    <label for="startStain">起始边框是否占位</label>
+                </span>
+            <span class="setting-box">
+                    <input type="checkbox" name="endStain" id="endStain">
+                    <label for="endStain">结束边框是否占位</label>
+                </span>
+        </fieldset> -->
+        <fieldset>
+            <legend>展示方向</legend>
+            <span class="setting-box setting-box-dayin1">
+                <input type="radio" name="direction" checked value="0" id="horizon">
+                <label for="horizon">横向</label>
+            </span>　
+            <span class="setting-box">
+                <input type="radio" name="direction" value="1" id="vertical">
+                <label for="vertical">纵向</label>
+            </span>
+        </fieldset>
+        <fieldset>
+            <legend>类型转换</legend>
+            <span class="setting-box" id="checkbox-part">
+                <input type="radio" name="transferType" value="checkbox" id="transferCheckboxs">
+                <label for="transferCheckboxs">复选元素</label>
+            </span>　
+            <span class="setting-box" id="select-part">
+                <input type="radio" name="transferType" value="select" id="transferSelect">
+                <label for="transferSelect">下拉单选元素</label>
+            </span>　
+            <span class="setting-box" id="selectmulti-part">
+                <input type="radio" name="transferType" value="selectmulti" id="transferMultiSelect">
+                <label for="transferMultiSelect">下拉多选元素</label>
+            </span>
+        </fieldset>
+        <fieldset id="insertPart">
+            <legend>专有属性</legend>
+            <!-- <span class="setting-box">
+                    <input type="radio" name="isRange" id="isDictRange" value="isDictRange">
+                    <label for="isDictRange">字典值域</label>
+            </span>　
+            <span class="setting-box">
+                    <input type="radio" name="isRange" id="isCustRange" checked value="isCustRange">
+                    <label for="isCustRange">自定义值域</label>
+            </span> -->
+            <div id="toolbar">
+                <a href="javascript:void(0);" onclick="fnAdd()">添加</a>
+            </div>
+            <table class="range-table border" id="options_table">
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="96">值</th>
+                    <th width="96">含义</th>
+                    <th width="68">设为默认</th>
+                    <th width="80">操作</th>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>级联属性</legend>
+            <span>
+                    <input type="text" autocomplete="off" name="cascadeId" id="cascadeId" placeholder="级联来源（上级元素编码）" value="">
+                </span>
+            <span>
+                    <select name="operator" id="operator" class="operator">
+                        <option value="=">等于</option>
+                        <option value="!=">不等于</option>
+                        <option value=">">大于</option>
+                        <option value=">=">大于等于</option>
+                        <option value="<">小于</option>
+                        <option value="<=">小于等于</option>
+                        <option value="in">包含</option>
+                        <option value="null">为空</option>
+                        <option value="notNull">不为空</option>
+                    </select>
+                </span>
+            <span>
+                    <input type="text" autocomplete="off" name="showCondition" id="showCondition" placeholder="显示条件（写入级联来源的值）" value="">
+                </span>
+        </fieldset>
+    </form>
+</div>
+<script src="../../third-party/jquery-1.10.2.min.js"></script>
+<script src="../../third-party/jquery-ui.min.js"></script>
+<script src="../../third-party/pages/pagination.min.js"></script>
+<script src="../internal.js"></script>
+<script src="js/ranges.js"></script>
+<script src="js/metadata.js"></script>
+<script src="js/baseElement.js"></script>
+<script type="text/javascript">
+    var formName = 'radioForm',thePlugins = 'radio',pluginCode='04';
+</script>
+</body>
+</html> 

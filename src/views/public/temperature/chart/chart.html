@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="./jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+  <script src="./utils.js"></script>
+  <script src="./scroll.js"></script>
+  <title>时间轴</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./graphStyle.js"> </script>
+  <script src="./pixi.extend.js"> </script>
+  <script src="./chart.js"> </script>
+  <script>
+    var running = false;
+    function start(data) {
+      if (running) {
+        return;
+      }
+      running = true;
+      var root = window.root = new Chart();
+      root.update(data);
+      function tick() {
+        root.app.render(root.scene);
+        requestAnimationFrame(tick);
+      }
+      tick();
+      // setInterval(function() {
+      //   needData = needData.concat(JSON.parse(JSON.stringify(needData[1])))
+      //   root.update(needData);
+      // }, 3000)
+    }
+    window.postMsgToParent = function(msg) {
+      window.parent.postMessage(
+        {
+          act: "timeLineClick",
+          msg: msg
+        },
+        "*"
+      );
+    };
+  </script>
+  <script src="./message.js"> </script>
+</body>
+
+</html>

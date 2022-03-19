@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="css/ax.dialog.css">
+</head>
+<body>
+<div class="content">
+    <form id="parasetter">
+        <fieldset>
+            <table>
+                <!-- <tr>
+                    <td>列表方式</td>
+                    <td>
+                        <select name="listType" id="listType"></select>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>首行缩进量（em）</td>
+                    <td><input type="text" autocomplete="off" id="indentValue" name="indentValue" value="0"></td>
+                </tr>
+                <tr>
+                    <td>段落前间距</td>
+                    <td>
+                        <select name="rowspacingTop" id="rowspacingTop"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>段落后间距</td>
+                    <td>
+                        <select name="rowspacingBottom" id="rowspacingBottom"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>行距</td>
+                    <td>
+                        <select name="lineHeight" id="lineHeight"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>标题独占一行</td>
+                    <td style="text-align:left"><input type="checkbox"  name="singleTitle" id="singleTitle" ></td>
+                </tr>
+                <tr id="titleBg">
+                    <td>标题背景色</td>
+                    <td><input type="text" autocomplete="off" name="titleBg" id="titleColor" placeholder="背景颜色" class="jscolor {required:false}"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+    </form>
+</div>
+
+<script src="../../third-party/jscolor-2.0.4/jscolor.min.js"></script>
+<script src="../internal.js"></script>
+<script>
+    
+    //初始化加载之前编辑的数据
+    window.onload = function() {
+        if (editor) {
+            //列表类型
+            var orderList=editor.options.insertorderedlist,orderOptions='<option value="">无</option>';
+            for(var key in orderList){
+                orderOptions+='<option value="'+key+'">'+editor.getLang('insertorderedlist.'+key)+'</option>';
+            }
+            $('#listType').html(orderOptions);
+
+            //行高
+            var lhList=editor.options.lineheight,lhOptions='';
+            for(var i=0;i<lhList.length;i++){
+                lhOptions+='<option value="'+lhList[i]+'" '+(lhList[i]==2?'selected':'')+'>'+lhList[i]+'</option>';
+            }
+            $('#lineHeight').html(lhOptions);
+
+            //段前距
+            var rtList=editor.options.rowspacingtop,rtOptions='';
+            for(var i=0;i<rtList.length;i++){
+                rtOptions+='<option value="'+rtList[i]+'">'+rtList[i]+'</option>';
+            }
+            $('#rowspacingTop').html(rtOptions);
+            
+            //段后距
+            var rbList=editor.options.rowspacingbottom,rbOptions='';
+            for(var i=0;i<rbList.length;i++){
+                rbOptions+='<option value="'+rbList[i]+'">'+rbList[i]+'</option>';
+            }
+            $('#rowspacingBottom').html(rbOptions);
+
+            //反显已设置数据
+            var paragraphSettings=editor.document.getElementById('paragraphSettings'),
+                psVals={};
+            if(paragraphSettings){
+                psVals=JSON.parse(paragraphSettings.value);
+                $("#parasetter").fillForm(psVals);
+            }
+
+            //未设置行高时，反显默认行高2em
+            if(!psVals.lineHeight){
+                $('#lineHeight option[value="2"]').attr('selected',true);
+            }
+            $('#titleColor').focus().blur();
+        }
+    };
+
+    dialog.onok = function () {
+        var json = $("#parasetter").serializeJson();
+        //必须是数字
+        if (!isNumber(json.indentValue)) {
+            alert ("首行缩进应为数字！");
+            return false;
+        }
+        editor.execCommand('doparasetter',json);
+    };
+
+
+    /**
+     * @Description: 是否是数字
+     * @date 2019/6/18
+     * @param text
+     */
+    function isNumber (nubmer){
+        // 判断是不是数字
+        var re = /^[0-9]+.?[0-9]*/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/
+        if (re.test(nubmer)) {
+            return true;
+        }
+        return false;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>通用医学表达式4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="generator" content="" />
+    <link rel="stylesheet" href="./css/ax.dialog.css">
+    <link rel="stylesheet" href="./css/expression/public.css">
+    <link rel="stylesheet" href="./css/expression/expression.css">
+    <link rel="stylesheet" href="./css/expression/common4.css">
+</head>
+<body>
+    <div class="content">
+        <div class="left">
+            <div class="line-wrapper">
+                <input type="text" autocomplete="off" class="value1 value-input" id="value1" placeholder="value1">
+                <input type="text" autocomplete="off" class="value-buf float-right margin-top-08" id="value1b" placeholder="">
+            </div>
+        </div>
+        <div class="left-line"></div>
+        <div class="right-line"></div>
+        <div class="period">
+            <div class="line-wrapper"> 
+                <input type="text" autocomplete="off" class="value2 value-input" id="value2" placeholder="value2">
+                <input type="text" autocomplete="off" class="value-buf float-right margin-top-08" id="value2b" placeholder="">
+            </div>
+        </div>
+        <div class="cycle">
+            <div class="line-wrapper">  
+                <input type="text" autocomplete="off" class="value4 value-input" id="value4" placeholder="value4">
+                <input type="text" autocomplete="off" class="value-buf float-right margin-top-08" id="value4b" placeholder="">
+            </div>
+        </div>
+        <div class="right">
+            <div class="line-wrapper">
+                <input type="text" autocomplete="off" class="value3 value-input" id="value3" placeholder="value3">
+                <input type="text" autocomplete="off" class="value-buf float-right margin-top-08" id="value3b" placeholder="">
+            </div>
+        </div>
+    </div>
+    <div class="title">实时预览：</div>
+    <div id="preview_slot"></div>
+    <!-- <div id="imgBox">
+        <div class="left val-box"><span class="value-tip" id="svalue1"></span><span class="img-tip float-right margin-top-08" id="svalue1b"></span></div>
+        <div class="left-line"></div>
+        <div class="right-line"></div>
+        <div class="period">
+            <div class="val-box"><span class="value-tip" id="svalue2"></span><span class="img-tip float-right margin-top-08" id="svalue2b"></span></span></div>
+        </div>
+        <div class="cycle">
+            <div class="val-box"><span class="value-tip" id="svalue4"></span><span class="img-tip float-right margin-top-08" id="svalue4b"></span></span></div>
+        </div>
+        <div class="right">
+            <div class="val-box"><span class="value-tip" id="svalue3"></span><span class="img-tip float-right margin-top-08" id="svalue3b"></span></span></div>
+        </div>
+    </div> -->
+    <div id="toolbar">
+        <button id="doCancel">取消</button>
+        <button id="doOk">确定</button>
+    </div>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script type="text/javascript" src="../internal.js"></script>
+    <script src="../../third-party/date/laydate/laydate.js"></script>
+    <script src="js/medical.js"></script>
+    <script type="text/javascript">
+        var thePlugins = 'common4';
+        var attrs = {
+            value1: "",
+            value2: "",
+            value3: "",
+            value4: "",
+            value1b: "",
+            value2b: "",
+            value3b: "",
+            value4b: ""
+        };
+    </script>
+    <script src="js/common3.js"></script>
+</body>
+</html>

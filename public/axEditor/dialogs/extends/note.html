@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <style>
+      textarea {
+        width: 99%;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea class="note" rows="8" id="note"></textarea>
+    <script src="./js/lib.data.format.js"></script>
+    <script src="../internal.js"></script>
+    <script type="text/javascript">
+      (function(AX) {
+        function getCurrDate(formatStr) {
+            if (!formatStr) {
+            formatStr = "yy-m-d H:i:s";
+            }
+            var date = new Date();
+            console.log(date.format(formatStr))
+            return date.format(formatStr);
+        }
+        var oNode = null,
+          thePlugins = "note";
+        //初始化加载之前编辑的数据
+        window.onload = function() {
+          if (AX.plugins[thePlugins].editdom) {
+            oNode = AX.plugins[thePlugins].editdom;
+            $G("note").value = oNode.getAttribute("noteText");
+          }
+          $G("note").focus();
+        };
+
+        dialog.oncancel = function() {
+          if (AX.plugins[thePlugins].editdom) {
+            delete AX.plugins[thePlugins].editdom;
+          }
+        };
+        dialog.onok = function() {
+          if ($G("note").value == "") {
+            alert("请输入批注内容");
+            return false;
+          }
+
+          var userInfo = editor.options.userInfo,
+            userId = userInfo ? userInfo.id : editor.getLang("ax.anonymous"),
+            userName = userInfo.name;
+
+          if (!oNode) {
+            try {
+              editor.execCommand("noteconstructor", {
+                val: $G("note").value,
+                userId: userId,
+                userName: userName,
+                noteTime: getCurrDate()
+              });
+              dialog.close();
+            } catch (e) {
+              try {
+                console.log(e);
+                editor.execCommand("error");
+              } catch (e) {
+                alert("控件异常，请联系 [安想智慧医疗] 管理员！");
+              }
+              return false;
+            }
+          } else {
+            var history = oNode.getAttribute("history");
+            var historyList = history.split("},"),
+              arr = [];
+            for (var i = 0; i < historyList.length; i++) {
+              arr.push(historyList[i] + "}");
+            }
+            arr.push(
+              JSON.stringify({
+                noteUserId: userId,
+                noteUser: userName,
+                noteText: $G("note").value
+              })
+            );
+            oNode.setAttribute("history", arr);
+            oNode.setAttribute("noteText", $G("note").value);
+            delete AX.plugins[thePlugins].editdom;
+          }
+        };
+      })(AX);
+    </script>
+  </body>
+</html>

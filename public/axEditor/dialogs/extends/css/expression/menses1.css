@@ -1,0 +1,69 @@
+.content {
+  overflow: hidden;
+  width: 410px;
+  margin: 30px auto;
+}
+
+.content > div,
+.imgBox > div {
+  float: left;
+  min-width: 20px;
+  margin: 5px;
+  text-align: center;
+}
+
+.left,
+.right {
+  padding-top: 20px;
+}
+.imgBox .left,
+.imgBox .right {
+  padding-top: 13px;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  margin: 10px 0;
+  background: #000;
+}
+
+.imgBox .line {
+  width: 100%;
+  height: 1px;
+  margin: 3px 0;
+  background: #000;
+}
+
+#toolbar {
+  width: 100%;
+  height: 60px;
+}
+
+#toolbar button {
+  float: right;
+  width: 70px;
+  height: 30px;
+  background: rgba(245, 247, 250, 1);
+  border: 1px solid rgba(220, 222, 227, 1);
+  cursor: default;
+}
+#toolbar button:hover {
+  background: #fff;
+}
+#toolbar #doOk {
+  margin-right: 30px;
+}
+
+#preview_slot {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.imgBox {
+  display: inline-block;
+  /* width: auto!important; */
+  min-width: 70px;
+  /* transform: translateX(-50%);
+  margin-left: 50% !important; */
+}

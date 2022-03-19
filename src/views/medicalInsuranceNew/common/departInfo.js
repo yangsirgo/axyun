@@ -1,0 +1,285 @@
+let departInfoColumns = [{
+  "prop": "operate",
+  "label": "操作",
+  "width": 180
+}, {
+  "prop": "recordStatus",
+  "label": "状态",
+  "width": 90
+}, {
+  "prop": "hospDeptCodg",
+  "label": "医院科室编码",
+  "width": 120
+}, {
+  "prop": "caty",
+  "label": "科别",
+  "code": "caty",
+  "width": 80
+}, {
+  "prop": "hospDeptName",
+  "label": "医院科室名称",
+  "width": 120
+}, {
+  "prop": "begntime",
+  "label": "开始时间",
+  "width": 160
+}, {
+  "prop": "endtime",
+  "label": "结束时间",
+  "width": 160
+}, {
+  "prop": "itro",
+  "label": "简介",
+  "width": 80
+}, {
+  "prop": "deptResperName",
+  "label": "科室负责人姓名",
+  "width": 140
+}, {
+  "prop": "deptResperTel",
+  "label": "科室负责人电话",
+  "width": 140
+}, {
+  "prop": "deptMedServScp",
+  "label": "科室医疗服务范围",
+  "width": 160
+}, {
+  "prop": "deptEstbdat",
+  "label": "科室成立日期",
+  "width": 160
+}, {
+  "prop": "aprvBedCnt",
+  "label": "批准床位数量",
+  "width": 120
+}, {
+  "prop": "hiCrtfBedCnt",
+  "label": "医保认可床位数",
+  "width": 140
+}, {
+  "prop": "poolareaNo",
+  "label": "统筹区编号",
+  "width": 100
+}, {
+  "prop": "drPsncnt",
+  "label": "医师人数",
+  "width": 80
+}, {
+  "prop": "pharPsncnt",
+  "label": "药师人数",
+  "width": 80
+}, {
+  "prop": "nursPsncnt",
+  "label": "护士人数",
+  "width": 80
+}, {
+  "prop": "tecnPsncnt",
+  "label": "技师人数",
+  "width": 80
+}, {
+  "prop": "memo",
+  "label": "备注",
+  "width": 80
+}];
+let formList = [{
+  "type": "input",
+  "label": "医院科室编码",
+  "prop": "hospDeptCodg",
+  "required": true,
+  "disabled": true
+}, {
+  "type": "select",
+  "label": "医院科室名称",
+  "prop": "hospDept",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "select",
+  "label": "科别",
+  "prop": "caty",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "date",
+  "label": "开始时间",
+  "prop": "begntime",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "date",
+  "label": "结束时间",
+  "prop": "endtime",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "input",
+  "label": "简介",
+  "prop": "itro",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "input",
+  "label": "科室负责人姓名",
+  "prop": "deptResperName",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "input",
+  "label": "科室负责人电话",
+  "prop": "deptResperTel",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "input",
+  "label": "科室医疗服务范围",
+  "prop": "deptMedServScp",
+  "required": false,
+  "disabled": false
+}, {
+  "type": "date",
+  "label": "科室成立日期",
+  "prop": "deptEstbdat",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "inputNumber",
+  "label": "批准床位数量",
+  "prop": "aprvBedCnt",
+  "required": true,
+  "disabled": false,
+  min: 0,
+  max: Infinity
+}, {
+  "type": "inputNumber",
+  "label": "医保认可床位数",
+  "prop": "hiCrtfBedCnt",
+  "required": false,
+  "disabled": false,
+  min: 0,
+  max: Infinity
+}, {
+  "type": "select",
+  "label": "统筹区编号",
+  "prop": "poolareaNo",
+  "required": true,
+  "disabled": false
+}, {
+  "type": "inputNumber",
+  "label": "医师人数",
+  "prop": "drPsncnt",
+  "required": true,
+  "disabled": false,
+  min: 0,
+  max: Infinity
+}, {
+  "type": "inputNumber",
+  "label": "药师人数",
+  "prop": "pharPsncnt",
+  "required": true,
+  "disabled": false,
+  min: 0,
+  max: Infinity
+}, {
+  "type": "inputNumber",
+  "label": "护士人数",
+  "prop": "nursPsncnt",
+  "required": true,
+  "disabled": false,
+  min: 0,
+  max: Infinity
+}, {
+  "type": "inputNumber",
+  "label": "技师人数",
+  "prop": "tecnPsncnt",
+  "required": true,
+  "disabled": false,
+  min: 0,
+  max: Infinity
+}, {
+  "type": "input",
+  "label": "备注",
+  "prop": "memo",
+  "required": false,
+  "disabled": false
+}];
+let rules = {
+  hospDeptCodg: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  caty: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  hospDeptName: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  begntime: [{
+    required: true,
+    message: '请输入',
+    trigger: 'change'
+  }],
+  endtime: [{
+    required: true,
+    message: '请输入',
+    trigger: 'change'
+  }],
+  itro: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  deptResperName: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  deptResperTel: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  deptEstbdat: [{
+    required: true,
+    message: '请输入',
+    trigger: 'change'
+  }],
+  aprvBedCnt: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  poolareaNo: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  drPsncnt: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  pharPsncnt: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  nursPsncnt: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }],
+  tecnPsncnt: [{
+    required: true,
+    message: '请输入',
+    trigger: 'blur'
+  }]
+};
+export {
+  departInfoColumns,
+  formList,
+  rules
+}

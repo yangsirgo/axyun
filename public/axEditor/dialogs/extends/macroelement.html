@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>基本元素</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="generator" content="">
+    <link rel="stylesheet" href="css/ax.dialog.css">
+    <script src="../internal.js"></script>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 20px 60px;
+        }
+
+        .content {
+            width: 600px;
+        }
+
+        button {
+            margin: 2px;
+            padding: 3px 10px;
+            border: 1px solid #49afcd;
+            border-radius: 3px;
+            color: #fff;
+            background: #49afcd;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <!-- <div class="btncontent"></div>
+    <input type="hidden" id="macroName"> -->
+
+        <form id="macroForm" class="text-form">
+            <table>
+                <tr>
+                    <td>元素编码</td>
+                    <td>
+                        <input type="text" autocomplete="off" name="id" id="id" autocomplete="off" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>名称</td>
+                    <td>
+                        <input type="text" autocomplete="off" name="name" id="name" autocomplete="off" readonly />
+                    </td>
+                </tr>
+            </table>
+            <fieldset>
+                <legend>勾选属性</legend>
+                <ul class="checkSettings">
+                    <li>
+                        <input type="checkbox" name="isEdit" id="isEdit" />
+                        <label for="isEditr">可编辑</label>
+                    </li>
+                </ul>
+            </fieldset>
+            <input type="hidden" autocomplete="off" name="code" id="code" autocomplete="off" readonly />
+            <input type="hidden" autocomplete="off" name="isSecret" id="isSecret" autocomplete="off" readonly />
+            <input type="hidden" autocomplete="off" name="borderType" id="borderType" value="underline" autocomplete="off" readonly />
+        </form>
+    </div>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="./js/baseElement.js"></script>
+    <script type="text/javascript">
+        var thePlugins = "macro",
+            flag = false,
+            inserHtml = '',
+            formName = "macroForm";
+    // $.each(editor.options.macrosData, function(index, el) {
+
+    //     inserHtml += '<fieldset><legend>' + el.groupName + '</legend>';
+    //     inserHtml += '<p style="line-height:35px;">';
+
+    //     $.each(el.groupItem, function (itemIde,Item){
+    //         var btnHtml  = makeBtnHtml (Item);
+    //         inserHtml += btnHtml;
+    //     });
+    //     inserHtml += '</p></fieldset>';
+    // });
+
+    // $('.btncontent').append(inserHtml);
+
+    // function makeBtnHtml (item){
+    //     var btn = document.createElement('button');
+    //     btn.className = 'macroElement';
+    //     btn.setAttribute("text", item.text);
+    //     //基本元素默认是 可打印 可删除 只读 不保密的
+    //     item.isPrint = true;
+    //     item.isSecret = false;
+    //     item.isDel = true;
+    //     item.readonly = true;
+    //     btn.setAttribute("attrs", JSON.stringify(item));
+    //     btn.setAttribute("macroCode", item.code);
+    //     btn.innerText = item.text;
+    //     return btn.outerHTML;
+    // }
+
+
+    //btn 绑定双击事件 直接插入编辑区域
+    // $('.macroElement').bind('dblclick', function(event) {
+    //     flag=true;
+    //     var attrs = $(this).attr('attrs');
+    //     var attrsObj = JSON.parse(attrs);
+    //     if (attrs) {
+    //         var htmlNode = AX.mh["macro"](attrsObj, thePlugins);
+    //         if (!htmlNode) {
+    //             editor.execCommand('error');
+    //             return false;
+    //         }
+    //         // var html = makeWrapHtml (attrsObj);
+    //         editor.execCommand('insertHtml', htmlNode.outerHTML);
+    //         dialog.close(true);
+    //     }
+    // });
+
+    //btn 绑定单击事件 插入到 文本框内编辑文本
+
+    // $('.macroElement').bind('click', function(event) {
+    //     var text = $(this).html();
+    //     $(".macroElement").removeClass("targetBtn");
+    //     $(this).addClass('targetBtn');
+    //     $("#macroName").val(text);
+    // });
+
+    // cancel btn 绑定单击事件 文本置空
+
+    // $("#cancel").on('click',function (){
+    //     $("#macroName").val("");
+    // });
+
+    // dialog.onok = function () {
+    //     if(flag){
+    //         flag=false;
+    //         return;
+    //     }
+    //     var text = $("#macroName").val();
+    //     var attrs = $(".targetBtn").attr("attrs");
+    //     var attrsObj = JSON.parse(attrs);
+    //     if (text) {
+    //         attrsObj.text = text;
+    //     }
+    //     if (text) {
+    //         var htmlNode = AX.mh["macro"](attrsObj, thePlugins);
+    //         if (!htmlNode) {
+    //             editor.execCommand('error');
+    //             return false;
+    //         }
+    //         // var html = makeWrapHtml (attrsObj);
+    //         editor.execCommand('insertHtml',htmlNode.outerHTML);
+    //     }
+    // };
+
+
+        /**
+         * 构造控件html
+         * @param {Object} json 控件属性json
+         * @returns {String} 控件html
+         */
+    // function makeWrapHtml (json) {
+    //     var html = makeHtml (json);
+    //     var id = uuidv4();
+    //     try {
+    //         oNode = createElement('span', id);
+    //         setAttrs(oNode,json);
+    //         oNode.setAttribute("contenteditable", 'false');
+    //         oNode.setAttribute('class', 'ctrl-bg ctrl-field');
+    //         oNode.setAttribute('axPlugins', thePlugins);
+    //         oNode.innerHTML = html;
+    //         return oNode.outerHTML;
+    //     } catch (e) {
+    //         try {
+    //             console.log(e);
+    //             editor.execCommand('error');
+    //         } catch (e) {
+    //             alert('控件异常，请联系 [安想智慧医疗] 管理员！');
+    //         }
+    //         return false;
+    //     }
+
+    // }
+
+        /**
+         * 构造控件html
+         * @param {Object} json 控件属性json
+         * @returns {String} 控件html
+         */
+    // function makeHtml(json) {
+
+    //     //基本元素默认是 可打印 可删除 只读 不保密的
+    //     var innerText = json.value ? json.value : json.text;
+    //     var html = '<span macroCode="'+json.code+'" title="' + json.text + '" secret-value="' + json.isSecret + '" contenteditable="' + json.readonly + '" class="ctrl-value">' + innerText + '</span>';
+    //     return html;
+    // }
+
+        /**
+         * 设置dom节点属性
+         * @param {DOM} node 节点
+         * @param {Object} json json属性
+         * @returns {Null} nul
+         */
+    // function setAttrs(node,json){
+
+    //     node.setAttribute('title', json.text);
+    //     node.setAttribute('isSecret', false);
+    //     node.setAttribute('start-stain', '[');
+    //     node.setAttribute('end-stain', ']');
+    //     // node.setAttribute('cascadeId', json.cascadeId);
+    //     // node.setAttribute('showCondition', json.showCondition);
+    //     node.setAttribute('attrs', JSON.stringify(json));
+    // }
+    </script>
+</body>
+
+</html>

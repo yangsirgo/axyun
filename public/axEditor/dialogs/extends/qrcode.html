@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>二维码</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="generator" content=""/>
+    <link rel="stylesheet" href="css/ax.dialog.css">
+    <link rel="stylesheet" href="../../third-party/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../third-party/pages/pagination.css">
+    <link rel="stylesheet" href="css/other/qrcode.css">
+    <script type="text/javascript" src="../internal.js"></script>
+</head>
+<body>
+<!--<div class="content">
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th><span>控件名称</span><span class="label label-important">*</span></th>
+            <th><span>类型</span></th>
+        </tr>
+        <tr>
+            <td>
+                <input id="orgname" placeholder="必填项" type="text" autocomplete="off"/>
+            </td>
+            <td>
+                <select id="orgtype" class="form-control">
+                    <option value="text">文本</option>
+                    <option value="url">超链接 url</option>
+                    <option value="tel">电话</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><span>文本框样式</span></th>
+            <td>
+                宽 <input id="orgwidth" type="text" autocomplete="off" value="40" class="input-small span1" placeholder="auto"/> px
+                &nbsp;&nbsp;
+                高 <input id="orgheight" type="text" autocomplete="off" value="40" class="input-small span1" placeholder="auto"/> px
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label for="orgvalue">内容</label>
+                <textarea class="input-block-level" rows="3" id="orgvalue" placeholder="二维码内容..."></textarea>
+            </td>
+        </tr>
+    </table>
+    <div class="alert alert-danger">提示：二维码只支持少量内容，请不要加入大量内容</div>
+</div>-->
+<form id="qrcodeForm" class="text-form">
+    <fieldset>
+        <legend>基本属性</legend>
+        <table>
+            <tr>
+                <td>数据元</td>
+                <td>
+                    <input type="text" id="metaData" style="width:316px;margin-right: 10px;"><img title="列表查询" style="vertical-align: -5px;cursor:pointer;" src="images/search.png" id="showMore">
+                    <input type="hidden" id="metaDataId">
+                    <input type="hidden" name="metaData" id="metaDataInfo">
+                </td>
+            </tr>
+            <tr>
+                <td>元素编码</td>
+                <td><input type="text" autocomplete="off" name="id" id="id" readonly></td>
+            </tr>
+            <tr>
+                <td>元素名称</td>
+                <td><input type="text" autocomplete="off" name="name" id="name"></td>
+            </tr>
+            <tr>
+                <td>占位文本</td>
+                <td><input type="text" autocomplete="off" name="placeholderText" id="placeholderText"></td>
+            </tr>
+            <tr>
+                <td>提示文本</td>
+                <td><input type="text" autocomplete="off" name="tipText" id="tipText"></td>
+            </tr>
+            <tr style="display: none">
+                <td>默认值</td>
+                <td colspan="3">
+                    <input type="text" autocomplete="off" name="defaultVal" id="defaultVal">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>勾选属性</legend>
+        <ul class="checkSettings">
+            <li>
+                <input type="checkbox" name="readonly" id="readonly">
+                <label for="readonly">只读</label>
+            </li>
+            <li>
+                <input type="checkbox" name="isSecret" id="isSecret">
+                <label for="isSecret">保密</label>
+            </li>
+            <li>
+                <input type="checkbox" name="isDel" id="isDel" checked>
+                <label for="isDel">可删除</label>
+            </li>
+            <li>
+                <input type="checkbox" name="showBorder" id="showBorder" checked>
+                <label for="showBorder">显示边框</label>
+            </li>
+            <li>
+                <input type="checkbox" name="isHide" id="isHide">
+                <label for="isHide">隐藏</label>
+            </li>
+            <li>
+                <input type="checkbox" name="quot" id="quot">
+                <label for="quot">引用</label>
+            </li>
+            <li>
+                <input type="checkbox" name="source" id="source">
+                <label for="source">源</label>
+            </li>
+            <li>
+                <input type="checkbox" name="isEmpty" id="isEmpty" checked>
+                <label for="isEmpty">可为空</label>
+            </li>
+            <li>
+                <input type="checkbox" name="isPrint" id="isPrint" checked>
+                <label for="isPrint">可打印</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">自由编辑</label>
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset id="insertPart">
+        <legend>专有属性</legend>
+        <table class="qrcodeTable">
+            <tr>
+                <td>
+                    <li>
+                        <input type="checkbox" name="isQrcode" id="isQrcode" checked>
+                        <label for="isQrcode">是否生成二维码</label>
+                    </li>
+                </td>
+                <td>
+                    <label for="qrcodeRules" class="qrcodeRulesLabel">生成规则</label>
+                    <input name="qrcodeRules" id="qrcodeRules" type="text" autocomplete="off"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <li>
+                        <input type="checkbox" name="goujian" id="goujian">
+                        <label for="goujian">立即构建</label>
+                    </li>
+                </td>
+                <td>
+                    <li>
+                        <input type="checkbox" name="tuozhuai" id="tuozhuai">
+                        <label for="tuozhuai">允许拖拽</label>
+                    </li>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="showLabel" id="showLabel" checked>
+                    <label for="showLabel" class="isShowLabel">显示标签文本</label>
+                </td>
+                <td>
+                    <li>
+                        <label for="isShow">标签文本</label>
+                        <input name="isShow" id="isShow" type="text" autocomplete="off"/>
+                    </li>
+                </td>
+            </tr>
+        </table>
+
+        <div class="sql">
+            <label for="sql">SQL</label>
+            <textarea name="" id="sql" cols="30" rows="10"></textarea>
+        </div>
+    </fieldset>
+</form>
+<script src="../../third-party/jquery-1.10.2.min.js"></script>
+<script src="../../third-party/jquery-ui.min.js"></script>
+<script src="../../third-party/pages/pagination.min.js"></script>
+<script src="js/qrcode.min.js"></script>
+<script type="text/javascript">
+    var thePlugins = 'qrcode';
+    var formName = "qrcodeForm";
+    $("#name").blur(function () {//标签元素的默认值是元素名称
+        var name = $("#name").val();
+        $("#defaultVal").val(name);
+    });
+    /* var oNode = null;
+    window.onload = function() {
+        if( AX.plugins[thePlugins].editdom ){
+            oNode = AX.plugins[thePlugins].editdom;
+            var gValue = oNode.getAttribute('value').replace(/&quot;/g,"\""),gTitle=oNode.getAttribute('title').replace(/&quot;/g,"\""),gWidth=oNode.getAttribute('orgwidth'),gHeight=oNode.getAttribute('orgheight'),gType=oNode.getAttribute('orgtype');
+            $G('orgvalue').value = gValue;
+            $G('orgname').value = gTitle;
+            $G('orgwidth').value = gWidth;
+            $G('orgheight').value = gHeight;
+            $G('orgtype').value = gType;
+        }
+    }
+    dialog.oncancel = function () {
+        if( AX.plugins[thePlugins].editdom ) {
+            delete AX.plugins[thePlugins].editdom;
+        }
+    };
+    dialog.onok = function (){
+        if( $G('orgname').value == '') {
+            alert('控件名称不能为空');
+            return false;
+        }
+        var gValue=$G('orgvalue').value.replace(/\"/g,"&quot;"),gTitle=$G('orgname').value.replace(/\"/g,"&quot;"),gFontSize,gWidth=$G('orgwidth').value,gHeight=$G('orgheight').value,gType=$G('orgtype').value;
+
+        if( !oNode ) {
+            try {
+                oNode = createElement('img','axNewField');
+                oNode.setAttribute('title',gTitle);
+                oNode.setAttribute('name','axNewField');
+                oNode.setAttribute('value',gValue);
+                oNode.setAttribute('orgtype',gType);
+                oNode.setAttribute('axPlugins',thePlugins);
+                oNode.setAttribute('src',editor.options.AXEDITOR_HOME_URL + AX.axFormDesignUrl + '/images/qrcode.gif');
+                if( gWidth != '' ) {
+                    oNode.style.width = gWidth + 'px';
+                }
+                oNode.setAttribute('orgwidth',gWidth );
+                if( gHeight != '' ) {
+                    oNode.style.height = gHeight + 'px';
+                }
+                oNode.setAttribute('orgheight',gHeight );
+                editor.execCommand('insertHtml',oNode.outerHTML);
+                return true ;
+            } catch ( e ) {
+                try {
+                    editor.execCommand('error');
+                } catch ( e ) {
+                    alert('控件异常，请到 [雷劈网] 反馈或寻求帮助！');
+                }
+                return false;
+            }
+        } else {
+            oNode.setAttribute('title',gTitle);
+            oNode.setAttribute('orgtype',gType);
+            oNode.setAttribute('value',gValue);
+            //oNode.innerHTML = $G('orgvalue').value;
+            if( gWidth != '' ) {
+                oNode.style.width = gWidth + 'px';
+            }else
+            {
+                oNode.style.width = '';
+            }
+            oNode.setAttribute('orgwidth',gWidth );
+            if( gHeight != '' ) {
+                oNode.style.height = gHeight + 'px';
+            }else
+            {
+                oNode.style.height = '';
+            }
+            oNode.setAttribute('orgheight',gHeight );
+
+            delete AX.plugins[thePlugins].editdom;
+            return true;
+        }
+    };*/
+</script>
+<script src="js/qrcode.js"></script>
+</body>
+</html>

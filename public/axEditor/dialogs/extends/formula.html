@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>文本元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="generator" content="" />
+    <link rel="stylesheet" href="css/ax.dialog.css" />
+    <link rel="stylesheet" href="../../third-party/jquery-ui.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .column {
+            width: 33%;
+            height: 100%;
+            padding: 10px;
+            overflow: auto;
+            float: left;
+            border-right: 1px solid rgba(220, 222, 227, 1);
+        }
+        .column.hide{
+            width: 0;
+            padding: 0;
+        }
+
+        .column:last-child {
+            border: none;
+        }
+
+        .content {
+            width: 100%;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        .formulaPreview {
+            font-size: 12px;
+            line-height: 40px;
+        }
+
+        .group {
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* .item {
+            text-align: left;
+        } */
+
+        .clickHandler{
+            cursor: pointer;
+        }
+        .clickHandler:hover{
+            background: rgba(245, 247, 250, 1);
+        }
+        .item input {
+            width: 187px;
+            height: 30px;
+            background: none;
+        }
+        ul li {
+            padding-left: 20px;
+            line-height: 24px;
+        }
+        button{
+            padding: 0px 10px;
+            margin-top: 20px;
+        }
+        .settingItem{
+            line-height: 40px;
+            padding-left: 20px;
+            transition: all 0.5s;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .settingItem.active{
+            box-shadow: 0 0 5px #bebebe;
+        }
+        .settingItem:hover{
+            box-shadow: 0 0 5px #f1f1f1;
+        }
+        .addBtn,.delBtn{
+            float: right;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .delBtn{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="column" id="settingList">
+            <div class="title">
+                已添加公式
+                <span class="addBtn">新增</span>
+            </div>
+        </div>
+        <div class="column hide" id="formula">
+            <div>
+                <select name="formulaType" id="formulaType">
+                    <option value="">选择公式</option>
+                </select>
+                <div class="formulaPreview"></div>
+            </div>
+            <!-- BMI 公式 -->
+            <div class="BMI group">
+                <div class="item">
+                    <input type="text" id="BMI" placeholder="关联元素ID" readonly>(BMI)
+                </div>
+                <div class="item">
+                    =
+                </div>
+                <div class="item">
+                    <input type="text" id="w" placeholder="体重" readonly>(kg)
+                </div>
+                <div class="item">
+                    ÷
+                </div>
+                <div class="item">
+                    <input type="text" id="h" placeholder="身高" readonly> ^2(m)
+                </div>
+            </div>
+            <button id="save">保存</button>
+        </div>
+        <div class="column" id="elementList">
+            <div class="domTree">
+                
+            </div>
+        </div>
+    </div>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <script src="../../third-party/jquery-ui.min.js"></script>
+    <script src="../internal.js"></script>
+    <script type="text/javascript">
+        var formulalist = editor.options.formulaList;
+        var elementTree = listToTree(editor.execCommand("structuretree")).list[0].children;
+        var currentTarget = ""; // 当前所选input
+        init();
+        function init() {
+            // 结构树
+            for (var i in formulalist) {
+                $("#formulaType").append("<option value='" + i + "'>" + formulalist[i].name + "</option>")
+            }
+            var html = "";
+            html += makeHtml(elementTree)
+            $(".domTree").html(html);
+            // 已添加公式
+            var formulaSetting = editor.body.querySelectorAll(".formulaSetting");
+            if(formulaSetting.length > 0) {
+                for(var m = 0; m < formulaSetting.length; m++) {
+                    var item = formulaSetting[m];
+                    var text = $(item).attr("formulaType");
+                    $("#settingList").append("<div class='settingItem'>" + text + item.outerHTML + "<span class='delBtn'>删除</span></div>")
+                }
+            }
+        }
+        // 选择公式
+        $("#formulaType").change(function () {
+            toggleShow()
+        })
+        // 选择input
+        $(document).click(function(e){
+            if(e.target.className !== "clickHandler") {
+                $("input").css("background", "none");
+                currentTarget = "";
+            }
+            if(e.target.tagName == "INPUT") {
+                $(e.target).css("background", "#eee");
+                currentTarget = $(e.target).attr("id")
+            }
+        })
+        // 删除已选
+        $(document).keydown(function (e){
+            if(currentTarget != "" && e.keyCode == 8) {
+                $("#"+currentTarget).attr( $("#"+currentTarget).attr("id"), "")
+                $("#"+currentTarget).val("");
+            }
+        })
+        // 选择节点
+        $(document).on("click", ".clickHandler", function (){
+            if(currentTarget == "") {
+                alert("请选择输入框!");
+                return;
+            }
+            $("#"+currentTarget).attr(currentTarget, $(this).attr("id"))
+            $("#"+currentTarget).val($(this).attr("text"))
+        })
+        // 新增
+        $(".addBtn").click(function (){
+            $("#formula").removeClass("hide");
+            var html = "<div class='settingItem active'>新建公式</div>"
+            $(".settingItem").removeClass("active");
+            $("#settingList").append(html);
+            clearInput(); // 清空所有选项
+            toggleShow(); // 内容显示隐藏
+        })
+        // 删除
+        $(document).on("click", ".delBtn", function(e){
+            e.stopPropagation();
+            $(this).parent().remove();
+            clearInput(); // 清空所有选项
+            toggleShow(); // 内容显示隐藏
+        })
+        // 保存
+        $("#save").click(function (){
+            var input = document.createElement("input");
+            var inputs = $("#formula input");
+            var text = $("#formulaType").val();
+            for(var i=0; i < inputs.length; i++) {
+                var item = inputs[i];
+                var id = $(item).attr("id");
+                var value = $(item).attr(id);
+                if($(item).val() == "") {
+                    alert("请选择相关元素！");
+                    return
+                }
+                $(input).attr(id, value);
+                $(input).attr(id+"text", $(item).val());
+            }
+            input.setAttribute("class", "formulaSetting")
+            input.setAttribute("type", "hidden");
+            input.setAttribute("formulaType", text);
+            // var html = "<div class='settingItem'>" + text + input.outerHTML +"</div>"
+            $("#settingList .active").html(text + input.outerHTML + "<span class='delBtn'>删除</span>");
+            clearInput(); // 清空所有选项
+            toggleShow(); // 内容显示隐藏
+        })
+
+        // 点击已有公式
+        $(document).on("click",".settingItem", function (){
+            var current = $(this).find("input");
+            var val = current.attr("formulatype");
+            $(".settingItem").removeClass("active");
+            $("#formula").removeClass("hide");
+            $(this).addClass("active");
+            $("#formulaType").val(val);
+            $(".group").hide();
+            $(".formulaPreview").html(formulalist[val].content);
+            $("." + val).show();
+            var inputs = $("#formula input");
+            for(var i=0; i < inputs.length; i++) {
+                var item = inputs[i];
+                var id = $(item).attr("id");
+                var value = $(current).attr(id);
+                var text = $(current).attr(id+"text");
+                
+                $(item).attr(id, value);
+                $(item).val(text);
+            }
+        })
+        // 点击确定，保存所建公式
+        dialog.onok = function() {
+            var inputHtml = "";
+            var inputDoms = document.querySelectorAll(".settingItem input");
+            var div = null;
+            $(editor.body).find(".formulaSetting").remove();
+            $(editor.body).find("#formulaSetting").remove();
+            for(var i = 0; i < inputDoms.length; i++) {
+                inputHtml += inputDoms[i].outerHTML;
+            }
+            // if(!div){
+            div = document.createElement("div");
+            div.setAttribute("id", "formulaSetting");
+            // }
+            div.innerHTML = inputHtml;
+            editor.body.appendChild(div);
+        }
+
+        // 内容显示隐藏
+        function toggleShow() {
+            var val = $("#formulaType").val();
+            $(".group").hide();
+            if(val == "") {
+                $(".formulaPreview").html("");
+            }else{
+                $(".formulaPreview").html(formulalist[val].content);
+                $("." + val).show();
+            }
+        }
+        // 生成侧边结构
+        function makeHtml(datas){
+                html = "<ul>";
+                for(var m = 0; m < datas.length; m++) {
+                    var item = datas[m]
+                    html += "<li>";
+                    html += item.children? item.name: ("<p class='clickHandler'  text='"+ item.name +"' id='"+ item.id +"'>" + item.name + "</p>")
+                    html += item.children? makeHtml(item.children): "";
+                    html += "</li>"
+                }
+                html += "</ul>"
+            return html;
+        }
+        // 转化树结构data
+        function listToTree(datas) {
+            let ret = [];
+            let map = {};
+            datas.forEach(function (item){
+                map[item['id']] = item;
+                if (!item['pId']) {
+                    ret.push(item);
+                }
+            });
+            datas.forEach(function (item){
+                let key = item['pId'];
+                if (map[key]) {
+                    map[key].children = map[key].children || [];
+                    map[key].children.push(item);
+                }
+            });
+            return {
+                list: ret,
+                map: map
+            };
+        }
+        function clearInput() {
+            $("input").val("");
+            $("select").val("");
+            $("#formula").addClass("hide");
+        }
+    </script>
+</body>
+
+</html>

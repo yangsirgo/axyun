@@ -1,0 +1,8 @@
+// 门急诊 电子处方 中草药 搜索药品下拉 被el-tabs 遮住 
+// 增加.el-popover z-index 9999
+.el-popover {
+    z-index: 9999 !important;
+}
+// .el-select-dropdown {
+//     z-index: 9999 !important;
+// }

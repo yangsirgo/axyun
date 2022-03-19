@@ -1,0 +1,55 @@
+##路由配置
+以下路由配置放在
+
+```angular2
+     {
+        path: "stationPatientsList",//患者列表
+        component: () => import("@/views/residentStation/patientsList/components/patientlist.vue")
+      },
+      {
+        path: "IllnessDescription",//病情摘要
+        component: () => import("@/views/residentStation/IllnessDescription/components/IllnessDescription.vue")
+      },
+      {
+        path: "group",
+        component: () => import("@/views/residentStation/group/index.vue"),
+        children : [{
+          path: "0",//诊断录入
+          component: () => import("@/views/residentStation/group/diagnosis/components/diagnosis.vue"),
+        },{
+          path: "1",//电子医嘱
+          component: () => import("@/views/residentStation/group/medicalOrder/index.vue"),
+        },{
+          path: "2",//电子病历
+          component: () => import("@/views/residentStation/group/medicalRecord/index.vue"),
+        },]
+      }
+```  
+
+
+###门诊医生站 路由配置 
+
+```angular2
+
+      //门诊医生站 路由配置
+      {
+        path: "cis",
+        component: () => import("@/views/cis/patientsManage/index.vue"),
+          children : [{
+            path: "record",//电子病历
+            component: () => import("@/views/cis/patientsManage/order/components/two.vue"),
+          },{
+            path: "order",//电子病历
+            component: () => import("@/views/cis/patientsManage/order/components/one.vue"),
+          },{
+            path: "elecApplications",
+            component: () => import("@/views/cis/patientsManage/elecApplications/index.vue"),
+          },{
+            path: "diagnosis",
+            component: () => import("@/views/cis/patientsManage/diagnosis/index.vue"),
+          },{
+            path: "report",
+            component: () => import("@/views/cis/patientsManage/reportCenter/index.vue"),
+          }]
+      },
+```

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script src="../../third-party/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="css/ax.dialog.css" />
+  </head>
+  <body>
+    <div class="content" style="height: 400px;">
+      <form id="radselectForm">
+        <fieldset>
+          <legend>基本属性</legend>
+          <table>
+            <tr>
+              <td>段落编码</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="id"
+                  id="id"
+                  readonly
+                />
+              </td>
+            <!-- </tr>
+            <tr> -->
+              <td>段落类型</td>
+              <td style="position: relative;">
+                <input type="text" id="paratypeName">
+                <input type="hidden" id="paratype" name="paratype">
+                <div class="hidden" id="paratypeList" style="position: absolute;
+                top: 42px;
+                height: 200px;
+                overflow: auto;
+                width: 212px;
+                background: #fff;
+                /* color: black; */
+                border: 1px solid #ccc;
+                z-index: 1000;"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>段落名称</td>
+              <td>
+                <input type="text" autocomplete="off" name="name" id="name" />
+              </td>
+            <!-- </tr>
+            <tr> -->
+              <td>标题独占一行</td>
+              <td style="text-align:left">
+                <input type="checkbox" name="singleTitle" id="singleTitle" />
+              </td>
+            </tr>
+            <tr id="titleBg" style="display: none;">
+              <td>标题背景色</td>
+              <td>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="titleBg"
+                  id="titleColor"
+                  placeholder="背景颜色"
+                  class="jscolor {required:false}"
+                  value="F0F2F4"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>勾选属性</legend>
+          <ul class="checkSettings">
+            <!-- <li>
+              <input type="checkbox" name="isEdit" id="isEdit" checked/>
+              <label for="isEdit">标题可编辑</label>
+            </li> -->
+            <li>
+              <input type="checkbox" name="isDel" id="isDel" checked/>
+              <label for="isDel">段落可删除</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isHide" id="isHide" />
+              <label for="isHide">隐藏段落</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isPrint" id="isPrint" checked/>
+              <label for="isPrint">段落可打印</label>
+            </li>
+            <li>
+              <input type="checkbox" name="isLock" id="isLock" />
+              <label for="isLock">段落锁定</label>
+            </li>
+            <li>
+              <input type="checkbox" name="checkDirectCite" id="checkDirectCite" checked />
+              <label for="checkDirectCite">直接引用</label>
+            </li>
+          </ul>
+        </fieldset>
+      </form>
+    </div>
+    <script src="../../third-party/jscolor-2.0.4/jscolor.min.js"></script>
+    <script src="../internal.js"></script>
+    <script>
+      var thePlugins = "paragraphele";
+      var oNode = null;
+      var userInfo = editor.options.userInfo,
+        apiUrl = editor.options.apiUrl;
+      // var paratype = [{
+      //     value:1,
+      //     name : '主诉'
+      // },{
+      //     value:2,
+      //     name : '主诉1'
+      // }];
+
+      $(function() {
+        //options 数据 初始化 段落类型
+        // var html = "";
+        // $.each(paratype, function (index,item){
+        //     html += "<option value='" + item.value + "'>" + item.name + "</option>";
+        // });
+        // $("#paratype").html(html);
+
+        $("#singleTitle").change(function() {
+          if ($(this).is(":checked")) {
+            $("#titleBg").show();
+          } else {
+            $("#titleBg").hide();
+          }
+        });
+
+        getTypes();
+      });
+
+      function getUUId() {
+        $.ajax({
+          url: apiUrl + "/element/getUUID",
+          type: "get",
+          dataType: "json",
+          data: {
+            Authorization: userInfo.token,
+            hospitalId: userInfo.hosId,
+            organizationId: userInfo.dept,
+            _currRole: userInfo.role
+          },
+          success: function(data) {
+            if (data.code == 1) {
+              $("#id").val(data.data);
+            } else {
+              alert("元素编码获取失败，请刷新重试！");
+            }
+          },
+          error: function(error) {
+            alert("元素编码获取失败，请刷新重试！");
+            console.log(error);
+          }
+        });
+      }
+      $(document).on("click", '.content',function (e){
+        if(e.target.getAttribute('id') != 'paratypeName' && e.target.getAttribute('id') != 'paratypeList' && e.target.tagName != 'OPTION') {
+          $("#paratypeList").addClass('hidden');
+        }
+      })
+      $("#paratypeName").focus(function (){
+        $("#paratypeList").removeClass('hidden');
+        var type = $("#paratype").val();
+        for(var i = 0; i < $("#paratypeList option").length; i++) {
+          if (type == $("#paratypeList option")[i].getAttribute('value')) {
+            $("#paratypeName").val($($("#paratypeList option")[i]).text());
+            $($("#paratypeList option")[i]).addClass("select_active");
+            break;
+          }
+        }
+        for(var i = 0; i < $("#paratypeList option").length; i++) {
+          $($("#paratypeList option")[i]).removeClass("hidden");
+        }
+      })
+      $(document).on("input","#paratypeName",function (){
+        var val = $(this).val();
+        var valCode = $("#paratype").val();
+        for(var i = 0; i < $("#paratypeList option").length; i++) {
+          console.log($($("#paratypeList option")[i]).text());
+          console.log($($("#paratypeList option")[i]).attr('value'))
+          if (($($("#paratypeList option")[i]).text().indexOf(val) == -1 && $($("#paratypeList option")[i]).attr('value').indexOf(valCode) == -1) && val != '') {
+            $($("#paratypeList option")[i]).addClass("hidden");
+          }else{
+            $($("#paratypeList option")[i]).removeClass("hidden");
+          }
+        }
+      })
+      $("#paratypeList").on("click","option", function (){
+        $(this).addClass('select_active').siblings().removeClass('select_active');
+        $("#paratype").val($(this).attr('value'));
+        $("#name").val($(this).text());
+        $("#paratypeName").val($(this).text());
+        $("#paratypeList").addClass('hidden');
+      })
+      /**
+       * 获取并渲染段落类型
+       **/
+      var textArr = []
+      function getTypes() {
+        $.ajax({
+          url: apiUrl + "/paragraphType/list",
+          type: "get",
+          dataType: "json",
+          data: {
+            Authorization: userInfo.token,
+            _hosId: userInfo.hosId,
+            _hosNm: encodeURI(getCookie("hosName")),
+            _currDept: userInfo.dept,
+            _currRole: userInfo.role
+          },
+          success: function(data) {
+            if (data.code == 1) {
+              data = data.data;
+              var options = "";
+              for (var i = 0; i < data.length; i++) {
+                textArr.push(data[i].paragraphTypeName);
+                options +=
+                  "<option style='line-height: 30px;padding-left: 5px;' value='" +
+                  data[i].paragraphTypeCode +
+                  "'>" +
+                  data[i].paragraphTypeName +
+                  "</option>";
+              }
+              $("#paratypeList").html(options);
+              if (oNode) {
+                var json = JSON.parse(oNode.getAttribute("attrs"));
+                $("#paratype")
+                  .val(json.paratype)
+                  .trigger("change");
+              } else {
+                $("#name").val(data[0].paragraphTypeName);
+                $("#paratypeName").val(data[0].paragraphTypeName);
+                $("#paratype").val(data[0].paragraphTypeCode);
+              }
+              $("#paratype").change(function() {
+                if (
+                  $("#name").val() == "" ||
+                  textArr.indexOf($("#name").val()) > -1
+                ) {
+                  $("#name").val(
+                    $(this)
+                      .find("option:selected")
+                      .html()
+                  );
+                }
+              });
+            }
+          },
+          error: function(error) {
+            alert("系统网络繁忙，请刷新重试！");
+            console.log(error);
+          }
+        });
+      }
+
+      function getCookie(name) {
+        var arr,
+          reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if ((arr = document.cookie.match(reg))) {
+          return unescape(arr[2]);
+        } else {
+          return null;
+        }
+      }
+
+      //初始化加载之前编辑的数据
+      window.onload = function() {
+        if (AX.plugins[thePlugins].editdom) {
+          oNode = AX.plugins[thePlugins].editdom;
+          var json = JSON.parse(oNode.getAttribute("attrs"));
+          if (!json || json == null) {
+            alert("无法识别json！");
+            return;
+          }
+          $("#radselectForm").fillForm(json);
+
+          if (json.singleTitle) {
+            $("#titleBg").show();
+            $("#titleColor")
+              .focus()
+              .blur();
+          }
+          $("#paratypeName").val(json.name)
+        } else {
+          getUUId();
+        }
+      };
+
+      dialog.oncancel = function() {
+        if (oNode) {
+          delete AX.plugins[thePlugins].editdom;
+        }
+      };
+      dialog.onok = function() {
+        var json = $("#radselectForm").serializeJson(),
+          typeps = $(".paragraphele-" + json.paratype, editor.document),
+          isContinue = true;
+        if (!oNode) {
+          var range = editor.selection.getRange();
+          var parentEle = range.startContainer;
+          var targets = [];
+          while(parentEle.nodeType == 3 || parentEle.tagName != "BODY"){
+            if(parentEle.nodeType == 1 && parentEle.tagName == "DIV" && parentEle.getAttribute("axplugins") == "paragraphele") {
+              targets.push(parentEle);
+            }
+            parentEle = parentEle.parentElement;
+          }
+          for(var s = 0; s < targets.length; s++) {
+            if(targets[s].getAttribute("paragraphtype") == json.paratype) {
+              alert("相同类型段落不可嵌套");
+              return false;
+            }
+          }
+        }
+        var valCode = $("#paratype").val();
+        for(var i = 0; i < $("#paratypeList option").length; i++) {
+          if ($($("#paratypeList option")[i]).attr('value') == valCode) {
+            var text = $($("#paratypeList option")[i]).text();
+            if($("#paratypeName").val() != text || json.name != text) {
+              alert("元素名称不可修改！");
+              return false;
+            }
+          }
+        }
+        if (textArr.indexOf(json.name) == -1) {
+          alert(editor.getLang("ax.notExist"));
+          return false;
+        }
+        //判断已存在的是不是当前节点，即是否正则编辑的段落控件
+        var isSelf = false;
+        for (var i = 0; i < typeps.length; i++) {
+          if (typeps[i] == oNode) {
+            isSelf = true;
+            break;
+          }
+        }
+        //检测是否有同类型段落（当前节点除外），有则给出提示
+        if (!isSelf && typeps.length > 0) {
+          if (!confirm(editor.getLang("ax.sameTypePTip"))) {
+            isContinue = false;
+          }
+        }
+        if (isContinue) {
+          // var paraLevel = editor.options.paraLevel || 1;
+          // var html = makeHtml(json);
+          if (!oNode) {
+            oNode = AX.mh.paragraph.call(window, json, thePlugins, oNode);
+            if (editor.options.editorModel == 'mark' || editor.options.editorModel == 'edit') {
+              var content = oNode.querySelectorAll("paragraphContent");
+              var state = true;
+              if (!!json.isLock) {
+                state = false;
+              }
+              for(var i = 0; i< content.length; i++) {
+                content[i].setAttribute("contenteditable", state)
+              }
+            }
+            if (oNode) {
+              editor.execCommand(
+                "insertHtml",
+                oNode.outerHTML,
+                false,
+                false,
+                json.id
+              );
+              if(json.isHide === 'on' && editor.options.editorModel != 'design') {
+                oNode.style.display = "none";
+              }
+            } else {
+              editor.execCommand("error");
+              return false;
+            }
+            // try {
+            //   oNode = createElement("div", json.id);
+            //   setAttrs(oNode, json);
+            //   oNode.setAttribute("attrs", JSON.stringify(json));
+            //   oNode.setAttribute("axPlugins", thePlugins);
+            //   oNode.innerHTML = html;
+            //   editor.execCommand(
+            //     "insertHtml",
+            //     oNode.outerHTML,
+            //     false,
+            //     false,
+            //     json.id
+            //   );
+            // } catch (e) {
+            //   try {
+            //     console.log(e);
+            //     editor.execCommand("error");
+            //   } catch (e) {
+            //     alert("控件异常，请联系 [安想智慧医疗] 管理员！");
+            //   }
+            //   return false;
+            // }
+          } else {
+            oNode = AX.mh.paragraph.call(window, json, thePlugins, oNode);
+            // oNode.setAttribute("id", json.id);
+            // setAttrs(oNode, json);
+            // oNode.innerHTML = html;
+            delete AX.plugins[thePlugins].editdom;
+            //定位到内容区域
+            if (json.singleTitle) {
+              var range = editor.selection.getRange();
+              range = range.selectNode($(".paragraphContent", oNode)[0]);
+              range.select();
+            }else{
+              oNode.click();
+            }
+            if(json.isHide === 'on' && editor.options.editorModel != 'design') {
+              oNode.style.display = "none";
+            }
+          }
+        }
+      };
+
+      /**
+       * 构造控件html
+       * @param {Object} json 控件属性json
+       * @returns {String} 控件html
+       */
+      function makeHtml(json) {
+        var currText = oNode ? oNode.innerHTML : "",
+          paragraphContent = "",
+          contentNode = null,
+          tags = oNode ? oNode.childNodes : [];
+        if (oNode) {
+          for (var k in tags) {
+            var tag = tags[k];
+            if (tag.nodeType != 1) {
+              continue;
+            }
+            var classes = tag.getAttribute("class");
+            if (classes && classes.indexOf("paragraphContent") > -1) {
+              paragraphContent += tag.outerHTML;
+            }
+          }
+        } else {
+          if (json.singleTitle) {
+            paragraphContent = "&nbsp;";
+          } else {
+            paragraphContent = json.name;
+          }
+        }
+        if (paragraphContent == "") {
+          paragraphContent = "&nbsp;";
+        }
+        var html =
+          paragraphContent == "&nbsp;" || paragraphContent == json.name
+            ? '<p style="margin: 0px;"><strong contenteditable="true" class="no-single-paragraph ctrl-value" style="display: block;"></strong></p><p class="paragraphContent" style="margin-top: 0px; margin-bottom: 0px; line-height: 1.5em; white-space: normal;">' +
+              paragraphContent +
+              "</p>"
+            : paragraphContent; //'<strong class="ctrl-value" style="'+((json.singleTitle && json.titleBg)?'display:block;margin: 15px 0;padding: 5px 10px;background:#'+json.titleBg:'')+'">' + (json.singleTitle?'<p>'+json.name+'</p>':json.name) + '</strong>'+(json.singleTitle?'<p style="margin-top: 0px; margin-bottom: 0px; line-height: 1.5em; white-space: normal;"> </p>':'');
+        if (json.singleTitle) {
+          html =
+            (json.singleTitle ? '<p style="margin:0">' : "") +
+            '<strong class="ctrl-value" style="' +
+            (json.singleTitle ? "display:block;padding: 5px 10px;" : "") +
+            (json.titleBg ? "background:#" + json.titleBg : "") +
+            '">' +
+            json.name +
+            "</strong>" +
+            (json.singleTitle
+              ? "</p>" +
+                (paragraphContent == "&nbsp;"
+                  ? '<p class="paragraphContent" style="margin-top: 0px; margin-bottom: 0px; line-height: 1.5em; white-space: normal;">' +
+                    paragraphContent +
+                    "</p>"
+                  : paragraphContent)
+              : "");
+        }
+        return html;
+      }
+
+      /**
+       * 设置dom节点属性
+       * @param {DOM} node 节点
+       * @param {Object} json json属性
+       * @returns {Null} nul
+       */
+      function setAttrs(node, json) {
+        node.setAttribute("title", json.name || "");
+        node.setAttribute("isSecret", !!json.isSecret);
+        node.setAttribute("start-stain", json.showBorder ? "[" : "");
+        node.setAttribute("end-stain", json.showBorder ? "]" : "");
+        node.setAttribute("cascadeId", json.cascadeId || "");
+        node.setAttribute("showCondition", json.showCondition || "");
+        node.setAttribute("attrs", JSON.stringify(json));
+        node.setAttribute("paragraphType", json.paratype);
+        oNode.setAttribute(
+          "class",
+          "ctrl-bg ctrl-field paragraphele paragraphele-" + json.paratype
+        );
+
+        // debugger
+        //设置 段落的 行高等
+        var paraBeforeIndNum = editor.queryCommandValue("rowspacing", "top");
+        var paraAfterIndNum = editor.queryCommandValue("rowspacing", "bottom");
+        var paraLineheight = editor.queryCommandValue("lineheight");
+
+        var firlineIndNum = editor.queryCommandValue("indent");
+        if (
+          !isNaN(parseInt(firlineIndNum)) &&
+          parseInt(firlineIndNum) == firlineIndNum
+        ) {
+          firlineIndNum = firlineIndNum + "px";
+        }
+        var styles =
+          "margin-top:" +
+          paraBeforeIndNum +
+          "px;margin-bottom" +
+          paraAfterIndNum +
+          "px;" +
+          /*  + 'line-height:' + paraLineheight + ';' */
+          "text-indent:" +
+          firlineIndNum +
+          ";";
+        node.setAttribute("style", styles);
+      }
+    </script>
+  </body>
+</html>

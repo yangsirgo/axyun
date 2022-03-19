@@ -1,0 +1,123 @@
+.content,#preview_slot {
+  width: 340px;
+  margin: 0;
+}
+/* 编辑区域 */
+.eye-wrap {
+  width: 370px;
+  height: 184px;
+  position: relative;
+  left: 30px;
+  top: 0px;
+  font-weight: 500;
+}
+
+#imgBox .eye-wrap {
+  left: 0px !important;
+  width: 340px;
+}
+
+.value-input {
+  width: 40px !important;
+  height: 30px;
+  border: 1px solid black;
+}
+
+/* .value-wrapper {
+  width: 120px;
+  height: 30px;
+} */
+
+.center {
+  position: absolute;
+  top: 36%;
+  left: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.center-line {
+  width: 90px;
+  height: 1px;
+  margin-top: 96px;
+  left: 145px;
+  position: absolute;
+  transform: translateX(-50%);
+  background: black;
+}
+
+.left-inputwrap {
+  position: absolute;
+  top: 94px;
+  left: 42px;
+  transform: translate(-50%, -50%);
+}
+
+.right-inputwrap {
+  width: 150px;
+  position: absolute;
+  top: 94px;
+  left: 300px;
+  transform: translate(-50%, -50%);
+}
+
+.line {
+  width: 100px;
+  height: 100px;
+  z-index: -10;
+}
+
+.leftbottom-line {
+  border-top: 1px solid black;
+  position: absolute;
+  top: 52%;
+  transform-origin: right top;
+  transform: rotate(25deg);
+}
+
+.lefttop-line {
+  border-top: 1px solid black;
+  position: absolute;
+  top: 52%;
+  transform-origin: right top;
+  transform: rotate(-25deg);
+}
+
+.righttop-line {
+  border-top: 1px solid black;
+  position: absolute;
+  left: 190px;
+  top: 52%;
+  transform-origin: left top;
+  transform: rotate(-25deg);
+}
+
+.rightbottom-line {
+  border-top: 1px solid black;
+  position: absolute;
+  left: 190px;
+  top: 52%;
+  transform-origin: left top;
+  transform: rotate(25deg);
+}
+#toolbar {
+  width: 100%;
+  height: 60px;
+}
+
+#toolbar button {
+  float: right;
+  width: 70px;
+  height: 30px;
+  background: rgba(245, 247, 250, 1);
+  border: 1px solid rgba(220, 222, 227, 1);
+  cursor: default;
+}
+#toolbar button:hover {
+  background: #fff;
+}
+#toolbar #doOk {
+  margin-right: 30px;
+}
+#imgBox {
+  padding-left: 35px !important;
+}

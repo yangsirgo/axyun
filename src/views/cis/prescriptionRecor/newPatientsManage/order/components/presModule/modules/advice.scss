@@ -1,0 +1,180 @@
+.table-utils {
+    padding: 8px 0;
+    font-size: 0;
+    // height: 46px;
+  
+    /deep/ .el-button {
+      & > i {
+        font-size: 18px;
+        vertical-align: middle;
+      }
+  
+      & > span {
+        margin-left: 5px;
+      }
+    }
+  
+    .el-button--text,
+    .el-button--text:hover {
+      font-size: 14px;
+  
+      font-weight: 400;
+      color: rgba(46, 50, 58, 1);
+    }
+  
+    /deep/ .el-button [class*="el-icon-"] + span {
+      margin-left: 2px;
+      /*font-size: 12px;*/
+    }
+  
+    // /deep/ .el-button + .el-button {
+    //   margin-left: 0px !important;
+    // }
+  }
+  
+  .main-table {
+    min-height: 0;
+    //table 单元格 样式
+    /deep/ .center-cell-style> .cell {
+      padding: 0px;
+    }
+  
+
+    // 斑马纹
+    /deep/ .ZebrasClsOdd {
+      background-color: #F1F1F2;
+    }
+
+    // 斑马纹
+    /deep/ .ZebrasClsEven {
+      background-color: #DCEEF8;
+    }
+
+    /deep/ .rowStyleCls {
+      height: 36px;
+    }
+  
+    .bunchingUp {
+      display: inline-block;
+      color: $l-color-primary;
+  
+      &::after {
+        content: "┓";
+      }
+    }
+  
+    .bunchingCenter {
+      display: inline-block;
+      color: $l-color-primary;
+  
+      &::after {
+        content: "┫";
+      }
+    }
+  
+    .bunchingDown {
+      color: $l-color-primary;
+      display: inline-block;
+  
+      &::after {
+        content: "┛";
+      }
+    }
+  
+    .icon {
+      right: 0;
+      width: 15px;
+      height: 15px;
+      color: #ffd2c2;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+  
+  .ds-input {
+    width: 60px;
+  }
+  
+  .copyOrderCls /deep/ .el-dialog {
+    width: 80% !important;
+  }
+  
+  // 审方反馈提醒  el-pover 样式修正
+  .popper-class {
+    padding: 0;
+    border-radius: 2px;
+    //border: 1px solid $l-color-primary;
+  
+    .hoverContent {
+      display: table;
+      padding: 10px;
+  
+      p {
+        line-height: 20px;
+  
+        .title {
+          font-size: 14px;
+  
+          font-weight: 400;
+          padding: 0 8px 0 4px;
+          width: 74px;
+          display: inline-block;
+          color: rgba(148, 157, 163, 1);
+        }
+  
+        .content {
+          font-size: 14px;
+  
+          font-weight: 400;
+          color: rgba(46, 50, 58, 1);
+        }
+      }
+    }
+  }
+  
+  .margin-left-16- {
+    margin-left: -16px;
+  }
+  
+  /deep/ .filter-item {
+    margin-left: 0;
+  }
+  
+  /deep/ .el-checkbox__inner {
+    z-index: 10;
+  }
+  .freeRp-cont {
+    padding: 6px;
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /deep/.el-table .freeRpRow {
+    color: green;
+    .orderItemNameCls {
+      color: #0000FF !important;
+    }
+  }
+
+
+  .main-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    .main-table {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      .demo-ruleForm {
+        flex: 1;
+        min-height: 0;
+      }
+    }
+  }
+
+
+  /deep/.chexiaoCls > i {
+    //  {
+      font-size: 12px !important;
+    // }
+  }

@@ -1,0 +1,1004 @@
+*:focus {
+  outline: none;
+}
+html {
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  font-size: 14px;
+  background: #f0f0f0;
+}
+body {
+  position: relative;
+  margin: 0;
+  background-repeat: repeat;
+}
+body.view {
+  overflow-x: hidden;
+  background: #fff;
+  overflow-y: scroll;
+}
+table tr td {
+  word-break: break-word;
+}
+td,
+th,
+p,
+p > span {
+  line-height: 1.5rem !important;
+  color: #000;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: -1px;
+}
+strong {
+  /* color: #000; */
+}
+strike {
+  text-decoration: none;
+}
+.noMarginTop {
+  margin-top: 0 !important;
+}
+.noMarginBottom {
+  margin-bottom: 0 !important;
+}
+.focusCtrl input[type="radio"].focusBox:after,
+.focusCtrl input[type="checkbox"].focusBox:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin-left: -3px;
+  margin-top: -2px;
+  border: 1px dashed blue;
+}
+.no-border {
+  border: none !important;
+}
+.ax-editor-hidden-block/* ,.pagebreak */,.sensitiveWords {
+  display: none !important;
+}
+.show-block {
+  display: block;
+}
+.hide-mark {
+  display: none;
+}
+.editor-new-add-text.hide-mark,
+.ax-editor-print-page .editor-new-add-text {
+  display: inline;
+  text-decoration: none;
+}
+.editor-free-text-hide {
+  display: none !important;
+}
+.ax-editor-number-select {
+  padding: 0 10px;
+  border: none;
+  font-size: 14px;
+  background: transparent;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.ax-editor-number-select::-ms-expand {
+  display: none;
+}
+/* 页眉页脚样式设置 */
+/* .ax-editor-page-header {
+  margin-top: 40px;
+  margin-bottom: 20px;
+} */
+.ax-editor-init-page,
+.ax-editor-init-page-header,
+.ax-editor-init-page-footer {
+  visibility: hidden;
+  position: absolute !important;
+  left: -10000px;
+  top: -10000px;
+}
+.ax-editor-page-header,
+.ax-editor-page-footer {
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+  color: #808080;
+}
+/* .ax-editor-page-footer {
+  margin-bottom: 40px;
+  margin-top: 20px;
+} */
+.ax-editor-page-footer {
+  border-top: 1px solid #ccc;
+  border-bottom: none;
+}
+.ax-editor-page-header.focus,
+.ax-editor-page-footer.focus {
+  color: #333 !important;
+  border: 1px solid #aaa;
+}
+.ax-editor-page-header.focus span,
+.ax-editor-page-footer.focus span {
+  color: #333 !important;
+}
+/* .ax-editor-page-header.focus:after {
+  position: absolute;
+  left: -1px;
+  bottom: -25px;
+  padding: 2px 5px;
+  content: "页眉";
+  font-size: 16px;
+  background: #ccc;
+  cursor: pointer;
+}
+.ax-editor-page-footer.focus:before {
+  position: absolute;
+  left: -1px;
+  top: -25px;
+  padding: 2px 5px;
+  content: "页脚";
+  font-size: 16px;
+  background: #ccc;
+  cursor: pointer;
+} */
+.ax-editor-header-record,
+.ax-editor-footer-record {
+  display: none;
+}
+.fill-page-num-node {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  z-index: -1;
+}
+.ax-editor-print-page .fill-page-num-node {
+  z-index: 999;
+}
+.ax-editor-break-table {
+  overflow: hidden;
+}
+.ax-editor-break-table table {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* 填充块样式 */
+.ax-editor-fill-node {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #e6c239;
+}
+.ax-editor-print-page .ax-editor-fill-node {
+  border-bottom: none;
+}
+.ax-editor-fill-node.top {
+  border-bottom: none;
+}
+.ax-editor-last-fill-node {
+  position: absolute;
+  bottom: 1px;
+}
+.ax-editor-last-fill-node .ax-editor-page-footer {
+  top: auto !important;
+}
+
+.error {
+  color: #fff;
+  background: #fec16e !important;
+}
+.error .plugins-bg-foucs {
+  color: #fff;
+  background: #fec16e !important;
+}
+
+.plugins-bg-foucs {
+  color: #000;
+  background: yellow !important;
+}
+
+.combine-bg {
+  background: #eff8ff !important;
+  border: 1px dotted #0000ff;
+}
+
+.combine-bg .ctrl-bg {
+  /* display: inline-block !important; */
+}
+
+.combine-bg:hover {
+  background: #d9eafd !important;
+}
+.combine-bg.plugins-bg-foucs {
+  background: #59eee8 !important;
+}
+/* .combine-bg  */
+.ctrl-bg .ctrl-value {
+  padding: 0 5px;
+  display: inline;
+}
+
+.diagnose .ctrl-value {
+  display: inline-block;
+}
+
+/*inline-block的 axplugins 元素 继承父元素 text-indent 属性，所以需要覆盖掉*/
+span.ctrl-field {
+  border-bottom: 1px solid #525252;
+  text-indent: 0;
+}
+/* span 元素标签才需要  段落p 标签不需要这个样式*/
+span.ctrl-field:before {
+  color: #0000ff;
+  padding-right: 3px;
+  /* content: attr(start-stain); */
+}
+.checkbox-underline-wrapper {
+  /* border-bottom: 1px solid #525252; */
+}
+.ctrl-value .checkbox-underline-wrapper:first-child{
+  position: relative;
+  left: -4px;
+}
+.checkbox-bg .ctrl-value {
+  display: inline;
+}
+span.diagnose.ctrl-field:before{
+  padding: 0;
+}
+span.prescription.ctrl-field:before{
+  padding: 0;
+}
+/* span 元素标签才需要  段落p 标签不需要这个样式*/
+span.ctrl-field:after {
+  color: #0000ff;
+  padding-left: 3px;
+}
+.ctrl-field.view-model {
+  border: none;
+}
+.text-mark:before {
+  color: #0000ff;
+  padding-right: 3px;
+  content: "(";
+}
+.text-mark:after {
+  color: #0000ff;
+  padding-right: 3px;
+  content: ")";
+}
+span.diagnose.ctrl-field:after{
+  padding: 0;
+}
+span.prescription.ctrl-field:after{
+  padding: 0;
+}
+
+.view-model.stain-clear:before {
+  content: "" !important;
+}
+.view-model.stain-clear:after {
+  content: "" !important;
+}
+.view-model.stain-hide:before {
+  visibility: hidden;
+}
+.view-model.stain-hide:after {
+  visibility: hidden;
+}
+.stain0:before {
+  content: "[";
+  color: #0000ff;
+}
+.stain0:after {
+  content: "]";
+  color: #0000ff;
+}
+.stain1:before {
+  content: "{";
+    color: #0000ff;
+}
+.stain1:after {
+  content: "}";
+  color: #0000ff;
+}
+.stain2:before {
+  content: "“";
+  color: #0000ff;
+}
+.stain2:after {
+  content: "”";
+  color: #0000ff;
+}
+.stain0 .checkbox-underline-wrapper {
+  border-bottom: none;
+}
+.stain1 .checkbox-underline-wrapper {
+  border-bottom: none;
+}
+.stain2 .checkbox-underline-wrapper {
+  border-bottom: none;
+}
+.ax-editor-print-page .ctrl-field:after,
+.ax-editor-print-page .ctrl-field:before,
+.ax-editor-print-page .text-mark:before,
+.ax-editor-print-page .text-mark:after {
+  content: "" !important;
+}
+.ax-editor-print-page .ctrl-value > span {
+  background-color: transparent !important;
+}
+.ax-editor-print-page td,
+.ax-editor-print-page th,
+.ax-editor-print-page p,
+.ax-editor-print-page p > span {
+  color: #000;
+}
+.ax-editor-print-page span.ctrl-field {
+  border-bottom: none;
+}
+.ax-editor-print-page .ctrl-value[placeWidth="true"] {
+  visibility: hidden;
+}
+.ax-editor-print-page .ctrl-value:before {
+  content: "" !important;
+}
+.ax-editor-print-page .ax-editor-print-mask {
+  filter: opacity(100) !important;
+  opacity: 1 !important;
+  background: #fff !important;
+}
+.ax-editor-print-page .focusCtrl input[type="radio"].focusBox:after,
+.ax-editor-print-page .focusCtrl input[type="checkbox"].focusBox:after {
+  border: none;
+}
+.editor-mark-text {
+  display: none;
+}
+.editor-mark-text.on,
+.text-mark.on {
+  display: inline-block;
+}
+.ctrl-delete.on,
+.editor-mark-del-text {
+  text-decoration: line-through;
+  text-decoration-color: #ff0000;
+  text-decoration-style: double;
+}
+.ctrl-value.ctrl-modify.on,
+.editor-mark-modify-text,
+.editor-new-add-text {
+  text-decoration: underline;
+  text-decoration-color: #0000ff;
+  text-decoration-style: double;
+}
+.ax-editor-print-page .ctrl-delete.on,
+.ax-editor-print-page .editor-mark-del-text,
+.ax-editor-print-page .ctrl-value.ctrl-modify.on,
+.ax-editor-print-page .editor-mark-modify-text {
+  text-decoration: none;
+}
+.ax-editor-print-page .ctrl-delete.on,
+.ax-editor-print-page .editor-mark-del-text {
+  display: none;
+}
+.paragraphele {
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+  clear: both;
+}
+.paragraphele p, .paragraphele div.paragraphContent {
+  margin: 0;
+}
+.paragraphele div.paragraphContent {
+  line-height: 20px;
+  position: relative;
+}
+/*控制元素边框*/
+.notBorderCls:before {
+  display: none;
+}
+.notBorderCls:after {
+  display: none;
+}
+.ctrl-value {
+  display: inline-block;
+  /* display: inline; */
+  min-width: 16px;
+  min-height: 20px;
+  word-break: break-all;
+  /* padding: 0 5px; */
+}
+.ctrl-value:empty {
+  text-align: left;
+}
+/*控制 编辑器里面空时的 placeholder*/
+.ctrl-value:empty:before {
+  content: attr(placeholder);
+  font-size: 14px;
+  color: #999;
+}
+.focusCtrlParent {
+  background-color: #e4e4e4;
+}
+.error .ctrl-value:empty:before {
+  color: #fff;
+}
+.view-model.error,
+.ax-editor-print-page .view-model.error {
+  color: #666;
+  background: transparent !important;
+}
+.view-model.error .ctrl-value:empty:before,
+.ax-editor-print-page .view-model.error .ctrl-value:empty:before {
+  color: #666;
+}
+.ax-editor-print-page .error {
+  color: #000;
+  background: transparent !important;
+}
+.ax-editor-print-page .ctrl-value:empty:before/* ,.ctrl-value:focus:before */ {
+  content: none;
+}
+/*修复table 里面的select selectmulti datedomain 元素 回车有p标签的问题*/
+span[axplugins="select"] p,
+span[axplugins="selectmule"] p,
+span[axplugins="datedomain"] p {
+  display: inline-block;
+}
+
+.ele-add-bgc,
+.ax-editor-note,
+.ctrl-field:hover,
+.stain0:hover,
+.stain1:hover,
+.stain2:hover{
+  background-color: #efefef;
+}
+.warning {
+  background-color: yellow;
+}
+.ctrl-field.prescription:hover,
+.ctrl-field.diagnose:hover {
+  background: none;
+}
+.ax-editor-print-page .ax-editor-note,
+.view-model.ax-editor-note {
+  background: transparent;
+}
+.paragraphele.ctrl-field {
+  border: 1px dashed transparent;
+  margin: 0 !important;
+}
+.paragraphele.ctrl-field:hover {
+  border: 1px dashed #ccc !important;
+  background: none;
+}
+div.paragraphele.ctrl-field.hidden-border {
+  border: 1px dashed transparent !important;
+}
+.paragraph-border {
+  border: 1px dashed #ccc !important;
+}
+.view-model.paragraphele.ctrl-field:hover,
+.ax-editor-print-page .paragraphele.ctrl-field:hover {
+  border: 1px dashed transparent !important;
+}
+.view-model.ctrl-field:hover,
+.ax-editor-print-page .ctrl-field:hover {
+  background-color: transparent;
+}
+
+/*表格设置实线 虚线 隐藏表格线的样式   START */
+.tb-solid td,
+.tb-solid th {
+  border-left: 1px solid black !important;
+  border-top: 1px solid black !important;
+}
+
+.tb-solid tr td {
+  border-right: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+}
+
+.tb-dotted td,
+.tb-dotted th {
+  border-left: 1px dotted black !important;
+  border-top: 1px dotted black !important;
+}
+
+.tb-dotted tr td {
+  border-right: 1px dotted black !important;
+  border-bottom: 1px dotted black !important;
+}
+
+.tb-hide td,
+.tb-hide th {
+  border-left: none !important;
+  border-top: none !important;
+}
+
+.tb-hide tr td {
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+/*表格设置实线 虚线 隐藏表格线的样式   END */
+
+.prescription table {
+  /* width: 600px; */
+  width: auto;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+.prescription td {
+  padding: 8px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+/* 废弃 */
+/* .cirleNum {
+  display: block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  border-radius: 50%;
+  border: 1px solid #848484;
+  text-align: center;
+  font-size: 12px;
+} */
+.prescription .td.topCombine::after {
+  /* background: url(../images/topCombine.png) no-repeat 10px center !important; */
+  content: "┓";
+  display: inline-block;
+  color: #000;
+}
+.prescription .td.middleCombine::after {
+  /* background: url(../images/middleCombine.png) no-repeat 10px center !important; */
+  content: "┫";
+  display: inline-block;
+  color: #000;
+}
+.prescription .td.bottomCombine::after {
+  /* background: url(../images/bottomCombine.png) no-repeat 10px center !important; */
+  content: "┛";
+  display: inline-block;
+  color: #000;
+}
+.prescription .td.singleCombine {
+  background: url(../images/singleCombine.png) no-repeat 10px center !important;
+  /* content: "┓";
+  display: inline-block;
+  color: #000; */
+}
+.diagnoseTable td,
+.diagnoseTable th {
+  border: none;
+}
+/* 模拟table */
+.diagnose, .prescription{
+  display: block;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+.diagnose > .ctrl-value,.prescription > .ctrl-value {
+  display: block;
+}
+.table {
+  /* margin-bottom: 10px; */
+  border-collapse: collapse;
+  /* display: table; */
+  display: block;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  box-sizing: border-box;
+  page-break-inside: avoid;
+}
+.table .tr{
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  
+}
+.prescription{
+  float: none !important;
+}
+.prescription .tr{
+  border-left: 1px solid #ccc;
+}
+.prescription .tr:last-child{
+  border-bottom: 1px solid #ccc;
+}
+.prescription .th {
+  border-top: 1px solid #BBB;
+  background-color: #F7F7F7;
+}
+.prescription .table{
+  display: table;
+  width: 100%;
+}
+.th{
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: -internal-center;
+  padding: 5px 10px;
+  border: 1px solid #DDD;
+  border-top: 1px solid #BBB;
+  background-color: #F7F7F7;
+}
+.first .th {
+  border-top-width: 2px;
+}
+.tr .td {
+  display: table-cell;
+  vertical-align: inherit;
+  word-break: break-word;
+  padding: 5px 10px;
+  border: none;
+}
+.tr .td:nth-child(1){
+  width: 16px;
+}
+.tr .td:nth-child(2){
+  width: 100px;
+}
+.tr .td:nth-child(3){
+  width: 80px;
+}
+.tr .td:nth-child(4){
+  width: 70px;
+}
+.tr .td:nth-child(5){
+  width: 16px;
+}
+.tr .td:nth-child(6){
+  width: 30px;
+}
+.prescription .td {
+  padding: 8px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.ax-editor-page-dom {
+  position: relative;
+}
+.ax-editor-page-dom .ax-editor-page-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+p {
+  page-break-before: avoid;
+  page-break-after: avoid;
+}
+table,
+figure {
+  page-break-inside: avoid;
+}
+.visibilityHidden{
+  visibility: hidden;
+  color: #fff;
+  opacity: 0;
+}
+
+/* 打印样式 */
+@media print {
+  td,
+  th,
+  p,
+  p > span {
+    color: #000;
+  }
+  /* .noprint {    
+        display: none   
+    }   */
+  .error {
+    color: #000;
+    background: transparent !important;
+  }
+  .editor-new-add-text {
+    text-decoration: none;
+  }
+  .editor-mark-del-text {
+    display: none;
+  }
+  .ctrl-field:after,
+  .ctrl-field:before,
+  .text-mark:before,
+  .text-mark:after {
+    content: "" !important;
+  }
+  .ctrl-field:hover {
+    background-color: transparent;
+  }
+  .ctrl-value > span {
+    background-color: transparent !important;
+  }
+  .ctrl-value[placeWidth="true"] {
+    visibility: hidden;
+  }
+  
+  .ax-editor-note {
+    background: transparent;
+  }
+  .ctrl-value:empty:before {
+    content: none;
+  }
+  span.ctrl-field {
+    border-bottom: none;
+  }
+  .ax-editor-print-mask {
+    filter: opacity(200) !important;
+    opacity: 2 !important;
+    background: #fff !important;
+  }
+  .ax-editor-fill-node {
+    border-bottom: none;
+  }
+  .paragraph-border {
+    border: none !important;
+  }
+  .focusCtrl input[type="radio"].focusBox:after,
+  .focusCtrl input[type="checkbox"].focusBox:after {
+    border: none;
+  }
+  @page {
+    size: A4 portrait !important;
+    margin: 0mm;
+  }
+  p {
+    orphans: 3;
+    widows: 2;
+  }
+}
+
+.divid-after::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed #999;
+}
+.divid-before::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed #999;
+}
+.divid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed #999;
+}
+.line-text {
+  position: absolute;
+}
+.break-separator {
+  height: 1px;
+  line-height: 1px;
+  width: 100%;
+  position: relative;
+  page-break-after: always !important;
+  background: red;
+}
+/***************** 修复增加序号排列时，序号不对齐 ******************/
+ul,
+ol {
+  list-style-position: inside;
+}
+ul li,
+ol li {
+  display: block;
+}
+ul li > p {
+  display: list-item;
+}
+ul li > div {
+  display: list-item;
+}
+ol li > p {
+  display: list-item;
+}
+ol li > div {
+  display: list-item;
+}
+.ctrl-value {
+  position: relative;
+}
+/* 元素内容与默认值  修改状态 红点默认  蓝点已修改 */
+/* .nochangeValue .ctrl-value::after{
+  content: "";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: red;
+  border-radius: 50%;
+}
+
+.changeValue .ctrl-value::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: rgb(5, 118, 211);
+  border-radius: 50%;
+} */
+
+.invisible-wrapper {
+  visibility: hidden;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+}
+
+.ax-page-continue-print-wrapper {
+  /* visibility: hidden; */
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.ax-page-wrapper {
+  position: relative;
+  /*overflow: hidden;*/
+  height: auto !important;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+.ax-page-header {
+  position: relative;
+  min-height: 2px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1px;
+}
+.ax-page-header:focus {
+  border-style: dashed dashed solid dashed;
+  border-width: 1px;
+  border-color: #ccc;
+}
+.ax-page-header::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: 0px;
+  /* bottom: 0px; */
+  height: 40px;
+  left: 0px;
+}
+.ax-page-content {
+  position: relative;
+  height: auto !important;
+  /*overflow: hidden;*/
+}
+/* fix: 文本分割需要容器独立定位 */
+.ax-page-content > p {
+  /* position: relative; */
+  margin: 0;
+}
+.ax-page-footer {
+  position: relative;
+  min-height: 2px;
+  border-top: 1px solid #ccc;
+}
+.ax-page-footer:focus {
+  border-style: solid dashed dashed dashed;
+  border-width: 1px;
+  border-color: #ccc;
+}
+.ax-page-footer::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: -20px;
+  left: 0px;
+}
+.ax-page-footer > p {
+  line-height: 1 !important;
+}
+.ax-page-pagenum {
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  bottom: 5px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* 段落内容 */
+.paragraphContent {
+  word-break: break-all;
+}
+
+/*******引用按钮样式******/
+.quoteBtn {
+  right: 5px;
+  /* position: absolute; */
+  float: left;
+  margin: 0px;
+  line-height: 16px;
+  cursor: pointer;
+  padding: 0 8px;
+  border: 1px solid #aaa;
+  color: #aaa;
+  transition: all 0.3s;
+}
+.quoteBtn:hover {
+  color: #2b4583;
+  border: 1px solid #2b4583;
+  border-radius: 4px;
+}
+
+/************ svg 基本样式 **************/
+
+svg {
+  max-width: 100%;
+}
+
+/* *********** 图片宽高 ********** */
+
+img{
+  max-width: 100%;
+  max-height: 900px;
+}
+
+/* input 单选框禁用样式覆盖 */
+/*.ctrl-bg input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.ctrl-bg input[type="radio"]:checked + label:before {
+  background-color: #3197EE;
+  box-shadow: inset 0 0 0 2px #f4f4f4;
+}
+.ctrl-bg input[type="radio"]:focus + label:before {
+  outline: none;
+  border-color: #3197EE;
+}
+.ctrl-bg input[type="radio"] + label:empty:before {
+  margin-right: 0;
+}
+.ctrl-bg input[type="radio"] + label:before {
+  content: '';
+  background: #f4f4f4;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 3px;
+  margin-right: 4px;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.ctrl-bg input[type="radio"]:checked:disabled + label:before {
+  box-shadow: inset 0 0 0 2px #f4f4f4;
+  border-color: #696969;
+  background: #696969;
+}*/

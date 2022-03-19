@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/expression/teeth.css">
+    <link rel="stylesheet" href="./css/expression/public.css">
+    <style>
+        .content{
+            width: 672px;
+        }
+        .imgBox {
+            width: 460px;
+        }
+        .topTeethRu, .bottomTeethRu {
+            margin-left: 125px;
+        }
+
+        .teethItem {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            margin-right: 0;
+            background: none!important;
+        }
+
+        .teethSelected .yamianTeethItem {
+            background-color: #ffcc90;
+        }
+
+
+        .selected.yamianTeethItem {
+            background-color: #999;
+        }
+
+        .yamianTeethItem {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            clip: rect(0, 20px, 20px, 0);
+            position: absolute;
+            border: 1px solid #fff;
+            background-color: #ffe0de;
+        }
+
+        .yamianTeeth0 {
+            transform: rotateZ(45deg);
+            /*background-color: red;*/
+        }
+
+        .yamianTeeth1 {
+            transform: rotateZ(135deg);
+            /*background-color: blue;*/
+        }
+
+        .yamianTeeth2 {
+            transform: rotateZ(-135deg);
+            /*background-color: green;*/
+        }
+
+        .yamianTeeth3 {
+            transform: rotateZ(-45deg);
+            /*background-color: purple;*/
+        }
+
+        .yamianTeeth4 {
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            clip: rect(0, 22px, 22px, 0);
+            /*background-color: #fff;*/
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+
+        .fang {
+            width: 16px;
+            height: 16px;
+            top: 12.5px;
+            left: 12.5px;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <!--上牙-->
+    <div class="top">
+        <div class="topTeeth clearfloat">
+            <!--上乳牙-->
+            <div class="teethRu topTeethRu clearfloat">
+                <div class="teethItem teethItem3" teethType="0" teeth="3" teethHtml="Ⅴ"></div>
+                <div class="teethItem teethItem4" teethType="0" teeth="4" teethHtml="Ⅳ"></div>
+                <div class="teethItem teethItem5" teethType="0" teeth="5" teethHtml="Ⅲ"></div>
+                <div class="teethItem teethItem6" teethType="0" teeth="6" teethHtml="Ⅱ"></div>
+                <div class="teethItem teethItem7" teethType="0" teeth="7" teethHtml="Ⅰ"></div>
+                <div class="teethItem teethItem8" teethType="0" teeth="8" teethHtml="Ⅰ"></div>
+                <div class="teethItem teethItem9" teethType="0" teeth="9" teethHtml="Ⅱ"></div>
+                <div class="teethItem teethItem10" teethType="0" teeth="10" teethHtml="Ⅲ"></div>
+                <div class="teethItem teethItem11" teethType="0" teeth="11" teethHtml="Ⅳ"></div>
+                <div class="teethItem teethItem12" teethType="0" teeth="12" teethHtml="Ⅴ"></div>
+            </div>
+            <!--上恒牙-->
+            <div class="teethHeng topTeethHeng clearfloat">
+                <div class="teethItem  teethItem0" teethType="1" teeth="0" teethHtml="8"></div>
+                <div class="teethItem  teethItem1" teethType="1" teeth="1" teethHtml="7"></div>
+                <div class="teethItem  teethItem2" teethType="1" teeth="2" teethHtml="6"></div>
+                <div class="teethItem  teethItem3" teethType="1" teeth="3" teethHtml="5"></div>
+                <div class="teethItem  teethItem4" teethType="1" teeth="4" teethHtml="4"></div>
+                <div class="teethItem  teethItem5" teethType="1" teeth="5" teethHtml="3"></div>
+                <div class="teethItem  teethItem6" teethType="1" teeth="6" teethHtml="2"></div>
+                <div class="teethItem  teethItem7" teethType="1" teeth="7" teethHtml="1"></div>
+                <div class="teethItem  teethItem8" teethType="1" teeth="8" teethHtml="1"></div>
+                <div class="teethItem  teethItem9" teethType="1" teeth="9" teethHtml="2"></div>
+                <div class="teethItem  teethItem10" teethType="1" teeth="10" teethHtml="3"></div>
+                <div class="teethItem  teethItem11" teethType="1" teeth="11" teethHtml="4"></div>
+                <div class="teethItem  teethItem12" teethType="1" teeth="12" teethHtml="5"></div>
+                <div class="teethItem  teethItem13" teethType="1" teeth="13" teethHtml="6"></div>
+                <div class="teethItem  teethItem14" teethType="1" teeth="14" teethHtml="7"></div>
+                <div class="teethItem  teethItem15" teethType="1" teeth="15" teethHtml="8"></div>
+            </div>
+        </div>
+    </div>
+    <!--下牙-->
+    <div class="bottom">
+        <div class="bottomTeeth clearfloat">
+            <!--下恒牙-->
+            <div class="teethHeng bottomTeethHeng clearfloat">
+                <div class="teethItem  teethItem16" teethType="1" teeth="16" teethHtml="8"></div>
+                <div class="teethItem  teethItem17" teethType="1" teeth="17" teethHtml="7"></div>
+                <div class="teethItem  teethItem18" teethType="1" teeth="18" teethHtml="6"></div>
+                <div class="teethItem  teethItem19" teethType="1" teeth="19" teethHtml="5"></div>
+                <div class="teethItem  teethItem20" teethType="1" teeth="20" teethHtml="4"></div>
+                <div class="teethItem  teethItem21" teethType="1" teeth="21" teethHtml="3"></div>
+                <div class="teethItem  teethItem22" teethType="1" teeth="22" teethHtml="2"></div>
+                <div class="teethItem  teethItem23" teethType="1" teeth="23" teethHtml="1"></div>
+                <div class="teethItem  teethItem24" teethType="1" teeth="24" teethHtml="1"></div>
+                <div class="teethItem  teethItem25" teethType="1" teeth="25" teethHtml="2"></div>
+                <div class="teethItem  teethItem26" teethType="1" teeth="26" teethHtml="3"></div>
+                <div class="teethItem  teethItem27" teethType="1" teeth="27" teethHtml="4"></div>
+                <div class="teethItem  teethItem28" teethType="1" teeth="28" teethHtml="5"></div>
+                <div class="teethItem  teethItem29" teethType="1" teeth="29" teethHtml="6"></div>
+                <div class="teethItem  teethItem30" teethType="1" teeth="30" teethHtml="7"></div>
+                <div class="teethItem  teethItem31" teethType="1" teeth="31" teethHtml="8"></div>
+            </div>
+            <!--下乳牙-->
+            <div class="teethRu bottomTeethRu clearfloat">
+                <div class="teethItem teethItem19" teethType="0" teeth="19" teethHtml="Ⅴ"></div>
+                <div class="teethItem teethItem20" teethType="0" teeth="20" teethHtml="Ⅳ"></div>
+                <div class="teethItem teethItem21" teethType="0" teeth="21" teethHtml="Ⅲ"></div>
+                <div class="teethItem teethItem22" teethType="0" teeth="22" teethHtml="Ⅱ"></div>
+                <div class="teethItem teethItem23" teethType="0" teeth="23" teethHtml="Ⅰ"></div>
+                <div class="teethItem teethItem24" teethType="0" teeth="24" teethHtml="Ⅰ"></div>
+                <div class="teethItem teethItem25" teethType="0" teeth="25" teethHtml="Ⅱ"></div>
+                <div class="teethItem teethItem26" teethType="0" teeth="26" teethHtml="Ⅲ"></div>
+                <div class="teethItem teethItem27" teethType="0" teeth="27" teethHtml="Ⅳ"></div>
+                <div class="teethItem teethItem28" teethType="0" teeth="28" teethHtml="Ⅴ"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="title">实时预览：</div>
+<div class="result">
+    <div id="preview_slot"></div>
+    <!-- <div id="imgBox" class="imgBox">
+        <div class="topTeethImg clearfloat">
+            <div class="topTeethImgHeng clearfloat">
+                <span class="teethItemImg teethItemImg0" teethType="1" teeth="0"><div class="h-line"></div>8<i class="teethItemI teethItemI0"
+                                                                                    teethType="1" teeth="0"></i></span>
+                <span class="teethItemImg teethItemImg1" teethType="1" teeth="1"><div class="h-line"></div>7<i class="teethItemI teethItemI1"
+                                                                                    teethType="1" teeth="1"></i></span>
+                <span class="teethItemImg teethItemImg2" teethType="1" teeth="2"><div class="h-line"></div>6<i class="teethItemI teethItemI2"
+                                                                                    teethType="1" teeth="2"></i></span>
+                <span class="teethItemImg teethItemImg3" teethType="1" teeth="3"><div class="h-line"></div>5<i class="teethItemI teethItemI3"
+                                                                                    teethType="1" teeth="3"></i></span>
+                <span class="teethItemImg teethItemImg4" teethType="1" teeth="4"><div class="h-line"></div>4<i class="teethItemI teethItemI4"
+                                                                                    teethType="1" teeth="4"></i></span>
+                <span class="teethItemImg teethItemImg5" teethType="1" teeth="5"><div class="h-line"></div>3<i class="teethItemI teethItemI5"
+                                                                                    teethType="1" teeth="5"></i></span>
+                <span class="teethItemImg teethItemImg6" teethType="1" teeth="6"><div class="h-line"></div>2<i class="teethItemI teethItemI6"
+                                                                                    teethType="1" teeth="6"></i></span>
+                <span class="teethItemImg teethItemImg7" teethType="1" teeth="7"><div class="h-line"></div><div class="v-line"></div>1<i class="teethItemI teethItemI7"
+                                                                                    teethType="1" teeth="7"></i></span>
+                <span class="teethItemImg teethItemImg8" teethType="1" teeth="8"><div class="h-line"></div>1<i class="teethItemI teethItemI8"
+                                                                                    teethType="1" teeth="8"></i></span>
+                <span class="teethItemImg teethItemImg9" teethType="1" teeth="9"><div class="h-line"></div>2<i class="teethItemI teethItemI9"
+                                                                                    teethType="1" teeth="9"></i></span>
+                <span class="teethItemImg teethItemImg10" teethType="1" teeth="10"><div class="h-line"></div>3<i class="teethItemI teethItemI10"
+                                                                                    teethType="1" teeth="10"></i></span>
+                <span class="teethItemImg teethItemImg11" teethType="1" teeth="11"><div class="h-line"></div>4<i class="teethItemI teethItemI11"
+                                                                                    teethType="1" teeth="11"></i></span>
+                <span class="teethItemImg teethItemImg12" teethType="1" teeth="12"><div class="h-line"></div>5<i class="teethItemI teethItemI12"
+                                                                                    teethType="1" teeth="12"></i></span>
+                <span class="teethItemImg teethItemImg13" teethType="1" teeth="13"><div class="h-line"></div>6<i class="teethItemI teethItemI13"
+                                                                                    teethType="1" teeth="13"></i></span>
+                <span class="teethItemImg teethItemImg14" teethType="1" teeth="14"><div class="h-line"></div>7<i class="teethItemI teethItemI14"
+                                                                                    teethType="1" teeth="14"></i></span>
+                <span class="teethItemImg teethItemImg15" teethType="1" teeth="15"><div class="h-line"></div>8<i class="teethItemI teethItemI15"
+                                                                                    teethType="1" teeth="15"></i></span>
+            </div>
+        </div><br>
+        <div class="bottomTeethImg clearfloat">
+            <div class="bottomTeethImgHeng clearfloat">
+                <span class="teethItemImg teethItemImg16" teethType="1" teeth="16">8<i class="teethItemI teethItemI16"
+                                                                                    teethType="1" teeth="16"></i></span>
+                <span class="teethItemImg teethItemImg17" teethType="1" teeth="17">7<i class="teethItemI teethItemI17"
+                                                                                    teethType="1" teeth="17"></i></span>
+                <span class="teethItemImg teethItemImg18" teethType="1" teeth="18">6<i class="teethItemI teethItemI18"
+                                                                                    teethType="1" teeth="18"></i></span>
+                <span class="teethItemImg teethItemImg19" teethType="1" teeth="19">5<i class="teethItemI teethItemI19"
+                                                                                    teethType="1" teeth="19"></i></span>
+                <span class="teethItemImg teethItemImg20" teethType="1" teeth="20">4<i class="teethItemI teethItemI20"
+                                                                                    teethType="1" teeth="20"></i></span>
+                <span class="teethItemImg teethItemImg21" teethType="1" teeth="21">3<i class="teethItemI teethItemI21"
+                                                                                    teethType="1" teeth="21"></i></span>
+                <span class="teethItemImg teethItemImg22" teethType="1" teeth="22">2<i class="teethItemI teethItemI22"
+                                                                                    teethType="1" teeth="22"></i></span>
+                <span class="teethItemImg teethItemImg23" teethType="1" teeth="23"><div class="v-line"></div>1<i class="teethItemI teethItemI23"
+                                                                                    teethType="1" teeth="23"></i></span>
+                <span class="teethItemImg teethItemImg24" teethType="1" teeth="24">1<i class="teethItemI teethItemI24"
+                                                                                    teethType="1" teeth="24"></i></span>
+                <span class="teethItemImg teethItemImg25" teethType="1" teeth="25">2<i class="teethItemI teethItemI25"
+                                                                                    teethType="1" teeth="25"></i></span>
+                <span class="teethItemImg teethItemImg26" teethType="1" teeth="26">3<i class="teethItemI teethItemI26"
+                                                                                    teethType="1" teeth="26"></i></span>
+                <span class="teethItemImg teethItemImg27" teethType="1" teeth="27">4<i class="teethItemI teethItemI27"
+                                                                                    teethType="1" teeth="27"></i></span>
+                <span class="teethItemImg teethItemImg28" teethType="1" teeth="28">5<i class="teethItemI teethItemI28"
+                                                                                    teethType="1" teeth="28"></i></span>
+                <span class="teethItemImg teethItemImg29" teethType="1" teeth="29">6<i class="teethItemI teethItemI29"
+                                                                                    teethType="1" teeth="29"></i></span>
+                <span class="teethItemImg teethItemImg30" teethType="1" teeth="30">7<i class="teethItemI teethItemI30"
+                                                                                    teethType="1" teeth="30"></i></span>
+                <span class="teethItemImg teethItemImg31" teethType="1" teeth="31">8<i class="teethItemI teethItemI31"
+                                                                                    teethType="1" teeth="31"></i></span>
+            </div>
+        </div>
+    </div> -->
+</div>
+<div id="buttons" class="buttons">
+    <button class="doCancel">取消</button>
+    <button class="doOk">确定</button>
+</div>
+<span id="ruler"></span>
+<script src="../../third-party/jquery-1.10.2.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/medical.js"></script>
+<script type="text/javascript" src="../internal.js"></script>
+<script src="../../third-party/date/laydate/laydate.js"></script>
+<script type="text/javascript">
+    let thePlugins = 'mixteeth2';
+    let attrsLength = 32;
+</script>
+<script src="js/mixTeeth2.js"></script>
+</body>
+</html>

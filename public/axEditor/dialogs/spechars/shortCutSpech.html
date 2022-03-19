@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="../internal.js"></script>
+    <style type="text/css">
+        html,body{overflow:hidden;}
+        #specharsTab{width: 97%;margin: 10px auto; zoom:1;position: relative}
+        .tabbody {height:447px;}
+        .tabbody span{ margin: 5px 3px;text-align: center;display:inline-block;width: 40px;height:16px;line-height: 16px;cursor: pointer; }
+
+        .tabhead {
+            position: relative;
+            z-index: 10;
+        }
+
+        .tabhead span.focus {
+            height: 31px;
+            border-bottom: none;
+            background: #fff;
+        }
+
+        .tabhead span {
+            display: inline-block;
+            padding: 0 5px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            *margin-right: 5px;
+        }
+
+        .tabbody {
+            position: relative;
+            top: -1px;
+            margin: auto;
+            border: 1px solid #ccc;
+            height: auto;
+        }
+        .tabbody span {
+            margin: 5px 3px;
+            text-align: center;
+            display: inline-block;
+            width: 40px;
+            height: 16px;
+            line-height: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="specharsTab">
+    <div id="tabHeads" class="tabhead" style="display: none"></div>
+    <div id="tabBodys" class="tabbody"  style="display: none"></div>
+    <div class="tabbody" id="shortCutCharts"></div>
+</div>
+<script type="text/javascript" src="spechars.js"></script>
+<link rel="stylesheet" href="specharsNew.css">
+<style>
+    #shortCutCharts span:nth-child(1), #shortCutCharts span:nth-child(2),#shortCutCharts span:nth-child(3) {
+        border-top: 1px solid rgba(220, 223, 230, 1);
+    }
+</style>
+<script>
+    // 右侧侧边栏 特殊字符插入常用字符
+    var shortCutCharts = toArray("㎏/㎡,mmHg,mmol/L,μmol/L,pmol/L,nmol/L,μg/mL,μg/L,mg/24h,U/L,mU/L,℃,℉,‰,％,%,㎎,㎏,㎜,㎝,㎞,㎡,㏄,㏎,Ⅰ,Ⅱ,Ⅲ,Ⅳ,Ⅴ,Ⅵ,Ⅶ,Ⅷ,Ⅸ,Ⅹ,Ⅺ,Ⅻ,⑴,⑵,⑶,⑷,⑸,⑹,⑺,⑻,⑼,⑽,⑾,⑿,⒀,⒁,⒂,⒃,⒄,⒅,⒆,⒇,①,②,③,④,⑤,⑥,⑦,⑧,⑨,⑩");
+    var div = document.getElementById('shortCutCharts');
+    for (var j = 0, con; con = shortCutCharts[j++];) {
+        var charSpan = document.createElement("span");
+        charSpan.innerHTML = con;
+        domUtils.on(charSpan, "dblclick", function () {
+            editor.execCommand("insertHTML", this.innerHTML);
+        });
+        div.appendChild(charSpan);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>胎心表达式</title>
+    <link rel="stylesheet" href="./css/expression/fetal.css">
+    <link rel="stylesheet" href="./css/expression/public.css">
+</head>
+<body>
+<div class="content">
+    <div class="left">
+        <li><input type="text" autocomplete="off" class="value0" placeholder="value1"></li>
+        <li><input type="text" autocomplete="off" class="value1" placeholder="value2"></li>
+        <li><input type="text" autocomplete="off" class="value2" placeholder="value3"></li>
+    </div>
+    <div class="center">
+
+    </div>
+    <div class="right">
+        <li><input type="text" autocomplete="off" class="value3" placeholder="value4"></li>
+        <li><input type="text" autocomplete="off" class="value4" placeholder="value5"></li>
+        <li><input type="text" autocomplete="off" class="value5" placeholder="value6"></li>
+    </div>
+</div>
+<div class="title">实时预览</div>
+<div id="preview_slot"></div>
+<!-- <div id="imgBox" class="imgBox">
+    <div class="img-left">
+        <li><span class="ivalue0"><i>value1</i></span></li>
+        <li><span class="beforeLine"></span><span class="ivalue1"><i>value2</i></span><span class="afterLine"></span></li>
+        <li><span class="ivalue2"><i>value3</i></span></li>
+    </div>
+    <div class="img-center">
+
+    </div>
+    <div class="img-right">
+        <li><span class="ivalue3"><i>value4</i></span></li>
+        <li><span class="beforeLine"></span><span class="ivalue4"><i>value5</i></span><span class="afterLine"></span></li>
+        <li><span class="ivalue5"><i>value6</i></span></li>
+    </div>
+</div> -->
+<div id="buttons" class="buttons">
+    <button class="doCancel">取消</button>
+    <button class="doOk">确定</button>
+</div>
+<div id="toolbar" class="toolbar"></div>
+<script src="../../third-party/jquery-1.10.2.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/medical.js"></script>
+<script type="text/javascript" src="../internal.js"></script>
+<script src="../../third-party/date/laydate/laydate.js"></script>
+<script type="text/javascript">
+    var thePlugins = 'fetal';
+    var attrs = {value0: '', value1: '', value2: '', value3: '', value4: '', value5: ''};
+</script>
+<script src="js/pupil.js"></script>
+</body>
+</html>

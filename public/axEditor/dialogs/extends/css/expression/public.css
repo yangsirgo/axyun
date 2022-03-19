@@ -1,0 +1,60 @@
+
+/* 
+    留痕相关样式
+*/
+.editor-mark-text {
+    display: none;
+}
+.editor-mark-text.on,
+.text-mark.on {
+    display: inline-block;
+}
+.ctrl-delete.on,
+.editor-mark-del-text {
+    text-decoration: line-through;
+    text-decoration-color: #ff0000;
+    text-decoration-style: double;
+    font-size: 14px !important;
+}
+.ctrl-value.ctrl-modify.on,
+.editor-mark-modify-text,
+.editor-new-add-text {
+    text-decoration: underline;
+    text-decoration-color: #0000ff;
+    text-decoration-style: double;
+    font-size: 14px !important;
+}
+.ax-editor-print-page .ctrl-delete.on,
+.ax-editor-print-page .editor-mark-del-text,
+.ax-editor-print-page .ctrl-value.ctrl-modify.on,
+.ax-editor-print-page .editor-mark-modify-text {
+    text-decoration: none;
+}
+.ax-editor-print-page .ctrl-delete.on,
+.ax-editor-print-page .editor-mark-del-text {
+    display: none;
+}
+
+/* 
+    调整留痕标签位置样式
+*/
+.content{
+    width: 100%;
+}
+
+.imgBox li{
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.editor-mark {
+    /* position: absolute; */
+    font-size: 12px;
+    /* top: 2px; */
+    margin: 0;
+    display: inline-block;
+    margin-right: 5px;
+}
+.editor-mark .editor-mark {
+    margin-right: 0;
+}

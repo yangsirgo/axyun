@@ -1,0 +1,34 @@
+#qrcodeForm {
+    width: 480px;
+    margin: 0 auto;
+}
+
+li {
+    list-style: none;
+}
+.qrcodeTable{
+    width: 100%;
+}
+.qrcodeTable tr td {
+    text-align: left;
+    width: auto;
+}
+
+.qrcodeTable tr td input[type="text"] {
+    width: 120px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.sql textarea {
+    width: 302px;
+    height: 60px;
+    margin-left: 20px;
+    padding: 10px;
+    resize: none;
+}
+.sql label{
+    height: 60px;
+    display: inline-block;
+    vertical-align: top;
+}

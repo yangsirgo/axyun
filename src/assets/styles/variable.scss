@@ -1,0 +1,78 @@
+
+// 字号
+$l-font-size: 14px !default;
+$l-font-size-min: 12px !default;
+$l-font-size-max: 16px !default;
+// 字重
+$l-font-weight: bold !default;
+
+// 颜色
+/// color|1|BrandColor|0
+$l-color-primary: #f05b23 !default;
+/// color|1|BackgroundColor|4
+$l-color-white: #FFFFFF !default;
+/// color|1|BackgroundColor|4
+$l-color-black: #000000 !default;
+/// color|1|FontColor|2
+$l-color-text-primary: #605D5A !default;
+/// color|1|FontColor|2
+$l-color-text-regular: #999999 !default;
+/// color|1|FontColor|2
+$l-color-text-secondary: #CCCCCC !default;
+/// 边框颜色
+$l-color-border-1: #A0A2AD !default;
+$l-color-border-2: #C1C5CD !default;
+$l-color-border-3: #DCDFE6 !default;
+$l-color-border-4: #E6E7EB !default;
+$l-color-border-5: #DCDEE3 !default;
+
+// 背景颜色
+$l-color-bgcolor-1: #F5F7FA !default;
+$l-color-bgcolor-2: #67C23A !default;
+$l-color-bgcolor-3: #FF4040 !default;
+$l-color-bgcolor-4: #6478D3 !default;
+$l-color-bgcolor-5: #7ED321 !default;
+$l-color-bgcolor-6: #F7F9FC !default;
+$l-color-bgcolor-7: #FFF5EF !default;
+$l-color-bgcolor-8: #FFB11B !default;
+$l-color-bgcolor-9: #FF5B50 !default;
+
+// 上下左右居中
+@mixin l-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+// 水平居中
+@mixin l-center-horizontal {
+  position: relative;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+// 垂直居中
+@mixin l-center-vertical {
+  position: relative;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+// 垂直滑动容器
+@mixin scroll-vertical {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}

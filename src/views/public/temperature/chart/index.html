@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="./jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+  <script src="./utils.js"></script>
+  <script src="./scroll.js"></script>
+  <title>时间轴</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body onload="start()">
+  <script src="./graphStyle.js"> </script>
+  <script src="./pixi.extend.js"> </script>
+  <script src="./index.js"> </script>
+  <script>
+    function start() {
+      var root = window.root = new Chart();
+      root.update(needData);
+      function tick() {
+        root.app.render(root.scene);
+        requestAnimationFrame(tick);
+      }
+      tick();
+    }
+  </script>
+</body>
+
+</html>

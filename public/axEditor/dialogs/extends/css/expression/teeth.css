@@ -1,0 +1,181 @@
+
+li {
+    list-style: none;
+}
+
+input {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    text-align: center;
+    font: 400 13px Arial;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    display: inline-block;
+    background-color: white;
+    cursor: text;
+}
+#ruler{
+    display: inline!important;
+    visibility: hidden; 
+    white-space: nowrap; 
+    font-size: 8px; 
+}
+.title {
+    margin-left: 80px;
+    font-size: 12px;
+}
+
+.buttons {
+    width: 100%;
+    margin: 20px 50px 0 0;
+    float: right;
+}
+
+.buttons button {
+    float: right;
+    width: 70px;
+    height: 30px;
+    background: rgba(245, 247, 250, 1);
+    border: 1px solid rgba(220, 222, 227, 1);
+    cursor: default;
+}
+
+.buttons button:hover {
+    background: #fff;
+}
+
+.buttons .doOk {
+    margin-right: 30px;
+}
+
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+span {
+    height: 20px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    border: 1px solid #E4E4E4;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.topYaMianTeeth, .bottomYaMianTeeth {
+    width: 22px;
+    float: left;
+    margin-right: 1px;
+}
+
+.topTeeth {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+.bottomTeeth{
+    margin-bottom: 2px;
+}
+.bottomYaMian{
+    margin-top: -2px;
+}
+.topTeeth .teethItem,.bottomTeeth .teethItem{
+    background: #ffe0de;
+}
+.topTeeth .selected,.bottomTeeth .selected{
+    background: #ffcc90;
+} 
+.teethItem {
+    float: left;
+    margin-right: 1px;
+}
+.teethItemI{
+    display: inline-block;
+    text-align: left;
+    font-size: 12px !important;
+}
+.selected {
+    background-color: #ccc;
+}
+.teethItemText {
+    width: 13px;
+    min-width: 13px;
+    font-size: 16px;
+    display: inline-block;
+    border: none;
+}
+.teethItemImg {
+    float: left;
+    border: none;
+    min-width: auto;
+    padding: 0 6px;
+    font-size: 16px;
+    display: inline!important;
+}
+.topTeethImg,.bottomTeethImg{
+    display: inline-block;
+}
+.bottomTeethImg{
+    margin-top: -4px;
+}
+/* .topTeethImg .teethItemImg {
+    border-bottom: 1px solid #404040;
+} */
+
+/* .teethItemImg4, .teethItemImg14 {
+    border-right: 1px solid #404040;
+} */
+
+.content, .result {
+    margin: 20px auto;
+    /* text-align: center; */
+}
+#imgBox{
+    display:inline;
+    padding: 5px 0;
+}
+/* .content{
+    width: 232px;
+} */
+.mr{
+    margin-right: 5px;
+}
+i {
+    line-height: 15px;
+    font-size: 8px;
+    vertical-align: top;
+    color: red;
+}
+.teethItemImg{
+    position: relative;
+    height: 21px;
+}
+.h-line,.v-line{
+    position: absolute;
+    bottom: 0;
+    background: #000;
+}
+.h-line{
+    left: 0;
+    width: 100%;
+    height: 1px; 
+}
+.v-line{
+    right: 0;
+    width: 1px;
+    height: 100%; 
+}

@@ -1,0 +1,243 @@
+.rightMedicalOrder {
+  height: 100%;
+  padding: 18px 16px;
+
+  .rightMedicalOrderInner {
+    display: flex;
+    flex-direction: column;
+
+    .table-box {
+      flex: 1;
+      margin-top: 10px;
+
+      /deep/.el-table .cell {
+        padding: 0 !important;
+      }
+    }
+  }
+
+  .ds-input {
+    width: 60px;
+  }
+
+  .edit-btn-box {
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    >span {
+      display: inline-block;
+      min-width: 60px;
+    }
+
+    span,
+    .btn-text {
+      margin-right: 16px;
+      line-height: 24px;
+      font-size: 14px;
+
+      i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        font-size: 14px !important;
+      }
+    }
+
+    /deep/ .el-button {
+      &>i {
+        font-size: 14px;
+        vertical-align: middle;
+      }
+
+      &>span {
+        margin-left: 5px;
+      }
+    }
+
+    .el-button--text,
+    .el-button--text:hover {
+      font-size: 14px;
+      padding: 0px;
+      font-weight: 400;
+      color: rgba(46, 50, 58, 1);
+    }
+
+    .lastSpan {
+      margin-right: 0 !important;
+    }
+
+    // 撤销按钮 比较大 需要 额外的margin-right
+    .chexiaoSpan>i {
+      margin-right: 10px;
+    }
+
+    .line {
+      width: 2px;
+      height: 18px;
+      background: #e4e4e4;
+      margin-left: 16px;
+      margin-right: 16px;
+      height: 18px;
+    }
+  }
+
+  .disabled {
+    color: $l-color-fontcolor-4;
+  }
+
+  .state-info {
+    position: relative;
+    font-size: 14px;
+
+    font-weight: 400;
+    display: inline-block;
+    width: 100%;
+
+    .state-info-icon {
+      position: absolute;
+      right: 0;
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      color: #ffd2c2;
+      top: 0;
+      cursor: pointer;
+      z-index: 100;
+    }
+  }
+
+  .detail-table {
+    left: 0;
+    width: 100%;
+    transition: all 0.5s;
+
+    .title {
+      background-color: $l-color-bgcolor-18;
+      padding-left: 10px;
+      line-height: 30px;
+      color: $l-color-fontcolor-3;
+      font-size: 14px;
+
+      span {
+        width: 80px;
+        height: 20px;
+        text-align: center;
+        left: 50%;
+        top: 1px;
+        transform: translateX(-50%);
+        background-color: #fff;
+        cursor: pointer;
+        border: 1px solid $l-color-bgcolor-11;
+        border-radius: 0px 2px 2px 0px;
+
+        i {
+          position: relative;
+          top: -5px;
+          transition: all 0.5s;
+        }
+
+        i.active {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
+  .bottom {
+    //bottom: 0;
+    //right: 0;
+    //left: 0;
+    height: 30%;
+    //position: absolute;
+
+    .tabs {
+      padding: 10px 20px 20px 20px;
+
+      /deep/ .el-tabs__content {
+        height: calc(100% - 50px);
+        /*overflow: auto;*/
+      }
+    }
+  }
+}
+
+.minWidth80 {
+  min-width: 86px !important;
+}
+
+.minWidth180 {
+  min-width: 180px !important;
+}
+
+.bunchingUp {
+  display: inline-block;
+  color: $l-color-primary;
+
+  &::after {
+    content: "┓";
+  }
+}
+
+.bunchingCenter {
+  display: inline-block;
+  color: $l-color-primary;
+
+  &::after {
+    content: "┫";
+  }
+}
+
+.bunchingDown {
+  color: $l-color-primary;
+  display: inline-block;
+
+  &::after {
+    content: "┛";
+  }
+}
+
+.fixedVxTable {
+  height: 32px;
+  text-align: center;
+  line-height: 11px;
+}
+
+.showRow {
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+}
+
+// 超出省略号
+.ellipsis {
+  overflow: hidden; //超出的文本隐藏
+  text-overflow: ellipsis; //溢出用省略号显示
+  white-space: nowrap; //溢出不换行
+}
+
+/deep/.el-input.is-error .el-input__inner,
+/deep/.el-input.is-error .el-input__inner:focus,
+/deep/.el-input.is-error .el-textarea__inner,
+/deep/.el-input.is-error .el-textarea__inner:focus,
+/deep/.el-input-number.is-error .el-input__inner,
+/deep/.el-input-number.is-error .el-input__inner:focus {
+  border-color: #f56c6c;
+}
+
+[align=left]
+{
+text-align: left !important;
+}
+
+[align=right]
+{
+text-align: right !important;
+}
+
+[align=center]
+{
+text-align: center !important;
+}

@@ -1,0 +1,70 @@
+table {
+    font-size: 12px;
+    margin: 20px 50px;
+    line-height: 30px;
+}
+
+table tr {
+    width: 380px;
+}
+
+.txt {
+    width: 250px;
+    height: 36px;
+    padding-left: 10px;
+    margin: 5px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    color: rgba(153, 153, 153, 1);
+    line-height: 1;
+    border: 1px solid rgba(220, 223, 230, 1);
+}
+
+table tr td label {
+    width: 42px;
+    height: 36px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    color: #605d5a;
+    line-height: 1;
+    text-align: right;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    vertical-align: -2px;
+    position: relative;
+}
+
+input[type="checkbox"]:after {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    content: " ";
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    border: 1px solid rgba(196, 198, 207, 1);
+    display: inline-block;
+    visibility: visible;
+}
+
+input[type=checkbox]:checked:after {
+    content: "✓";
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 1);
+    background: #605d5a;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+table tr td span {
+    width: 100%;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    color: red;
+    display: inline-block;
+}

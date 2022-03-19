@@ -1,0 +1,733 @@
+@import "axcommon/src/styles/var.scss"
+
+
+// // 字号
+// $l-font-size-max: 16px !default;
+// $l-font-size: 14px !default;
+// $l-font-size-min: 12px !default;
+
+// // 字重
+// $l-font-weight: bold !default;
+
+// // 字体
+// $l-font-familySC-regular: SourceHanSansSC-Regular !default;
+// $l-font-familySC-heavy: SourceHanSansSC-Heavy !default;
+// $l-font-familySC-bold: SourceHanSansSC-Bold !default;
+// $l-font-familySC-medium: SourceHanSansSC-Medium !default;
+// $l-font-familyDIN-regular: DINPro-Regular !default;
+// $l-font-familyDIN-bold: DINPro-Bold !default;
+
+
+// // 菜单栏相关颜色
+// $l-color-menu: #19294F; // 一级导航背景色
+// $l-color-menu-active: #16203d;
+// $l-color-menu-font: #B9C0D0;
+// $l-color-logo: #fff;
+
+// // 读卡按钮颜色
+// $l-color-duka-bg: #F05A23;
+// $l-color-duka-color: #fff;
+
+// // element-ui  颜色
+// $l-color-success : #15BC9C;// 成功
+// $l-color-warning : #FBA541;// 警示
+// $l-color-important : #F05A23;// 强调
+// $l-color-error : #EF0F0F;// 错误
+// $l-color-info : #909399; // 提示
+// $l-color-link: #1477FF;// 链接色/文字操作色
+
+// // 主色
+// $l-color-primary1: #2B4583 !default;
+// $l-color-primary: #2B4583 !default;
+
+// $l-color-white: #ffffff !default;
+// $l-color-black: #000000 !default;
+
+
+// $l-color-text-primary: #605d5a !default;
+// $l-color-text-regular: #999999 !default;
+// $l-color-text-secondary: #cccccc !default;
+
+// // 辅色
+// $l-color-secondary-1: #3759FF; // 一些用户名称和链接文字颜色
+// $l-color-secondary-2: #27CBAC;
+
+
+// /// 边框颜色
+// $l-color-border-1: #a0a2ad !default;
+// $l-color-border-2: #c1c5cd !default;
+// $l-color-border-3: #dcdfe6 !default;
+// $l-color-border-4: #e6e7eb !default;
+// $l-color-border-5: #dcdee3 !default;
+// $l-color-border-6: #f7a820 !default; //新生儿图标颜色
+// $l-color-border-7: #C0C4CC !default;
+// $l-color-border-8: #F0F0F0 !default;// 白色背景分割线
+
+// // 背景颜色
+// $l-color-bgcolor: #030303 !default;
+// $l-color-bgcolor-1: #f5f7fa !default;
+// $l-color-bgcolor-2: #67c23a !default;
+// $l-color-bgcolor-3: #ff4040 !default;
+// $l-color-bgcolor-4: #6478d3 !default;
+// $l-color-bgcolor-5: #7ed321 !default;
+// $l-color-bgcolor-6: #f7f9fc !default;
+// $l-color-bgcolor-7: #fff5ef !default;
+// $l-color-bgcolor-8: #ffb11b !default;
+// $l-color-bgcolor-9: #ff5b50 !default;
+// $l-color-bgcolor-10: #fff2db !default;
+// $l-color-bgcolor-11: #e4e4e4 !default;// 浅白色背景分割线、边框色
+// $l-color-bgcolor-12: #B4BBC8FF !default;
+// $l-color-bgcolor-13: #fdeee9 !default;
+// $l-color-bgcolor-14: #f5f5f5 !default;
+// $l-color-bgcolor-15: #e1140a !default;
+// $l-color-bgcolor-16: #bdc1c3 !default;
+// $l-color-bgcolor-17: #ffd2c2 !default;
+// $l-color-bgcolor-18: #F1F4F6 !default;// 所有灰底、卡片灰底、白底选中色
+// $l-color-bgcolor-19: #f0f7ff !default;
+// $l-color-bgcolor-20: #d5e8ff !default;
+// $l-color-bgcolor-21: #EBEEF0 !default;// 浅灰色  内页背景
+// $l-color-bgcolor-22: #DFE2E6 !default;// 列表选中背景色、浅底选中色
+
+
+// //字体颜色
+// $l-color-fontcolor-1: #134796 !default;
+// $l-color-fontcolor-2: #3d7dfb !default;
+// $l-color-fontcolor-3: #2e323a !default;
+// $l-color-fontcolor-4: #949da3 !default;// 副标题 正文提示文本
+// $l-color-fontcolor-5: #ef0f0f !default;
+// $l-color-fontcolor-6: #E55D5D !default;
+// $l-color-fontcolor-7: #6BC649 !default;
+// $l-color-fontcolor-8: #666C70 !default;// 副标题 正文辅助文本/浅色背景上文字颜色
+// $l-color-fontcolor-9: #B9C4CC !default;// 暗文字、不可点击
+
+// //中间区域上下部分高度
+// $l-height-bottom-cont: 260px !default;
+// $l-height-main-cont: calc(100% - 260px) !default;
+
+// // 常用高度
+// $l-height-common-1: 20px;
+// $l-height-common-2: 22px;
+// $l-height-common-3: 24px;
+// $l-height-common-4: 28px;
+// $l-height-common-5: 32px;
+// $l-height-common-6: 36px;
+// $l-height-common-7: 40px;
+
+// // 常用行高
+// $l-lineheight-common-1: 20px;
+// $l-lineheight-common-2: 22px;
+// $l-lineheight-common-3: 24px;
+// $l-lineheight-common-4: 28px;
+// $l-lineheight-common-5: 32px;
+// $l-lineheight-common-6: 36px;
+// $l-lineheight-common-7: 40px;
+
+
+// // 圆角
+// $l-bg-radius-bg: 4px !default;
+// $l-bg-radius-mini: 2px !default;
+
+
+// $l-padding-left-mini: 5px !default;
+
+
+
+// // 上下左右居中
+// @mixin l-center {
+//   position: relative;
+//   top: 50%;
+//   left: 50%;
+//   -moz-transform: translateY(-50%) translateX(-50%);
+//   -webkit-transform: translateY(-50%) translateX(-50%);
+//   -ms-transform: translateY(-50%) translateX(-50%);
+//   -o-transform: translateY(-50%) translateX(-50%);
+//   transform: translateY(-50%) translateX(-50%);
+// }
+
+// // 水平居中
+// @mixin l-center-horizontal {
+//   position: relative;
+//   left: 50%;
+//   -moz-transform: translateX(-50%);
+//   -webkit-transform: translateX(-50%);
+//   -ms-transform: translateX(-50%);
+//   -o-transform: translateX(-50%);
+//   transform: translateX(-50%);
+// }
+
+// // 垂直居中
+// @mixin l-center-vertical {
+//   position: relative;
+//   top: 50%;
+//   -moz-transform: translateY(-50%);
+//   -webkit-transform: translateY(-50%);
+//   -ms-transform: translateY(-50%);
+//   -o-transform: translateY(-50%);
+//   transform: translateY(-50%);
+// }
+
+// // 垂直滑动容器
+// @mixin scroll-vertical {
+//   width: 100%;
+//   height: 100%;
+//   overflow-x: hidden;
+//   overflow-y: scroll;
+//   padding-bottom: 100px;
+// }
+
+// .width100 {
+//   width: 100%;
+// }
+
+// .height100 {
+//   height: 100%;
+// }
+
+// .height-bottom {
+//   height: $l-height-bottom-cont;
+// }
+
+// .height-main {
+//   height: $l-height-main-cont;
+//   overflow-y: auto;
+// }
+
+// .height-button-bottom {
+//   height: 75px;
+// }
+
+// .height-button-main {
+//   height: calc(100% - 75px);
+//   overflow-y: auto;
+// }
+
+// .overflow-hidden {
+//   overflow: hidden;
+// }
+
+// .overflow-scroll {
+//   overflow: scroll;
+// }
+
+// .overflow-scroll-horizontal {
+//   overflow-x: scroll;
+//   overflow-y: hidden;
+// }
+
+// .overflow-scroll-vertical {
+//   overflow-x: hidden;
+//   overflow-y: scroll;
+// }
+
+// .position-relative {
+//   position: relative;
+// }
+
+// .position-absolute {
+//   position: absolute;
+// }
+
+// .margin-right-6 {
+//   margin-right: 6px;
+// }
+
+// .margin-left-6 {
+//   margin-left: 6px;
+// }
+
+// .margin-right-10 {
+//   margin-right: 10px;
+// }
+
+// .margin-left-10 {
+//   margin-left: 10px;
+// }
+
+// .margin-right-20 {
+//   margin-right: 20px;
+// }
+
+// .margin-left-20 {
+//   margin-left: 20px;
+// }
+
+// .margin-right-40 {
+//   margin-right: 40px;
+// }
+
+// .margin-left-40 {
+//   margin-left: 40px;
+// }
+
+// .margin-right-100 {
+//   margin-right: 100px;
+// }
+
+// .margin-left-100 {
+//   margin-left: 100px;
+// }
+
+// .padding-right-6 {
+//   padding-right: 6px;
+// }
+
+// .padding-left-6 {
+//   padding-left: 6px;
+// }
+
+// .padding-right-10 {
+//   padding-right: 10px;
+// }
+
+// .padding-left-10 {
+//   padding-left: 10px;
+// }
+
+// .padding-right-100 {
+//   padding-right: 100px;
+// }
+
+// .padding-left-100 {
+//   padding-left: 100px;
+// }
+
+// .padding10 {
+//   padding: 10px;
+// }
+
+// .padding20 {
+//   padding: 20px;
+// }
+
+// .card-space {
+//   margin: 10px;
+// }
+// .card-space-top {
+//   margin-top: 10px;
+// }
+// .card-space-right {
+//   margin-right: 10px;
+// }
+// .card-space-left {
+//   margin-left: 10px;
+// }
+// .card-space-bottom {
+//   margin-bottom: 10px;
+// }
+
+// .input-width-default {
+//   width: 240px;
+// }
+
+// .input-width-default-important {
+//   width: 240px !important;
+// }
+
+// .input-width-mini {
+//   width: 180px;
+// }
+
+// .input-width-mini-important {
+//   width: 180px !important;
+// }
+
+// .input-width-super-mini {
+//   width: 140px;
+// }
+
+// .input-width-super-mini-important {
+//   width: 140px !important;
+// }
+
+// // 常用浮动
+// .float-left {
+//   float: left;
+// }
+
+// .float-right {
+//   float: right;
+// }
+
+// // 清除浮动
+// .l-clearfix:after {
+//   content: ".";
+//   display: block;
+//   height: 0;
+//   visibility: hidden;
+//   clear: both;
+// }
+
+// .l-clearfix {
+//   *zoom: 1;
+// }
+
+// // 文字超出后...
+// .overflow-point {
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+//   -o-text-overflow: ellipsis;
+//   -ms-text-overflow: ellipsis;
+//   -moz-text-overflow: ellipsis;
+//   -webkit-text-overflow: ellipsis;
+//   overflow: hidden;
+// }
+
+// // 上下左右居中
+// .l-center {
+//   @include l-center;
+// }
+
+// // 水平居中
+// .l-center-horizontal {
+//   @include l-center-horizontal;
+// }
+
+// // 垂直居中
+// .l-center-vertical {
+//   @include l-center-vertical;
+// }
+
+// // 常用的垂直方向的滑动容器
+// .scroll-vertical {
+//   @include scroll-vertical;
+// }
+
+// // 隐藏滚动条
+// // webkit内核
+// .scroll_content::-webkit-scrollbar {
+//   width: 0px;
+//   height: 0px;
+// }
+
+// .scroll_content::-webkit-scrollbar-button {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-webkit-scrollbar-track {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-webkit-scrollbar-track-piece {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-webkit-scrollbar-thumb {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-webkit-scrollbar-corner {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-webkit-scrollbar-resizer {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// // o内核
+// .scroll_content .-o-scrollbar {
+//   -moz-appearance: none !important;
+//   background: rgba(0, 255, 0, 0) !important;
+// }
+
+// .scroll_content::-o-scrollbar-button {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-o-scrollbar-track {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-o-scrollbar-track-piece {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-o-scrollbar-thumb {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-o-scrollbar-corner {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// .scroll_content::-o-scrollbar-resizer {
+//   background-color: rgba(0, 0, 0, 0);
+// }
+
+// // IE10,IE11,IE12
+// .scroll_content {
+//   -ms-scroll-chaining: chained;
+//   -ms-overflow-style: none;
+//   -ms-content-zooming: zoom;
+//   -ms-scroll-rails: none;
+//   -ms-content-zoom-limit-min: 100%;
+//   -ms-content-zoom-limit-max: 500%;
+//   -ms-scroll-snap-type: proximity;
+//   -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+//   // -ms-overflow-style: none;
+//   overflow: auto;
+// }
+
+// // 常用在充满屏幕的容器
+// .full-screen-container {
+//   width: 100%;
+//   position: absolute;
+//   top: 0px;
+//   bottom: 4px;
+// }
+
+// .full-screen {
+//   width: 100%;
+//   position: absolute;
+//   top: 0px;
+//   bottom: 0px;
+// }
+
+// // 可点击元素hover鼠标指针变化
+// .cursor-pointer {
+//   cursor: pointer;
+// }
+
+// .inline-block {
+//   display: inline-block;
+// }
+
+// .display-inherit {
+//   display: inherit;
+// }
+
+// .table-wrapper {
+//   overflow-x: hidden;
+//   overflow-y: scroll;
+//   height: 100%;
+// }
+
+// .super-mini-button {
+//   display: inline-block;
+//   padding: 3px;
+//   border-radius: 3px;
+//   border: 1px solid $l-color-primary;
+//   // background-color: $l-color-primary;
+//   font-size: 12px;
+//   text-align: center;
+//   color: $l-color-primary;
+//   line-height: normal;
+//   cursor: pointer;
+// }
+
+// .mini-button {
+//   display: inline-block;
+//   padding: 1px 10px;
+//   border-radius: 3px;
+//   background-color: $l-color-primary;
+//   font-size: 14px;
+//   text-align: center;
+//   color: white;
+//   line-height: normal;
+//   cursor: pointer;
+// }
+
+// .text-align-right {
+//   text-align: right;
+
+//   input {
+//     text-align: right;
+//   }
+// }
+
+// .text-align-left {
+//   text-align: left;
+
+//   input {
+//     text-align: left;
+//   }
+// }
+
+// .card-shadow {
+//   border-radius: 4px;
+//   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 30px 5px;
+// }
+
+// // 长列表底部文字样式
+// .load-list-bottom {
+//   text-align: center;
+//   padding: 20px 0px;
+// }
+
+// /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+// ::-webkit-scrollbar {
+//   width: 10px;
+//   /*滚动条宽度*/
+//   height: 10px;
+//   /*滚动条高度*/
+// }
+
+// /*定义滚动条轨道 内阴影+圆角*/
+// ::-webkit-scrollbar-track {
+//   background-color: #fff;
+//   /*滚动条的背景颜色*/
+// }
+
+// /*定义滑块 内阴影+圆角*/
+// ::-webkit-scrollbar-thumb {
+//   border-left: 3px solid #fff;
+//   border-right: 2px solid #fff;
+//   border-radius: 3px;
+//   /*滚动条的圆角*/
+//   background-color: #e4e4e4;
+//   /*滚动条的背景颜色*/
+// }
+
+// .fade-enter-active,
+// .fade-appear {
+//   opacity: 0;
+//   animation-timing-function: linear;
+//   animation-name: ivuFadeIn;
+//   animation-play-state: running;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: both;
+// }
+
+// .fade-leave-active {
+//   animation-timing-function: linear;
+//   animation-name: ivuFadeOut;
+//   animation-play-state: running;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: both;
+// }
+
+// .move-left-enter-active {
+//   opacity: 0;
+//   animation-timing-function: ease-in-out;
+//   animation-name: ivuMoveLeftIn;
+//   animation-play-state: running;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: both;
+// }
+
+// .move-right-enter-active {
+//   opacity: 0;
+//   animation-timing-function: ease-in-out;
+//   animation-name: ivuMoveRightIn;
+//   animation-play-state: running;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: both;
+// }
+
+// .move-left-leave-active {
+//   animation-timing-function: ease-in-out;
+//   animation-name: ivuMoveLeftOut;
+//   animation-play-state: running;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: both;
+// }
+
+// .move-right-leave-active {
+//   animation-timing-function: ease-in-out;
+//   animation-name: ivuMoveRightOut;
+//   animation-play-state: running;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: both;
+// }
+
+// @keyframes ivuMoveLeftIn {
+//   0% {
+//     transform-origin: 0 0;
+//     transform: translateX(-100%);
+//     opacity: 0;
+//   }
+
+//   100% {
+//     transform-origin: 0 0;
+//     transform: translateX(0%);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes ivuMoveLeftOut {
+//   0% {
+//     transform-origin: 0 0;
+//     transform: translateX(0%);
+//     opacity: 1;
+//   }
+
+//   100% {
+//     transform-origin: 0 0;
+//     transform: translateX(-100%);
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes ivuMoveRightIn {
+//   0% {
+//     opacity: 0;
+//     transform-origin: 0 0;
+//     transform: translateX(100%);
+//   }
+
+//   100% {
+//     opacity: 1;
+//     transform-origin: 0 0;
+//     transform: translateX(0%);
+//   }
+// }
+
+// @keyframes ivuMoveRightOut {
+//   0% {
+//     transform-origin: 0 0;
+//     transform: translateX(0%);
+//     opacity: 1;
+//   }
+
+//   100% {
+//     transform-origin: 0 0;
+//     transform: translateX(100%);
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes ivuFadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+
+//   100% {
+//     opacity: 0.5;
+//   }
+// }
+
+// @keyframes ivuFadeOut {
+//   0% {
+//     opacity: 0.5;
+//   }
+
+//   100% {
+//     opacity: 0;
+//   }
+// }
+
+
+// #app .primary-button {
+//   //min-width: 80px;
+//   height: 36px;
+//   padding: 0 12px;
+//   background: $l-color-primary;
+//   border-radius: 2px;
+//   font-size: $l-font-size;
+//   font-family: $l-font-familySC-regular;
+//   font-weight: 400;
+//   color: $l-color-white;
+//   border: none;
+// }
+
+// #app .duka-button {
+//   height: 38px;
+//   background: $l-color-duka-bg;
+//   border: none;
+//   border-radius: 2px;
+//   float: left;
+
+//   i {
+//     display: inline-block;
+//     margin-right: 10px;
+//   }
+// }
